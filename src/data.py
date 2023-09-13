@@ -1,5 +1,6 @@
 # > Imports
 # Standard library
+import os
 import html
 import re
 
@@ -22,7 +23,7 @@ def preprocess_tweet(tweet):
 
 
 def load_dataset(path):
-    dataset = pd.read_csv(path, sep=";")
+    dataset = pd.read_csv(path, encoding="utf-8", on_bad_lines="warn")
     dataset = dataset[["full_text"]]
     dataset = dataset.rename(columns={"full_text": "text"})
     return dataset
@@ -30,6 +31,27 @@ def load_dataset(path):
 
 def preprocess_dataset(dataset):
     dataset["text"] = dataset["text"].apply(preprocess_tweet)
+
+    # Return a HuggingFace Dataset
+    return Dataset.from_pandas(dataset)
+
+
+def save_preprocessed_dataset(path):
+    dataset = load_dataset(path)
+    dataset["text"] = dataset["text"].apply(preprocess_tweet)
+
+    # Save preprocessed dataset
+    os.makedirs("data/preprocessed", exist_ok=True)
+    dataset.to_csv(f"data/preprocessed/{path.split('/')[-1]}", index=False)
+
+
+def load_preprocessed_data():
+    # Read both datasets
+    tweets1 = pd.read_csv("data/preprocessed/tweets1.csv")
+    tweets2 = pd.read_csv("data/preprocessed/tweets2.csv")
+
+    # Merge datasets
+    dataset = pd.concat([tweets1, tweets2], ignore_index=True)
 
     # Return a HuggingFace Dataset
     return Dataset.from_pandas(dataset)

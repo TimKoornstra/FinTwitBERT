@@ -6,10 +6,10 @@ import logging
 import os
 
 # Third party
-from data import load_dataset, preprocess_dataset
+from data import load_preprocessed_data
 from model import FinTwitBERT
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Set up logging
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(message)s",
@@ -25,8 +25,7 @@ if __name__ == '__main__':
 
     # Load and preprocess the dataset
     logging.info("Loading and preprocessing the dataset")
-    df = load_dataset(path='data/tweets.csv')
-    df = preprocess_dataset(df)
+    df = load_preprocessed_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Train the model
