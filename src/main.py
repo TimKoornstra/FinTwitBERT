@@ -6,6 +6,7 @@ import logging
 import os
 
 # Third party
+import torch
 from data import load_preprocessed_data
 from model import FinTwitBERT
 
@@ -27,6 +28,12 @@ if __name__ == "__main__":
     logging.info("Loading and preprocessing the dataset")
     df = load_preprocessed_data()
     logging.info("Dataset loaded and preprocessed")
+
+    # Display CUDA info
+    logging.info(f"CUDA available: {torch.cuda.is_available()}")
+    devices = [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]
+    for i, device in enumerate(devices):
+        logging.info(f"CUDA Device {i}: {device}")
 
     # Train the model
     logging.info("Training the model")

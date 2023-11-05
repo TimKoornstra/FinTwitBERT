@@ -33,16 +33,17 @@ class FinTwitBERT:
         )
 
         # Training
+        # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         training_args = TrainingArguments(
             output_dir="checkpoints/",
             overwrite_output_dir=True,
             num_train_epochs=5,
-            per_device_train_batch_size=64,
+            per_device_train_batch_size=1,  # 64 on cluster
             save_steps=5_000,
             save_total_limit=2,
-            learning_rate=2e-5,
+            # learning_rate=2e-5,
             fp16=True,
-            gradient_accumulation_steps=2,
+            # gradient_accumulation_steps=2,
         )
 
         trainer = Trainer(
@@ -57,3 +58,6 @@ class FinTwitBERT:
 
         # Save the model
         trainer.save_model("output/FinTwitBERT")
+
+        # Save the tokenizer
+        self.tokenizer.save_pretrained("output/FinTwitBERT")
