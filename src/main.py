@@ -7,7 +7,7 @@ import os
 
 # Third party
 import torch
-from data import load_preprocessed_data
+from data import load_pretraining_data
 from model import FinTwitBERT
 
 if __name__ == "__main__":
@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     # Load and preprocess the dataset
     logging.info("Loading and preprocessing the dataset")
-    df = load_preprocessed_data()
+    df = load_pretraining_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info
