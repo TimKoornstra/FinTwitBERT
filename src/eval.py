@@ -7,8 +7,8 @@ from data import load_validation_data
 
 class Evaluate:
     def __init__(self):
-        self.model = BertForMaskedLM.from_pretrained("StephanAkkerman/FinTwitBERT")
-        self.tokenizer = AutoTokenizer.from_pretrained("StephanAkkerman/FinTwitBERT")
+        self.model = BertForMaskedLM.from_pretrained("output/FinTwitBERT")
+        self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
 
         self.baseline = BertForMaskedLM.from_pretrained("bert-base-uncased")
         self.baseline_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
@@ -78,13 +78,4 @@ class Evaluate:
         except OverflowError:
             perplexity = float("inf")
 
-        return perplexity
-
-
-# Create an instance of the evaluation class
-evaluator = Evaluate()
-
-# Assuming you have a split in your dataset for validation
-# If not, make sure to create a validation split before this step
-perplexity = evaluator.calculate_perplexity()
-print(f"Perplexity: {perplexity}")
+        print(f"Perplexity: {perplexity}")

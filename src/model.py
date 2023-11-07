@@ -15,7 +15,7 @@ class FinTwitBERT:
         self.model = BertForMaskedLM.from_pretrained("ProsusAI/finbert")
         self.tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
 
-        special_tokens = ["@USER"]
+        special_tokens = ["@USER", "[URL]"]
         self.tokenizer.add_tokens(special_tokens)
 
         self.model.resize_token_embeddings(len(self.tokenizer))
@@ -37,8 +37,8 @@ class FinTwitBERT:
         training_args = TrainingArguments(
             output_dir="checkpoints/",
             overwrite_output_dir=True,
-            num_train_epochs=5,
-            per_device_train_batch_size=1,  # 64 on cluster
+            num_train_epochs=10,
+            per_device_train_batch_size=64,  # 64 on cluster
             save_steps=5_000,
             save_total_limit=2,
             # learning_rate=2e-5,

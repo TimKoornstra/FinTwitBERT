@@ -9,6 +9,7 @@ import os
 import torch
 from data import load_pretraining_data
 from model import FinTwitBERT
+from eval import Evaluate
 
 if __name__ == "__main__":
     # Set up logging
@@ -40,3 +41,9 @@ if __name__ == "__main__":
     model = FinTwitBERT()
     model.train(df)
     logging.info("Model trained and saved to output/FinTwitBERT")
+
+    # Evaluate the new model
+    logging.info("Evaluating the model")
+    evaluate = Evaluate()
+    evaluate.calculate_perplexity()
+    logging.info("Model perplexity calculated")
