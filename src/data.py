@@ -65,8 +65,10 @@ def load_pretraining_data() -> Dataset:
     # Merge datasets
     dataset = pd.concat([tweets1, tweets2], ignore_index=True)
 
+    validation = dataset.sample(frac=0.1, random_state=42)
+
     # Return a HuggingFace Dataset
-    return Dataset.from_pandas(dataset)
+    return Dataset.from_pandas(dataset), Dataset.from_pandas(validation)
 
 
 def load_validation_data() -> Dataset:

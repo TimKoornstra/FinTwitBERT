@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     # Load and preprocess the dataset
     logging.info("Loading and preprocessing the dataset")
-    df = load_pretraining_data()
+    df, val = load_pretraining_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info
@@ -39,11 +39,11 @@ if __name__ == "__main__":
     # Train the model
     logging.info("Training the model")
     model = FinTwitBERT()
-    model.train(df)
+    model.train(df, val)
     logging.info("Model trained and saved to output/FinTwitBERT")
 
     # Evaluate the new model
-    logging.info("Evaluating the model")
-    evaluate = Evaluate()
-    evaluate.calculate_perplexity()
-    logging.info("Model perplexity calculated")
+    # logging.info("Evaluating the model")
+    # evaluate = Evaluate()
+    # evaluate.calculate_perplexity()
+    # logging.info("Model perplexity calculated")
