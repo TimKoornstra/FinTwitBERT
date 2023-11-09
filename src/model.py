@@ -116,7 +116,7 @@ class FinTwitBERT:
             fp16=True,
             load_best_model_at_end=True,
             early_stopping_patience=3,
-            metric_for_best_model="accuracy",
+            metric_for_best_model="perplexity",
             greater_is_better=False,  # Lower perplexity indicates better performance
         )
 
@@ -126,7 +126,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            compute_metrics=self.compute_accuracy,
+            compute_metrics=self.compute_perplexity,
         )
 
         # Train
