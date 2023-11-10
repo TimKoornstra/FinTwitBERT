@@ -79,8 +79,3 @@ class Evaluate:
             perplexity = float("inf")
 
         print(f"Perplexity: {perplexity}")
-
-
-# Evaluate the new model
-evaluate = Evaluate()
-evaluate.calculate_perplexity()
