@@ -146,7 +146,7 @@ class FinTwitBERT:
         # Instantiate the EarlyStoppingCallback
         early_stopping_callback = EarlyStoppingCallback(
             early_stopping_patience=3,
-            early_stopping_threshold=0.05,  # Define how much worse than the best score is tolerated
+            # early_stopping_threshold=0.05,  # Define how much worse than the best score is tolerated
         )
 
         trainer = Trainer(
