@@ -117,7 +117,7 @@ class FinTwitBERT:
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
 
-    def train(self, data: Dataset, validation: Dataset, batch_size: int = 8):
+    def train(self, data: Dataset, validation: Dataset, batch_size: int = 4):
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
