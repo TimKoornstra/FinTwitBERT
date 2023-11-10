@@ -17,27 +17,24 @@ from sklearn.metrics import accuracy_score
 class EarlyStoppingCallback(TrainerCallback):
     """Early stopping callback for Hugging Face Trainer class."""
 
-    def __init__(self, early_stopping_patience: int, early_stopping_threshold: float):
+    def __init__(self, early_stopping_patience: int):
         self.early_stopping_patience = early_stopping_patience
-        self.early_stopping_threshold = early_stopping_threshold
         self.best_metric = None
         self.patience_counter = 0
 
-    def on_evaluate(self, args, state, control, metrics, **kwargs):
-        # Use "perplexity" as the metric for early stopping
-        metric_value = metrics.get("eval_perplexity")
+    def on_evaluate(self, args, state, control, **kwargs):
+        metric_value = kwargs["metrics"]["eval_loss"]
         if self.best_metric is None or metric_value < self.best_metric:
             self.best_metric = metric_value
             self.patience_counter = 0
         else:
-            if metric_value > self.best_metric + self.early_stopping_threshold:
-                self.patience_counter += 1
-            else:  # Reset patience counter if there is a significant improvement
-                self.patience_counter = 0
+            self.patience_counter += 1
             if self.patience_counter >= self.early_stopping_patience:
+                print(
+                    f"No improvement on eval_loss for {self.early_stopping_patience} evaluations."
+                )
+                print("Early stopping...")
                 control.should_training_stop = True
-                control.should_evaluate = False
-                control.should_save = True
 
 
 class FinTwitBERT:
@@ -138,11 +135,11 @@ class FinTwitBERT:
             per_device_eval_batch_size=batch_size,
             evaluation_strategy="steps",
             save_steps=10_000,
-            eval_steps=500,
+            eval_steps=5_000,
             save_total_limit=2,
             fp16=True,
             load_best_model_at_end=True,
-            metric_for_best_model="perplexity",
+            metric_for_best_model="loss",
             greater_is_better=False,  # Lower perplexity indicates better performance
         )
 
@@ -158,7 +155,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            compute_metrics=self.compute_perplexity,
+            # compute_metrics=self.compute_perplexity,
             callbacks=[early_stopping_callback],
         )
 
