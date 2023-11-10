@@ -8,9 +8,36 @@ from transformers import (
     DataCollatorForLanguageModeling,
     Trainer,
     TrainingArguments,
+    TrainerCallback,
 )
 from datasets import Dataset
 from sklearn.metrics import accuracy_score
+
+
+class EarlyStoppingCallback(TrainerCallback):
+    """Early stopping callback for Hugging Face Trainer class."""
+
+    def __init__(self, early_stopping_patience: int, early_stopping_threshold: float):
+        self.early_stopping_patience = early_stopping_patience
+        self.early_stopping_threshold = early_stopping_threshold
+        self.best_metric = None
+        self.patience_counter = 0
+
+    def on_evaluate(self, args, state, control, metrics, **kwargs):
+        # Use "perplexity" as the metric for early stopping
+        metric_value = metrics.get("eval_perplexity")
+        if self.best_metric is None or metric_value < self.best_metric:
+            self.best_metric = metric_value
+            self.patience_counter = 0
+        else:
+            if metric_value > self.best_metric + self.early_stopping_threshold:
+                self.patience_counter += 1
+            else:  # Reset patience counter if there is a significant improvement
+                self.patience_counter = 0
+            if self.patience_counter >= self.early_stopping_patience:
+                control.should_training_stop = True
+                control.should_evaluate = False
+                control.should_save = True
 
 
 class FinTwitBERT:
@@ -115,9 +142,14 @@ class FinTwitBERT:
             save_total_limit=2,
             fp16=True,
             load_best_model_at_end=True,
-            early_stopping_patience=3,
             metric_for_best_model="perplexity",
             greater_is_better=False,  # Lower perplexity indicates better performance
+        )
+
+        # Instantiate the EarlyStoppingCallback
+        early_stopping_callback = EarlyStoppingCallback(
+            early_stopping_patience=3,
+            early_stopping_threshold=0.05,  # Define how much worse than the best score is tolerated
         )
 
         trainer = Trainer(
@@ -127,6 +159,7 @@ class FinTwitBERT:
             eval_dataset=val,
             data_collator=data_collator,
             compute_metrics=self.compute_perplexity,
+            callbacks=[early_stopping_callback],
         )
 
         # Train
