@@ -43,7 +43,7 @@ if __name__ == "__main__":
     logging.info("Model trained and saved to output/FinTwitBERT")
 
     # Evaluate the new model
-    # logging.info("Evaluating the model")
-    # evaluate = Evaluate()
-    # evaluate.calculate_perplexity()
-    # logging.info("Model perplexity calculated")
+    logging.info("Evaluating the model")
+    evaluate = Evaluate()
+    evaluate.calculate_perplexity()
+    logging.info("Model perplexity calculated")
