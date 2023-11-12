@@ -11,6 +11,23 @@ from transformers import (
 from datasets import Dataset
 
 
+class GradualUnfreezingCallback(TrainerCallback):
+    def __init__(self, unfreeze_schedule):
+        self.unfreeze_schedule = unfreeze_schedule
+
+    def on_epoch_begin(self, args, state, control, model):
+        # Calculate the number of layers to unfreeze based on the current epoch
+        num_layers_to_unfreeze = self.unfreeze_schedule.get(state.epoch, None)
+
+        if num_layers_to_unfreeze is not None:
+            # Gradually unfreeze layers from the top (higher numbered layers)
+            for i, layer in enumerate(model.bert.encoder.layer):
+                # Layers are numbered in reverse (i.e., last layer is num_layers_to_unfreeze - 1)
+                if i >= len(model.bert.encoder.layer) - num_layers_to_unfreeze:
+                    for param in layer.parameters():
+                        param.requires_grad = True
+
+
 class EarlyStoppingCallback(TrainerCallback):
     """Early stopping callback for Hugging Face Trainer class."""
 
@@ -47,12 +64,31 @@ class FinTwitBERT:
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
 
+    def gradual_unfreeze(self, unfreeze_last_n_layers: int):
+        # Freeze all layers first
+        for param in self.model.base_model.parameters():
+            param.requires_grad = False
+
+        # Count the number of layers in BertForMaskedLM model
+        num_layers = len(self.model.base_model.encoder.layer)
+
+        # Layers to unfreeze
+        layers_to_unfreeze = num_layers - unfreeze_last_n_layers
+
+        # Unfreeze the last n layers
+        for layer in self.model.base_model.encoder.layer[layers_to_unfreeze:]:
+            for param in layer.parameters():
+                param.requires_grad = True
+
     def train(self, data: Dataset, validation: Dataset, batch_size: int = 32):
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
         data.set_format(type="torch", columns=["input_ids", "attention_mask"])
         val.set_format(type="torch", columns=["input_ids", "attention_mask"])
+
+        # Freeze all layers initially, except the last one
+        self.gradual_unfreeze(unfreeze_last_n_layers=1)
 
         # Prepare for MLM training
         data_collator = DataCollatorForLanguageModeling(
@@ -85,13 +121,27 @@ class FinTwitBERT:
             early_stopping_patience=3,
         )
 
+        # Define your gradual unfreezing schedule
+        # The key is the epoch number, and the value is the number of layers to unfreeze
+        unfreeze_schedule = {
+            1: 1,  # Unfreeze the last layer at epoch 1
+            2: 3,  # Unfreeze the last 3 layers at epoch 2
+            3: 6,  # Unfreeze the last 6 layers at epoch 3
+            4: 12,  # Unfreeze all 12 encoder layers at epoch 4 (assuming 'bert-base' with 12 layers total)
+        }
+
+        # Instantiate the gradual unfreezing callback
+        gradual_unfreezing_callback = GradualUnfreezingCallback(
+            unfreeze_schedule=unfreeze_schedule
+        )
+
         trainer = Trainer(
             model=self.model,
             args=training_args,
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            # callbacks=[early_stopping_callback],
+            callbacks=[gradual_unfreezing_callback],
         )
 
         # Train
