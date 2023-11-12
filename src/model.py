@@ -12,8 +12,14 @@ from datasets import Dataset
 
 
 class GradualUnfreezingCallback(TrainerCallback):
-    def __init__(self, unfreeze_schedule):
-        self.unfreeze_schedule = unfreeze_schedule
+    def __init__(self):
+        # The key is the epoch number, and the value is the number of layers to unfreeze
+        self.unfreeze_schedule = {
+            1: 1,  # Unfreeze the last layer at epoch 1
+            2: 3,  # Unfreeze the last 3 layers at epoch 2
+            3: 6,  # Unfreeze the last 6 layers at epoch 3
+            4: 12,  # Unfreeze all 12 encoder layers at epoch 4 (assuming 'bert-base' with 12 layers total)
+        }
 
     def on_epoch_begin(self, args, state, control, model):
         # Calculate the number of layers to unfreeze based on the current epoch
@@ -114,7 +120,7 @@ class FinTwitBERT:
             # gradient_accumulation_steps=1,  # FinBERT uses 1
             warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
-            weight_decay=0.01, #FinBERT uses 0.01
+            weight_decay=0.01,  # FinBERT uses 0.01
         )
 
         # Instantiate the EarlyStoppingCallback
@@ -122,19 +128,8 @@ class FinTwitBERT:
             early_stopping_patience=3,
         )
 
-        # Define your gradual unfreezing schedule
-        # The key is the epoch number, and the value is the number of layers to unfreeze
-        unfreeze_schedule = {
-            1: 1,  # Unfreeze the last layer at epoch 1
-            2: 3,  # Unfreeze the last 3 layers at epoch 2
-            3: 6,  # Unfreeze the last 6 layers at epoch 3
-            4: 12,  # Unfreeze all 12 encoder layers at epoch 4 (assuming 'bert-base' with 12 layers total)
-        }
-
         # Instantiate the gradual unfreezing callback
-        gradual_unfreezing_callback = GradualUnfreezingCallback(
-            unfreeze_schedule=unfreeze_schedule
-        )
+        gradual_unfreezing_callback = GradualUnfreezingCallback()
 
         trainer = Trainer(
             model=self.model,
@@ -142,7 +137,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            callbacks=[gradual_unfreezing_callback],
+            # callbacks=[gradual_unfreezing_callback],
         )
 
         # Train
