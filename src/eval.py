@@ -6,15 +6,18 @@ from data import load_validation_data
 
 
 class Evaluate:
-    def __init__(self):
-        self.model = BertForMaskedLM.from_pretrained("output/FinTwitBERT")
-        self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
-
-        self.baseline = BertForMaskedLM.from_pretrained("bert-base-uncased")
-        self.baseline_tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-
-        self.model.eval()  # Set the model to evaluation mode
-        self.baseline.eval()
+    def __init__(self, use_baseline: bool = False):
+        if not use_baseline:
+            self.model = BertForMaskedLM.from_pretrained("output/FinTwitBERT")
+            self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
+        else:
+            self.model = BertForMaskedLM.from_pretrained(
+                "bert-base-uncased", cache_dir="baseline/"
+            )
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                "bert-base-uncased", cache_dir="baseline/"
+            )
+        self.model.eval()
 
     def load_validation_data(self, length: int = None):
         # Load preprocessed data using your custom function
@@ -38,21 +41,12 @@ class Evaluate:
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
 
-    def calculate_perplexity(
-        self, use_baseline: bool = False, val_length=None, batch_size=16
-    ):
-        model = self.model
-        tokenizer = self.tokenizer
-
-        if use_baseline:
-            model = self.baseline
-            tokenizer = self.baseline_tokenizer
-
+    def calculate_perplexity(self, val_length=None, batch_size=16):
         encoded_dataset = self.load_validation_data(val_length)
 
         # Prepare for MLM training
         data_collator = DataCollatorForLanguageModeling(
-            tokenizer=tokenizer, mlm=True, mlm_probability=0.15
+            tokenizer=self.tokenizer, mlm=True, mlm_probability=0.15
         )
 
         # DataLoader
@@ -65,7 +59,9 @@ class Evaluate:
 
         with torch.no_grad():
             for batch in tqdm(dataloader):
-                outputs = model(**{k: v.to(model.device) for k, v in batch.items()})
+                outputs = self.model(
+                    **{k: v.to(self.model.device) for k, v in batch.items()}
+                )
                 loss = outputs.loss
                 total_loss += loss.item() * batch["input_ids"].shape[0]  # batch size
                 total_length += batch["input_ids"].shape[0]
