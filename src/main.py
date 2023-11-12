@@ -7,7 +7,7 @@ import os
 
 # Third party
 import torch
-from data import load_pretraining_data
+from data import load_pretraining_data, save_preprocessed_dataset
 from model import FinTwitBERT
 from eval import Evaluate
 
@@ -24,6 +24,11 @@ if __name__ == "__main__":
         if not os.path.exists(folder):
             os.makedirs(folder)
             logging.info(f"Created {folder} folder")
+
+    # Preprocess the dataset
+    save_preprocessed_dataset("data/tweets1.csv")
+    save_preprocessed_dataset("data/tweets2.csv")
+    save_preprocessed_dataset("data/test.csv")
 
     # Load and preprocess the dataset
     logging.info("Loading and preprocessing the dataset")

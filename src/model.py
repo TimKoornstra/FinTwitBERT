@@ -47,7 +47,7 @@ class FinTwitBERT:
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
 
-    def train(self, data: Dataset, validation: Dataset, batch_size: int = 64):
+    def train(self, data: Dataset, validation: Dataset, batch_size: int = 32):
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
@@ -75,7 +75,7 @@ class FinTwitBERT:
             load_best_model_at_end=True,
             metric_for_best_model="eval_loss",
             greater_is_better=False,  # Lower loss indicates better performance
-            gradient_accumulation_steps=1,  # FinBERT uses 1
+            # gradient_accumulation_steps=1,  # FinBERT uses 1
             warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
         )

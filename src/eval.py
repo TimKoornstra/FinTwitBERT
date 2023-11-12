@@ -2,7 +2,7 @@ from tqdm import tqdm
 from transformers import BertForMaskedLM, AutoTokenizer, DataCollatorForLanguageModeling
 import torch
 from torch.utils.data import DataLoader
-from data import load_validation_data
+from data import load_test_data
 
 
 class Evaluate:
@@ -21,7 +21,7 @@ class Evaluate:
 
     def load_validation_data(self, length: int = None):
         # Load preprocessed data using your custom function
-        dataset = load_validation_data()
+        dataset = load_test_data()
 
         # Select a subset of the data
         if length:
