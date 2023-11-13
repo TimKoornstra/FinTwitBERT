@@ -99,7 +99,7 @@ class FinTwitBERT:
         self,
         data: Dataset,
         validation: Dataset,
-        batch_size: int = 32,
+        batch_size: int = 64,
         num_train_epochs: int = 6,
     ):
         data = data.map(self.encode, batched=True)
@@ -164,7 +164,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            callbacks=[gradual_unfreezing_callback],
+            # callbacks=[gradual_unfreezing_callback],
         )
 
         # Train
