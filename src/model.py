@@ -12,26 +12,35 @@ from datasets import Dataset
 
 
 class GradualUnfreezingCallback(TrainerCallback):
-    def __init__(self):
-        # The key is the epoch number, and the value is the number of layers to unfreeze
-        self.unfreeze_schedule = {
-            1: 1,  # Unfreeze the last layer at epoch 1
-            2: 3,  # Unfreeze the last 3 layers at epoch 2
-            3: 6,  # Unfreeze the last 6 layers at epoch 3
-            4: 12,  # Unfreeze all 12 encoder layers at epoch 4 (assuming 'bert-base' with 12 layers total)
-        }
+    def __init__(self, model, num_layers, unfreeze_rate, total_steps):
+        self.model = model
+        self.num_layers = num_layers
+        self.unfreeze_rate = unfreeze_rate
+        self.total_steps = total_steps
+        self.next_unfreeze_step = int(total_steps * unfreeze_rate)
+        self.layers_unfrozen = False  # To track if the initial unfreezing has been done
 
-    def on_epoch_begin(self, args, state, control, model):
-        # Calculate the number of layers to unfreeze based on the current epoch
-        num_layers_to_unfreeze = self.unfreeze_schedule.get(state.epoch, None)
+    def on_train_begin(self, args, state, control, **kwargs):
+        # Unfreeze the last layer from the beginning
+        for param in self.model.bert.encoder.layer[-1].parameters():
+            param.requires_grad = True
 
-        if num_layers_to_unfreeze is not None:
-            # Gradually unfreeze layers from the top (higher numbered layers)
-            for i, layer in enumerate(model.bert.encoder.layer):
-                # Layers are numbered in reverse (i.e., last layer is num_layers_to_unfreeze - 1)
-                if i >= len(model.bert.encoder.layer) - num_layers_to_unfreeze:
-                    for param in layer.parameters():
-                        param.requires_grad = True
+    def on_step_end(self, args, state, control, **kwargs):
+        # Check if it is time to unfreeze the next layer
+        if (
+            state.global_step == self.next_unfreeze_step
+            and self.layers_unfrozen < self.num_layers - 1
+        ):
+            # Calculate the layer index to unfreeze next
+            layer_index = self.num_layers - 2 - self.layers_unfrozen
+            for param in self.model.bert.encoder.layer[layer_index].parameters():
+                param.requires_grad = True
+            self.layers_unfrozen += 1  # Increment the count of unfrozen layers
+            # Update the next step to unfreeze another layer
+            self.next_unfreeze_step += int(self.total_steps * self.unfreeze_rate)
+
+            # Log the unfreezing action
+            print(f"Unfroze layer {layer_index} at step {state.global_step}")
 
 
 class EarlyStoppingCallback(TrainerCallback):
@@ -86,7 +95,13 @@ class FinTwitBERT:
             for param in layer.parameters():
                 param.requires_grad = True
 
-    def train(self, data: Dataset, validation: Dataset, batch_size: int = 32):
+    def train(
+        self,
+        data: Dataset,
+        validation: Dataset,
+        batch_size: int = 32,
+        num_train_epochs: int = 6,
+    ):
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
@@ -105,7 +120,7 @@ class FinTwitBERT:
         training_args = TrainingArguments(
             output_dir="checkpoints/",
             overwrite_output_dir=True,
-            num_train_epochs=6,  # FinBERT uses 6
+            num_train_epochs=num_train_epochs,  # FinBERT uses 6
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
             evaluation_strategy="steps",
@@ -120,7 +135,7 @@ class FinTwitBERT:
             # gradient_accumulation_steps=1,  # FinBERT uses 1
             warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
-            weight_decay=0.01,  # FinBERT uses 0.01
+            # weight_decay=0.01,  # FinBERT uses 0.01
         )
 
         # Instantiate the EarlyStoppingCallback
@@ -128,8 +143,20 @@ class FinTwitBERT:
             early_stopping_patience=3,
         )
 
-        # Instantiate the gradual unfreezing callback
-        gradual_unfreezing_callback = GradualUnfreezingCallback()
+        # Calculate the total number of steps (assuming one epoch here for simplicity)
+        total_dataset_size = len(data)  # Replace with your actual dataset size
+        total_steps = (
+            total_dataset_size // batch_size
+        ) * num_train_epochs  # num_train_epochs is your total epochs
+
+        # Instantiate the GradualUnfreezingCallback
+        num_layers = len(self.model.bert.encoder.layer)
+        gradual_unfreezing_callback = GradualUnfreezingCallback(
+            model=self.model,
+            num_layers=num_layers,
+            unfreeze_rate=0.33,  # Adjust if you want different rates
+            total_steps=total_steps,
+        )
 
         trainer = Trainer(
             model=self.model,
@@ -137,7 +164,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             data_collator=data_collator,
-            # callbacks=[gradual_unfreezing_callback],
+            callbacks=[gradual_unfreezing_callback],
         )
 
         # Train
