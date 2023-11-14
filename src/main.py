@@ -7,7 +7,9 @@ import os
 
 # Third party
 import torch
-from data import load_pretraining_data
+
+# Local
+from data import load_pretraining_data, kfold_pretraining_data
 from model import FinTwitBERT
 from eval import Evaluate
 
@@ -27,7 +29,8 @@ if __name__ == "__main__":
 
     # Load and preprocess the dataset
     logging.info("Loading and preprocessing the dataset")
-    df, val = load_pretraining_data()
+    # df, val = load_pretraining_data()
+    df, val = kfold_pretraining_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info
@@ -37,14 +40,15 @@ if __name__ == "__main__":
         logging.info(f"CUDA Device {i}: {device}")
 
     # Train the model
-    logging.info("Training the model")
-    model = FinTwitBERT()
-    model.train(df, val)
-    logging.info("Model trained and saved to output/FinTwitBERT")
+    for train, val in zip(df, val):
+        logging.info("Training the model")
+        model = FinTwitBERT()
+        model.train(train, val)
+        logging.info("Model trained and saved to output/FinTwitBERT")
 
-    # Evaluate the new model
-    logging.info("Evaluating the model")
-    evaluate = Evaluate()
-    evaluate.calculate_perplexity()
-    evaluate.calculate_masked_examples()
-    logging.info("Model perplexity calculated")
+        # Evaluate the new model
+        logging.info("Evaluating the model")
+        evaluate = Evaluate()
+        evaluate.calculate_perplexity()
+        evaluate.calculate_masked_examples()
+        logging.info("Model perplexity calculated")

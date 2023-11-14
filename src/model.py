@@ -21,6 +21,7 @@ class FinTwitBERT:
         self.tokenizer = AutoTokenizer.from_pretrained(
             "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
         )
+        self.output_dir = "output/FinTwitBERT"
 
         special_tokens = ["@USER", "[URL]"]
         self.tokenizer.add_tokens(special_tokens)
@@ -69,6 +70,7 @@ class FinTwitBERT:
         validation: Dataset,
         batch_size: int = 64,
         num_train_epochs: int = 6,
+        fold_num: int = 0,
     ):
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
@@ -91,7 +93,7 @@ class FinTwitBERT:
             evaluation_strategy="steps",
             save_steps=10_000,
             eval_steps=10_000,
-            logging_steps=10_000,
+            # logging_steps=10_000, Use the default
             save_total_limit=2,
             learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
@@ -116,8 +118,12 @@ class FinTwitBERT:
         # Train
         trainer.train()
 
+        # Change output dir if it's a fold
+        if fold_num > 0:
+            self.output_dir += f"_fold_{fold_num}"
+
         # Save the model
-        trainer.save_model("output/FinTwitBERT")
+        trainer.save_model(self.output_dir)
 
         # Save the tokenizer
-        self.tokenizer.save_pretrained("output/FinTwitBERT")
+        self.tokenizer.save_pretrained(self.output_dir)
