@@ -6,15 +6,18 @@ from transformers import (
     DataCollatorForLanguageModeling,
     Trainer,
     TrainingArguments,
-    TrainerCallback,
 )
 from datasets import Dataset
 
 
 class FinTwitBERT:
     def __init__(self):
-        self.model = BertForMaskedLM.from_pretrained("ProsusAI/finbert")
-        self.tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+        self.model = BertForMaskedLM.from_pretrained(
+            "ProsusAI/finbert-pretrain", cache_dir="baseline/"
+        )
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            "ProsusAI/finbert-pretrain", cache_dir="baseline/"
+        )
 
         special_tokens = ["@USER", "[URL]"]
         self.tokenizer.add_tokens(special_tokens)
