@@ -75,3 +75,42 @@ class Evaluate:
             perplexity = float("inf")
 
         print(f"Perplexity: {perplexity}")
+
+    def calculate_masked_examples(self):
+        examples = [
+            "Paris is the [MASK] of France.",
+            "The goal of life is [MASK].",
+            "AAPL is a [MASK] sector stock.",
+            "I predict that this stock will go [MASK].",
+        ]
+
+        for example in examples:
+            self.calculate_masked_probs(example)
+            print()
+
+    def calculate_masked_probs(self, text: str, top_k: int = 5):
+        input = self.tokenizer.encode_plus(text, return_tensors="pt")
+
+        # Get predictions
+        with torch.no_grad():
+            outputs = self.model(**input)
+            predictions = outputs.logits
+
+        # Identify the masked index and get the top 5 likely token indices
+        masked_index = torch.where(input["input_ids"] == self.tokenizer.mask_token_id)[
+            1
+        ].tolist()
+
+        # Use the logits to get the top_k token predictions for the masked token
+        probs = torch.nn.functional.softmax(predictions[0, masked_index[0]], dim=-1)
+        top_k_weights, top_k_indices = torch.topk(probs, top_k, dim=-1)
+
+        # Decode the top k indices to tokens and get their corresponding probabilities
+        predicted_tokens = self.tokenizer.convert_ids_to_tokens(top_k_indices.tolist())
+        predicted_probs = top_k_weights.tolist()
+
+        # Print the result
+        print("Masked sentence:", text)
+        print(f"Top {top_k} predicted tokens and probabilities:")
+        for token, prob in zip(predicted_tokens, predicted_probs):
+            print(f"{token}: {prob:.4f}")  # Formats the probability to 4 decimal places

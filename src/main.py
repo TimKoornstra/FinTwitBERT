@@ -46,9 +46,5 @@ if __name__ == "__main__":
     logging.info("Evaluating the model")
     evaluate = Evaluate()
     evaluate.calculate_perplexity()
-    logging.info("Model perplexity calculated")
-
-    logging.info("Evaluating the baseline")
-    evaluate = Evaluate(use_baseline=True)
-    evaluate.calculate_perplexity()
+    evaluate.calculate_masked_examples()
     logging.info("Model perplexity calculated")
