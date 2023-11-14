@@ -12,10 +12,10 @@ class Evaluate:
             self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
         else:
             self.model = BertForMaskedLM.from_pretrained(
-                "finbert-pretrain", cache_dir="baseline/"
+                "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
             )
             self.tokenizer = AutoTokenizer.from_pretrained(
-                "finbert-pretrain", cache_dir="baseline/"
+                "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
             )
         self.model.eval()
 
