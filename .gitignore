@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 job.slurm
 ssh.txt
+wandb_key.txt

@@ -1,5 +1,8 @@
 # > Imports
+import os
+
 # Third party
+import wandb
 from transformers import (
     AutoTokenizer,
     BertForMaskedLM,
@@ -23,6 +26,23 @@ class FinTwitBERT:
         self.tokenizer.add_tokens(special_tokens)
 
         self.model.resize_token_embeddings(len(self.tokenizer))
+        self.init_wandb()
+
+    def init_wandb(self):
+        with open("wandb_key.txt", "r") as file:
+            wandb_api_key = file.read().strip()
+
+        # Read the API key from the environment variable
+        os.environ["WANDB_API_KEY"] = wandb_api_key
+
+        # set the wandb project where this run will be logged
+        os.environ["WANDB_PROJECT"] = "FinTwitBERT"
+
+        # save your trained model checkpoint to wandb
+        os.environ["WANDB_LOG_MODEL"] = "true"
+
+        # turn off watch to log faster
+        os.environ["WANDB_WATCH"] = "false"
 
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
@@ -71,6 +91,7 @@ class FinTwitBERT:
             evaluation_strategy="steps",
             save_steps=10_000,
             eval_steps=10_000,
+            logging_steps=10_000,
             save_total_limit=2,
             learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
@@ -81,6 +102,7 @@ class FinTwitBERT:
             warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
             # weight_decay=0.01,  # FinBERT uses 0.01
+            report_to="wandb",
         )
 
         trainer = Trainer(
