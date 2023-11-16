@@ -38,6 +38,32 @@ def load_dataset(path: str, is_test: bool) -> pd.DataFrame:
     return dataset[list(columns.values())]
 
 
+def load_fintwit_datasets():
+    columns = {"tweet_text": "text"}
+    datasets = []
+
+    for path in os.listdir("data"):
+        if path.startswith("fintwit"):
+            dataset = pd.read_csv(f"data/{path}", encoding="utf-8", on_bad_lines="warn")
+            dataset = dataset.rename(columns=columns)
+            dataset = dataset[list(columns.values())]
+
+            # Drop rows where text is NaN
+            dataset = dataset.dropna(subset=["text"])
+
+            datasets.append((path, dataset))
+
+    return datasets
+
+
+def preprocess_fintwit_dataset():
+    datasets = load_fintwit_datasets()
+    for path, dataset in datasets:
+        dataset["text"] = dataset["text"].apply(preprocess_tweet)
+        dataset = dataset.drop_duplicates(subset=["text"])
+        dataset.to_csv(f"data/preprocessed/{path}", index=False)
+
+
 def save_preprocessed_dataset(path: str):
     is_test = False
     if path.endswith("test.csv"):
@@ -55,12 +81,14 @@ def save_preprocessed_dataset(path: str):
 
 
 def load_tweets():
-    # Read both datasets
-    tweets1 = pd.read_csv("data/preprocessed/tweets1.csv")
-    tweets2 = pd.read_csv("data/preprocessed/tweets2.csv")
+    datasets = []
+    for path in os.listdir("data/preprocessed"):
+        if path != "test.csv":
+            dataset = pd.read_csv(f"data/preprocessed/{path}")
+            datasets.append(dataset)
 
     # Merge datasets
-    dataset = pd.concat([tweets1, tweets2], ignore_index=True)
+    dataset = pd.concat([datasets], ignore_index=True)
 
     # Drop duplicates
     return dataset.drop_duplicates(subset=["text"])

@@ -4,6 +4,8 @@ __pycache__/
 *$py.class
 
 /output/*
+/baseline/*
+/wandb/*
 
 # C extensions
 *.so
