@@ -88,7 +88,7 @@ def load_tweets():
             datasets.append(dataset)
 
     # Merge datasets
-    dataset = pd.concat([datasets], ignore_index=True)
+    dataset = pd.concat(datasets, ignore_index=True)
 
     # Drop duplicates
     return dataset.drop_duplicates(subset=["text"])
