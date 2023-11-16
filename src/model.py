@@ -69,7 +69,7 @@ class FinTwitBERT:
         data: Dataset,
         validation: Dataset,
         batch_size: int = 64,
-        num_train_epochs: int = 6,
+        num_train_epochs: int = 10,
         fold_num: int = 0,
     ):
         data = data.map(self.encode, batched=True)
