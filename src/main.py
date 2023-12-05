@@ -16,6 +16,8 @@ from finetune import FinTwitBERT
 from eval import Evaluate
 
 KFOLD = False
+PRETRAIN = False
+FINETUNE = True
 
 
 def do_kfold():
@@ -62,8 +64,10 @@ if __name__ == "__main__":
     if KFOLD:
         do_kfold()
 
-    # df, val = load_pretraining_data()
-    df, val = load_finetuning_data()
+    if PRETRAIN:
+        df, val = load_pretraining_data()
+    if FINETUNE:
+        df, val = load_finetuning_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info

@@ -111,7 +111,16 @@ def load_pretraining_data(val_size: float = 0.1):
 
 
 def load_finetuning_data(val_size: float = 0.1):
-    dataset = pd.read_csv("data/finetune/clean_main_dataset.csv")
+    dataset = pd.read_csv("data/finetune/main_dataset.csv")
+
+    # Drop duplicates
+    dataset = dataset.drop_duplicates(subset=["Text"])
+
+    # Drop empty rows
+    dataset = dataset.dropna(subset=["Text"])
+
+    # Preprocess tweets
+    dataset["Text"] = dataset["Text"].apply(preprocess_tweet)
 
     # Rename columns
     dataset = dataset.rename(columns={"Text": "text", "Sentiment": "label"})

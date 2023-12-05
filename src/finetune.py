@@ -82,8 +82,8 @@ class FinTwitBERT:
             learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
             load_best_model_at_end=True,
-            metric_for_best_model="eval_loss",
-            greater_is_better=False,  # Lower loss indicates better performance
+            metric_for_best_model="accuracy",
+            greater_is_better=True,  # Higher accuracy is better
             # gradient_accumulation_steps=1,  # FinBERT uses 1
             warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
