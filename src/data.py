@@ -42,7 +42,7 @@ def load_fintwit_datasets():
     columns = {"tweet_text": "text"}
     datasets = []
 
-    for path in os.listdir("data"):
+    for path in os.listdir("data/pretrain"):
         if path.startswith("fintwit"):
             dataset = pd.read_csv(f"data/{path}", encoding="utf-8", on_bad_lines="warn")
             dataset = dataset.rename(columns=columns)
@@ -61,7 +61,7 @@ def preprocess_fintwit_dataset():
     for path, dataset in datasets:
         dataset["text"] = dataset["text"].apply(preprocess_tweet)
         dataset = dataset.drop_duplicates(subset=["text"])
-        dataset.to_csv(f"data/preprocessed/{path}", index=False)
+        dataset.to_csv(f"data/pretrain/preprocessed/{path}", index=False)
 
 
 def save_preprocessed_dataset(path: str):
@@ -76,15 +76,15 @@ def save_preprocessed_dataset(path: str):
     dataset = dataset.drop_duplicates(subset=["text"])
 
     # Save preprocessed dataset
-    os.makedirs("data/preprocessed", exist_ok=True)
-    dataset.to_csv(f"data/preprocessed/{path.split('/')[-1]}", index=False)
+    os.makedirs("data/pretrain/preprocessed", exist_ok=True)
+    dataset.to_csv(f"data/pretrain/preprocessed/{path.split('/')[-1]}", index=False)
 
 
-def load_tweets():
+def load_pretrain():
     datasets = []
-    for path in os.listdir("data/preprocessed"):
+    for path in os.listdir("data/pretrain/preprocessed"):
         if path != "test.csv":
-            dataset = pd.read_csv(f"data/preprocessed/{path}")
+            dataset = pd.read_csv(f"data/pretrain/preprocessed/{path}")
             datasets.append(dataset)
 
     # Merge datasets
@@ -95,7 +95,31 @@ def load_tweets():
 
 
 def load_pretraining_data(val_size: float = 0.1):
-    dataset = load_tweets()
+    dataset = load_pretrain()
+
+    # Randomly sample 10% of the data for validation, set the random state for reproducibility
+    validation_set = dataset.sample(frac=val_size, random_state=42)
+
+    # Drop the validation set from the original dataset to create the training set
+    training_set = dataset.drop(validation_set.index)
+
+    # Convert the pandas DataFrames into Hugging Face Datasets
+    training_dataset = Dataset.from_pandas(training_set)
+    validation_dataset = Dataset.from_pandas(validation_set)
+
+    return training_dataset, validation_dataset
+
+
+def load_finetuning_data(val_size: float = 0.1):
+    dataset = pd.read_csv("data/finetune/clean_main_dataset.csv")
+
+    # Rename columns
+    dataset = dataset.rename(columns={"Text": "text", "Sentiment": "label"})
+
+    dataset["label"] = dataset["label"].replace({-1: 2})
+
+    # Set labels to int
+    dataset["label"] = dataset["label"].astype(int)
 
     # Randomly sample 10% of the data for validation, set the random state for reproducibility
     validation_set = dataset.sample(frac=val_size, random_state=42)
@@ -114,7 +138,7 @@ def kfold_pretraining_data(k: int = 5):
     training_datasets = []
     validation_datasets = []
 
-    df = load_tweets()
+    df = load_pretrain()
 
     # Assuming 'dataset' is a list or array of your data
     kf = KFold(n_splits=k, shuffle=True, random_state=42)
@@ -128,5 +152,5 @@ def kfold_pretraining_data(k: int = 5):
 
 
 def load_test_data() -> Dataset:
-    test = pd.read_csv("data/preprocessed/test.csv")
+    test = pd.read_csv("data/pretrain/preprocessed/test.csv")
     return Dataset.from_pandas(test)

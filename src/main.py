@@ -9,8 +9,10 @@ import os
 import torch
 
 # Local
-from data import load_pretraining_data, kfold_pretraining_data
-from model import FinTwitBERT
+from data import load_pretraining_data, load_finetuning_data, kfold_pretraining_data
+
+# from model import FinTwitBERT
+from finetune import FinTwitBERT
 from eval import Evaluate
 
 KFOLD = False
@@ -60,7 +62,8 @@ if __name__ == "__main__":
     if KFOLD:
         do_kfold()
 
-    df, val = load_pretraining_data()
+    # df, val = load_pretraining_data()
+    df, val = load_finetuning_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info
