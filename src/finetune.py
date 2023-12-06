@@ -2,11 +2,9 @@
 import os
 
 # Third party
-import torch
 from transformers import (
     AutoTokenizer,
     BertForSequenceClassification,
-    DataCollatorForLanguageModeling,
     Trainer,
     TrainingArguments,
 )
@@ -75,9 +73,9 @@ class FinTwitBERT:
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
             evaluation_strategy="steps",
-            save_steps=10_000,
-            eval_steps=10_000,
-            # logging_steps=10_000, Use the default
+            save_steps=500,
+            eval_steps=500,
+            logging_steps=500,
             save_total_limit=2,
             learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
