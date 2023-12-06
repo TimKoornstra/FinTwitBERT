@@ -57,7 +57,7 @@ class FinTwitBERT:
         self,
         data: Dataset,
         validation: Dataset,
-        batch_size: int = 256,
+        batch_size: int = 192,
         num_train_epochs: int = 10,
         fold_num: int = 0,
     ):
