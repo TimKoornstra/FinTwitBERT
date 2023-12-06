@@ -103,6 +103,7 @@ class FinTwitBERT:
             args=training_args,
             train_dataset=data,
             eval_dataset=val,
+            compute_metrics=self.compute_metrics,
         )
 
         # Train
