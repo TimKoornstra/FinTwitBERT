@@ -53,11 +53,14 @@ class FinTwitBERT:
         preds = pred.predictions.argmax(-1)
         return {"accuracy": accuracy_score(labels, preds)}
 
+    def calculate_steps(self, batch_size, base_batch_size=64, base_steps=500):
+        return (base_batch_size * base_steps) // batch_size
+
     def train(
         self,
         data: Dataset,
         validation: Dataset,
-        batch_size: int = 192,
+        batch_size: int = 128,
         num_train_epochs: int = 10,
         fold_num: int = 0,
     ):
@@ -73,6 +76,8 @@ class FinTwitBERT:
             columns=["input_ids", "token_type_ids", "attention_mask", "label"],
         )
 
+        steps = self.calculate_steps(batch_size)
+
         # Training
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         training_args = TrainingArguments(
@@ -82,9 +87,9 @@ class FinTwitBERT:
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,
             evaluation_strategy="steps",
-            save_steps=500,
-            eval_steps=500,
-            logging_steps=500,
+            save_steps=steps,
+            eval_steps=steps,
+            logging_steps=steps,
             save_total_limit=2,
             learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
