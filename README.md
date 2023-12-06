@@ -1,5 +1,13 @@
 # FinTwitBERT
 
+![FinTwitBERT Logo](img/logo.png)
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-GPL--3.0-orange)
+
+---
+
 FinTwitBERT is a specialized language model pre-trained on a vast dataset of financial tweets. By leveraging the unique jargon and communication styles prevalent in the financial Twitter sphere, this model excels in sentiment analysis, trend prediction, and other financial NLP tasks.
 
 ## Table of Contents
@@ -60,7 +68,7 @@ The model can be finetuned for specific tasks such as sentiment classification. 
 ## Citation
 If you use FinTwitBERT or FinTwitBERT-sentiment in your research, please cite us as follows, noting that both authors contributed equally to this work:
 
-```
+```bibtex
 @misc{FinTwitBERT,
   author = {Stephan Akkerman, Tim Koornstra},
   title = {FinTwitBERT: A Specialized Language Model for Financial Tweets},
