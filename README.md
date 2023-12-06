@@ -2,11 +2,11 @@
 
 ![FinTwitBERT Logo](img/logo.png)
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-GPL--3.0-orange)
-
 ---
+
+![Supported versions](https://img.shields.io/badge/python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/license-GPL--3.0-orange)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 FinTwitBERT is a specialized language model pre-trained on a vast dataset of financial tweets. By leveraging the unique jargon and communication styles prevalent in the financial Twitter sphere, this model excels in sentiment analysis, trend prediction, and other financial NLP tasks.
 
