@@ -91,7 +91,7 @@ class FinTwitBERT:
             eval_steps=steps,
             logging_steps=steps,
             save_total_limit=2,
-            learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
+            learning_rate=5e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",
