@@ -211,6 +211,7 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     # Rename columns
     dataset = dataset.rename(columns={"Text": "text", "Sentiment": "label"})
 
+    # Label -1 (bearish) as 2
     dataset["label"] = dataset["label"].replace({-1: 2})
 
     # Set labels to int

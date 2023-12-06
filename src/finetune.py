@@ -15,7 +15,10 @@ from sklearn.metrics import accuracy_score
 class FinTwitBERT:
     def __init__(self) -> None:
         self.model = BertForSequenceClassification.from_pretrained(
-            "output/FinTwitBERT", num_labels=3
+            "output/FinTwitBERT",
+            num_labels=3,
+            id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
+            label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
         )
         self.model.config.problem_type = "single_label_classification"
         self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
@@ -61,7 +64,7 @@ class FinTwitBERT:
         data: Dataset,
         validation: Dataset,
         batch_size: int = 128,
-        num_train_epochs: int = 10,
+        num_train_epochs: int = 20,
         fold_num: int = 0,
     ):
         data = data.map(self.encode, batched=True)
