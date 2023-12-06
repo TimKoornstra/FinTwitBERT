@@ -48,7 +48,7 @@ class FinTwitBERT:
             max_length=512,  # 512 is max
         )
 
-    def compute_metrics(pred):
+    def compute_metrics(self, pred):
         labels = pred.label_ids
         preds = pred.predictions.argmax(-1)
         return {"accuracy": accuracy_score(labels, preds)}
