@@ -9,6 +9,7 @@ from transformers import (
     TrainingArguments,
 )
 from datasets import Dataset
+from sklearn.metrics import accuracy_score
 
 
 class FinTwitBERT:
@@ -41,8 +42,16 @@ class FinTwitBERT:
     def encode(self, data):
         # max_length is necessary for finetuning
         return self.tokenizer(
-            data["text"], truncation=True, padding="max_length", max_length=128
+            data["text"],
+            truncation=True,
+            padding="max_length",
+            max_length=512,  # 512 is max
         )
+
+    def compute_metrics(pred):
+        labels = pred.label_ids
+        preds = pred.predictions.argmax(-1)
+        return {"accuracy": accuracy_score(labels, preds)}
 
     def train(
         self,
