@@ -48,22 +48,6 @@ class FinTwitBERT:
     def encode(self, data):
         return self.tokenizer(data["text"], truncation=True, padding="max_length")
 
-    def gradual_unfreeze(self, unfreeze_last_n_layers: int):
-        # Freeze all layers first
-        for param in self.model.base_model.parameters():
-            param.requires_grad = False
-
-        # Count the number of layers in BertForMaskedLM model
-        num_layers = len(self.model.base_model.encoder.layer)
-
-        # Layers to unfreeze
-        layers_to_unfreeze = num_layers - unfreeze_last_n_layers
-
-        # Unfreeze the last n layers
-        for layer in self.model.base_model.encoder.layer[layers_to_unfreeze:]:
-            for param in layer.parameters():
-                param.requires_grad = True
-
     def train(
         self,
         data: Dataset,

@@ -7,9 +7,42 @@ from transformers import (
     BertForSequenceClassification,
     Trainer,
     TrainingArguments,
+    TrainerCallback,
 )
 from datasets import Dataset
 from sklearn.metrics import accuracy_score
+
+
+class GradualUnfreezingCallback(TrainerCallback):
+    def __init__(self, model, num_layers, unfreeze_rate, total_steps):
+        self.model = model
+        self.num_layers = num_layers
+        self.unfreeze_rate = unfreeze_rate
+        self.total_steps = total_steps
+        self.next_unfreeze_step = int(total_steps * unfreeze_rate)
+        self.layers_unfrozen = False  # To track if the initial unfreezing has been done
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        # Unfreeze the last layer from the beginning
+        for param in self.model.bert.encoder.layer[-1].parameters():
+            param.requires_grad = True
+
+    def on_step_end(self, args, state, control, **kwargs):
+        # Check if it is time to unfreeze the next layer
+        if (
+            state.global_step == self.next_unfreeze_step
+            and self.layers_unfrozen < self.num_layers - 1
+        ):
+            # Calculate the layer index to unfreeze next
+            layer_index = self.num_layers - 2 - self.layers_unfrozen
+            for param in self.model.bert.encoder.layer[layer_index].parameters():
+                param.requires_grad = True
+            self.layers_unfrozen += 1  # Increment the count of unfrozen layers
+            # Update the next step to unfreeze another layer
+            self.next_unfreeze_step += int(self.total_steps * self.unfreeze_rate)
+
+            # Log the unfreezing action
+            print(f"Unfroze layer {layer_index} at step {state.global_step}")
 
 
 class FinTwitBERT:
@@ -59,6 +92,22 @@ class FinTwitBERT:
     def calculate_steps(self, batch_size, base_batch_size=64, base_steps=500):
         return (base_batch_size * base_steps) // batch_size
 
+    def gradual_unfreeze(self, unfreeze_last_n_layers: int):
+        # Freeze all layers first
+        for param in self.model.base_model.parameters():
+            param.requires_grad = False
+
+        # Count the number of layers in BertForMaskedLM model
+        num_layers = len(self.model.base_model.encoder.layer)
+
+        # Layers to unfreeze
+        layers_to_unfreeze = num_layers - unfreeze_last_n_layers
+
+        # Unfreeze the last n layers
+        for layer in self.model.base_model.encoder.layer[layers_to_unfreeze:]:
+            for param in layer.parameters():
+                param.requires_grad = True
+
     def train(
         self,
         data: Dataset,
@@ -80,6 +129,9 @@ class FinTwitBERT:
         )
 
         steps = self.calculate_steps(batch_size)
+
+        # Freeze all layers initially, except the last one
+        self.gradual_unfreeze(unfreeze_last_n_layers=1)
 
         # Training
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
@@ -106,12 +158,21 @@ class FinTwitBERT:
             report_to="wandb",
         )
 
+        # Instantiate the GradualUnfreezingCallback
+        gradual_unfreezing_callback = GradualUnfreezingCallback(
+            model=self.model,
+            num_layers=len(self.model.bert.encoder.layer),
+            unfreeze_rate=0.33,  # Adjust if you want different rates
+            total_steps=(len(data) // batch_size) * num_train_epochs,
+        )
+
         trainer = Trainer(
             model=self.model,
             args=training_args,
             train_dataset=data,
             eval_dataset=val,
             compute_metrics=self.compute_metrics,
+            callbacks=[gradual_unfreezing_callback],
         )
 
         # Train
