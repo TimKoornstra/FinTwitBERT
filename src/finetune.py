@@ -10,7 +10,7 @@ from transformers import (
     TrainerCallback,
 )
 from datasets import Dataset
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score
 
 
 class GradualUnfreezingCallback(TrainerCallback):
@@ -87,7 +87,11 @@ class FinTwitBERT:
     def compute_metrics(self, pred):
         labels = pred.label_ids
         preds = pred.predictions.argmax(-1)
-        return {"accuracy": accuracy_score(labels, preds)}
+        acc = accuracy_score(labels, preds)
+        f1 = f1_score(
+            labels, preds, average="weighted"
+        )  # 'weighted' can be replaced with 'binary' or 'macro' based on your specific needs
+        return {"accuracy": acc, "f1": f1}
 
     def calculate_steps(self, batch_size, base_batch_size=64, base_steps=500):
         return (base_batch_size * base_steps) // batch_size
@@ -113,9 +117,12 @@ class FinTwitBERT:
         data: Dataset,
         validation: Dataset,
         batch_size: int = 128,
-        num_train_epochs: int = 20,
+        num_train_epochs: int = 10,
         fold_num: int = 0,
+        gradual_unfreeze: bool = True,
     ):
+        callbacks = None
+
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
@@ -130,8 +137,19 @@ class FinTwitBERT:
 
         steps = self.calculate_steps(batch_size)
 
-        # Freeze all layers initially, except the last one
-        self.gradual_unfreeze(unfreeze_last_n_layers=1)
+        if gradual_unfreeze:
+            # Freeze all layers initially, except the last one
+            self.gradual_unfreeze(unfreeze_last_n_layers=1)
+
+            # Instantiate the GradualUnfreezingCallback
+            gradual_unfreezing_callback = GradualUnfreezingCallback(
+                model=self.model,
+                num_layers=len(self.model.bert.encoder.layer),
+                unfreeze_rate=0.33,  # Adjust if you want different rates
+                total_steps=(len(data) // batch_size) * num_train_epochs,
+            )
+
+            callbacks = [gradual_unfreezing_callback]
 
         # Training
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
@@ -146,24 +164,16 @@ class FinTwitBERT:
             eval_steps=steps,
             logging_steps=steps,
             save_total_limit=2,
-            learning_rate=5e-5,  # FinBERT uses 5e-5 to 2e-5
+            learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",
             greater_is_better=True,  # Higher accuracy is better
             # gradient_accumulation_steps=1,  # FinBERT uses 1
-            warmup_ratio=0.4,  # FinBERT uses 0.2
+            warmup_ratio=0.2,  # FinBERT uses 0.2
             save_safetensors=True,
             weight_decay=0.01,  # FinBERT uses 0.01
             report_to="wandb",
-        )
-
-        # Instantiate the GradualUnfreezingCallback
-        gradual_unfreezing_callback = GradualUnfreezingCallback(
-            model=self.model,
-            num_layers=len(self.model.bert.encoder.layer),
-            unfreeze_rate=0.33,  # Adjust if you want different rates
-            total_steps=(len(data) // batch_size) * num_train_epochs,
         )
 
         trainer = Trainer(
@@ -172,7 +182,7 @@ class FinTwitBERT:
             train_dataset=data,
             eval_dataset=val,
             compute_metrics=self.compute_metrics,
-            callbacks=[gradual_unfreezing_callback],
+            callbacks=callbacks,
         )
 
         # Train
