@@ -117,7 +117,7 @@ class FinTwitBERT:
         data: Dataset,
         validation: Dataset,
         batch_size: int = 128,
-        num_train_epochs: int = 10,
+        num_train_epochs: int = 20,
         fold_num: int = 0,
         gradual_unfreeze: bool = True,
     ):
@@ -164,7 +164,7 @@ class FinTwitBERT:
             eval_steps=steps,
             logging_steps=steps,
             save_total_limit=2,
-            learning_rate=2e-5,  # FinBERT uses 5e-5 to 2e-5
+            learning_rate=2e-4,  # FinBERT uses 5e-5 to 2e-5
             fp16=True,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",
