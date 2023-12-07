@@ -170,7 +170,7 @@ class FinTwitBERT:
             metric_for_best_model="accuracy",
             greater_is_better=True,  # Higher accuracy is better
             # gradient_accumulation_steps=1,  # FinBERT uses 1
-            warmup_ratio=0.2,  # FinBERT uses 0.2
+            warmup_ratio=0.1,  # FinBERT uses 0.2
             save_safetensors=True,
             weight_decay=0.01,  # FinBERT uses 0.01
             report_to="wandb",
