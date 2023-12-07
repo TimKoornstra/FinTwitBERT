@@ -8,7 +8,13 @@
 ![License](https://img.shields.io/badge/license-GPL--3.0-orange)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-FinTwitBERT is a specialized language model pre-trained on a vast dataset of financial tweets. By leveraging the unique jargon and communication styles prevalent in the financial Twitter sphere, this model excels in sentiment analysis, trend prediction, and other financial NLP tasks.
+FinTwitBERT is a language model specifically trained to understand and analyze financial conversations on Twitter. It's designed to pick up on the unique ways people talk about finance online, making it a valuable tool for anyone interested in financial trends and sentiments expressed through tweets.
+
+## Introduction
+
+Understanding financial markets can be challenging, especially when analyzing the vast amount of opinions and discussions on social media. FinTwitBERT is here to make sense of financial conversations on Twitter. It's a specialized tool that interprets the unique language and abbreviations used in financial tweets, helping users gain insights into market trends and sentiments.
+
+This model was developed to fill a gap in traditional language processing tools, which often struggle with the shorthand and jargon found in financial tweets. Whether you're a financial professional, a market enthusiast, or someone curious about financial trends on social media, FinTwitBERT offers an easy-to-use solution to navigate and understand these discussions.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -63,7 +69,55 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-The model can be finetuned for specific tasks such as sentiment classification. For more information about it, you can visit [our stock sentiment classifier repository](https://github.com/TimKoornstra/stock-sentiment-classifier).
+We offer two models [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwitBERT) and [FinTwitBERT-sentiment](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment). The first is a pre-trained model and tokenizer for masked language modeling (MLM) which can be finetuned for other tasks such as sentiment analysis. This is what the second model is about, it is finetuned on sentiment analysis and labels tweets into three categories: bearish, neutral, and bullish.
+
+### Pre-trained model
+```python
+from transformers import BertForMaskedLM, AutoTokenizer
+import torch
+
+# Load pre-trained model and tokenizer
+model = BertForMaskedLM.from_pretrained("StephanAkkerman/FinTwitBERT")
+tokenizer = AutoTokenizer.from_pretrained("StephanAkkerman/FinTwitBERT")
+
+# Example sentence with a masked token
+text = "AAPL is a [MASK] sector stock."
+
+# Tokenize the text
+input = tokenizer.encode_plus(text, return_tensors="pt")
+
+# Predict the masked token
+model.eval()  # Put the model in evaluation mode
+with torch.no_grad():
+    outputs = model(**input)
+    predictions = outputs.logits
+
+# Get the predicted token
+predicted_index = torch.argmax(predictions[0, input["input_ids"][0] == tokenizer.mask_token_id], axis=1)
+predicted_token = tokenizer.decode(predicted_index)
+
+# Print the sentence with the predicted token
+print(text.replace("[MASK]", predicted_token))
+```
+
+### Finetuned model
+```python
+from transformers import BertForMaskedLM, AutoTokenizer, pipeline
+import torch
+
+# Load pre-trained model and tokenizer
+model = BertForSequenceClassification.from_pretrained("StephanAkkerman/FinTwitBERT-sentiment")
+tokenizer = AutoTokenizer.from_pretrained("StephanAkkerman/FinTwitBERT-sentiment")
+
+# Create a pipeline for text classification (sentiment analysis)
+sentiment_pipeline = pipeline("text-classification", model=model, tokenizer=tokenizer)
+
+# Example sentence
+sentence = "The new product launch was a tremendous success, boosting sales and customer satisfaction."
+
+# Print the result
+print(sentiment_pipeline(sentence))
+```
 
 ## Citation
 If you use FinTwitBERT or FinTwitBERT-sentiment in your research, please cite us as follows, noting that both authors contributed equally to this work:
