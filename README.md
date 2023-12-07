@@ -17,18 +17,15 @@ Understanding financial markets can be challenging, especially when analyzing th
 This model was developed to fill a gap in traditional language processing tools, which often struggle with the shorthand and jargon found in financial tweets. Whether you're a financial professional, a market enthusiast, or someone curious about financial trends on social media, FinTwitBERT offers an easy-to-use solution to navigate and understand these discussions.
 
 ## Table of Contents
-- [Introduction](#introduction)
 - [Datasets](#datasets)
 - [Model Details](#model-details)
+- [Model Results](#model-results)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Finetuning](#finetuning-datasets)
 - [Citation](#citation)
 - [Contributing](#contributing)
 - [License](#license)
-
-## Introduction
-FinTwitBERT enhances traditional BERT models by focusing on the nuances of financial communication on Twitter. This specialization allows for more accurate interpretations and predictions based on financial tweets, which is crucial for market analysis and sentiment understanding.
 
 ## Datasets
 ### Pre-training Datasets
@@ -59,6 +56,9 @@ For finetuning, we use several datasets, each offering varied sentiments in fina
 FinTwitBERT is based on [FinBERT](https://huggingface.co/ProsusAI/finbert) with added masks for user mentions (`@USER`) and URLs (`[URL]`). The model is pre-trained for 10 epochs with a focus on minimizing loss and applying early stopping to prevent overfitting.
 
 Find the pre-trained model and tokenizer here: [FinTwitBERT on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT).
+
+## Model Results
+TODO: Compare loss, accuracy, and F1 between FinTwitBERT and other models as a table.
 
 ## Installation
 ```bash
