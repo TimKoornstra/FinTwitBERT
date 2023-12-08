@@ -130,8 +130,9 @@ class FinTwitBERT:
 
         training_args = TrainingArguments(**mode_args[self.mode], **base_args)
 
+        # Add gradual unfreezing callback if enabled
         callbacks = []
-        if gradual_unfreeze and self.mode == "finetune":
+        if gradual_unfreeze:
             batch_size = mode_args[self.mode]["per_device_train_batch_size"]
             num_train_epochs = mode_args[self.mode]["num_train_epochs"]
             self.gradual_unfreeze(unfreeze_last_n_layers=1)
@@ -145,14 +146,17 @@ class FinTwitBERT:
                 )
             )
 
+        # Use the MLM data collator when pretraining
         data_collator = None
         if self.mode == "pretrain":
             data_collator = DataCollatorForLanguageModeling(
                 tokenizer=self.tokenizer, mlm_probability=0.15
             )
 
+        # Compute F1 and accuracy scores when finetuning
         compute_metrics_fn = self.compute_metrics if self.mode == "finetune" else None
 
+        # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         trainer = Trainer(
             model=self.model,
             args=training_args,
@@ -161,6 +165,7 @@ class FinTwitBERT:
             data_collator=data_collator,
             compute_metrics=compute_metrics_fn,
             callbacks=callbacks,
+            lr_scheduler_type="constant_with_warmup",
         )
 
         # Train the model

@@ -10,10 +10,8 @@ import torch
 
 # Local
 from data import load_pretraining_data, load_finetuning_data, kfold_pretraining_data
-
-# from model import FinTwitBERT
-from finetune import FinTwitBERT
-from eval import Evaluate
+from model import FinTwitBERT
+from eval.pretrain import Evaluate
 
 KFOLD = False
 PRETRAIN = False
@@ -78,7 +76,7 @@ if __name__ == "__main__":
 
     # Train the model
     logging.info("Training the model")
-    model = FinTwitBERT()
+    model = FinTwitBERT(mode="pretrain" if PRETRAIN else "finetune")
     model.train(df, val)
     logging.info("Model trained and saved to output/FinTwitBERT")
 
