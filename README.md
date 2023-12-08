@@ -69,7 +69,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-We offer two models [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwitBERT) and [FinTwitBERT-sentiment](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment). The first is a pre-trained model and tokenizer for masked language modeling (MLM) which can be finetuned for other tasks such as sentiment analysis. This is what the second model is about, it is finetuned on sentiment analysis and labels tweets into three categories: bearish, neutral, and bullish.
+We offer two models [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwitBERT) and [FinTwitBERT-sentiment](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment). The first is a pre-trained model and tokenizer for masked language modeling (MLM) which can be finetuned for other tasks such as sentiment analysis. This is what the second model is about, it is fine-tuned on sentiment analysis and labels tweets into three categories: bearish, neutral, and bullish.
 
 ### Pre-trained model
 ```python
@@ -100,7 +100,7 @@ predicted_token = tokenizer.decode(predicted_index)
 print(text.replace("[MASK]", predicted_token))
 ```
 
-### Finetuned model
+### Fine-tuned model
 ```python
 from transformers import BertForMaskedLM, AutoTokenizer, pipeline
 import torch
