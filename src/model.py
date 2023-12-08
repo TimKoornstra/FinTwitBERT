@@ -138,13 +138,17 @@ class FinTwitBERT:
         fold_num: int = 0,
         gradual_unfreeze: bool = False,
     ):
+        mode_columns = {
+            "pretrain": ["input_ids", "attention_mask"],
+            "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
+        }
+        mode_args = {"pretrain": pretraining_args, "finetune": finetuning_args}
+
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
-        data.set_format(type="torch", columns=["input_ids", "attention_mask"])
-        val.set_format(type="torch", columns=["input_ids", "attention_mask"])
-
-        mode_args = {"pretrain": pretraining_args, "finetune": finetuning_args}
+        data.set_format(type="torch", columns=mode_columns[self.mode])
+        val.set_format(type="torch", columns=mode_columns[self.mode])
 
         training_args = TrainingArguments(**mode_args[self.mode], **base_args)
 
