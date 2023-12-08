@@ -111,7 +111,25 @@ class FinTwitBERT:
         os.environ["WANDB_WATCH"] = "false"
 
     def encode(self, data):
-        return self.tokenizer(data["text"], truncation=True, padding="max_length")
+        return self.tokenizer(
+            data["text"], truncation=True, padding="max_length", max_length=512
+        )
+
+    def gradual_unfreeze(self, unfreeze_last_n_layers: int):
+        # Freeze all layers first
+        for param in self.model.base_model.parameters():
+            param.requires_grad = False
+
+        # Count the number of layers in BertForMaskedLM model
+        num_layers = len(self.model.base_model.encoder.layer)
+
+        # Layers to unfreeze
+        layers_to_unfreeze = num_layers - unfreeze_last_n_layers
+
+        # Unfreeze the last n layers
+        for layer in self.model.base_model.encoder.layer[layers_to_unfreeze:]:
+            for param in layer.parameters():
+                param.requires_grad = True
 
     def train(
         self,
@@ -154,7 +172,7 @@ class FinTwitBERT:
             )
 
         # Compute F1 and accuracy scores when finetuning
-        compute_metrics_fn = self.compute_metrics if self.mode == "finetune" else None
+        compute_metrics_fn = compute_metrics if self.mode == "finetune" else None
 
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         trainer = Trainer(
@@ -165,7 +183,6 @@ class FinTwitBERT:
             data_collator=data_collator,
             compute_metrics=compute_metrics_fn,
             callbacks=callbacks,
-            lr_scheduler_type="constant_with_warmup",
         )
 
         # Train the model
