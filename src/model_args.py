@@ -40,5 +40,5 @@ finetuning_args = {
     "warmup_ratio": 0.2,  # FinBERT uses 0.2
     "weight_decay": 0.01,  # FinBERT uses 0.01
     # gradient_accumulation_steps=1,  # FinBERT uses 1
-    "lr_scheduler_type": "constant_with_warmup",  # cosine_with_restarts
+    "lr_scheduler_type": "cosine_with_restarts",
 }
