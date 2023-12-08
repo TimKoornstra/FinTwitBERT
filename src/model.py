@@ -102,7 +102,9 @@ class FinTwitBERT:
         os.environ["WANDB_API_KEY"] = wandb_api_key
 
         # set the wandb project where this run will be logged
-        os.environ["WANDB_PROJECT"] = "FinTwitBERT"
+        os.environ["WANDB_PROJECT"] = (
+            "FinTwitBERT" if self.mode == "pretrain" else "FinTwitBERT-sentiment"
+        )
 
         # save your trained model checkpoint to wandb
         os.environ["WANDB_LOG_MODEL"] = "true"
