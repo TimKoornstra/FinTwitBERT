@@ -197,7 +197,15 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     tuple
         The training and validation datasets.
     """
-    dataset = pd.read_csv("data/finetune/main_dataset.csv")
+    datasets = []
+
+    # Load all files in the data/finetune/preprocessed folder
+    for path in os.listdir("data/finetune/preprocessed"):
+        if path.endswith(".csv"):
+            datasets.append(pd.read_csv(f"data/finetune/preprocessed/{path}"))
+
+    # Merge all datasets
+    dataset = pd.concat(datasets, ignore_index=True)
 
     # Drop duplicates
     dataset = dataset.drop_duplicates(subset=["Text"])
