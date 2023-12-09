@@ -1,0 +1,1174 @@
+_id,sentence,target,aspect,score,type
+1,Royal Mail chairman Donald Brydon set to step down,Royal Mail,Corporate/Appointment,-0.374,headline
+100,Slump in Weir leads FTSE down from record high,Weir,Market/Volatility/Volatility,-0.827,headline
+1000,AstraZeneca wins FDA approval for key new lung cancer pill,AstraZeneca,Corporate/Regulatory,0.549,headline
+1002,UPDATE 1-Lloyds to cut 945 jobs as part of 3-year restructuring plan,Lloyds,Corporate/Strategy,-0.266,headline
+1005,Standard Chartered Shifts Emerging-Markets Strategy After Losses,Standard Chartered,Corporate/Strategy,-0.461,headline
+1012,AstraZeneca's Lung Cancer Drug Tagrisso Gets FDA Approval,AstraZeneca,Corporate/Appointment,0.393,headline
+1016,Severn Trent share price rises as first half profit inches up as customer ...,Severn Trent,Stock/Price Action,0.526,headline
+1022,Glencore sees Tripoli-based NOC as sole legal seller of Libyan oil,Glencore,Corporate/Legal,0.037,headline
+1023,Lloyds to cut 945 jobs as part of three-year restructuring strategy,Lloyds,Corporate/Strategy/Reorganization,-0.532,headline
+1024,AstraZeneca to Buy ZS Pharma for $2.7 Billion,ZS Pharma,Corporate/M&A/M&A,0.593,headline
+1025,"Ackman, in email, says supports Valeant CEO Pearson",Valeant,Corporate/Company Communication,0.166,headline
+1029,AstraZeneca sells US drug rights to Perrigo for $380 mln,Perrigo,Corporate/M&A/M&A,0.326,headline
+1032,"UPDATE 1-AstraZeneca buys ZS Pharma for $2.7 billion, pips Actelion",ZS Pharma,Corporate/M&A/M&A,0.468,headline
+1033,CORRECTED-Shire to buy Dyax for about $5.9 bln,Shire,Corporate/M&A/M&A,0.402,headline
+1037,Barclays poised to replace Sir Mike Rake as he heads for exit,Barclays,Corporate/Appointment,0.077,headline
+1038,AstraZeneca Acquires ZS Pharma in $2.7 Billion Deal,ZS Pharma,Corporate/M&A/M&A,0.52,headline
+1039,AstraZeneca shares climb 3% as drug maker ups profits forecasts,AstraZeneca,"Stock/Price Action/Bullish', 'Corporate/Financial/Financial Results/Earnings",0.64,headline
+1040,Peroni and Grolsch put up for sale as AB InBev plans acquisition of SABMiller,SABMiller,Corporate/Sales/Sales,0.551,headline
+1044,easyJet expects resilient demand to withstand security fears,easyJet,Corporate/Risks,0.165,headline
+1045,Compass Group says positive for year ahead,Compass Group,Stock/Price Action/Future Price/Direction,0.634,headline
+105,Bunzl Lifts Dividend Again As Acquisitions Continue To Boost Profits,Bunzl,Corporate/Dividend Policy/Dividend/Dividend going up,0.401,headline
+1052,US dollar wipes out sales gains for SABMiller,SABMiller,Corporate/Sales/Sales,-0.582,headline
+1053,"UPDATE 1-SABMiller 2nd-quarter underlying sales rise, forex impacts margins",SABMiller,Corporate/Sales/Sales,0.043,headline
+1057,UPDATE 2-Pricey beers lift SABMiller's quarterly underlying sales,SABMiller,Corporate/Sales/Sales,0.429,headline
+1061,Valeant CEO Pledges to Heed Critics After `Painful' Experience,Valeant,Corporate/Company Communication,-0.381,headline
+1063,"Are Aviva plc, Direct Line Insurance Group PLC And Admiral Group plc Set To Soar?",Aviva,Corporate/Company Communication,0.324,headline
+1063,"Are Aviva plc, Direct Line Insurance Group PLC And Admiral Group plc Set To Soar?",Direct Line Insurance Group PLC,Corporate/Company Communication,0.345,headline
+1065,StanChart and RBS struggle in Bank of England stress tests,RBS,Economy/Central Banks,-0.738,headline
+1065,StanChart and RBS struggle in Bank of England stress tests,Standard Chartered,Corporate/Regulatory,-0.39,headline
+107,REFILE-UPDATE 4-Britain's Lloyds to pay first dividend since rescue,Lloyds,Corporate/Dividend Policy/Dividend,0.522,headline
+1073,Barclays sells benchmark indices unit to Bloomberg,Bloomberg,Corporate/Strategy/Divestment,0.281,headline
+1077,"Sainsbury's, Asda, Tesco and Morrisons will all cut petrol prices as oil falls ...",Morrisons,Stock/Price Action/Future Price,-0.251,headline
+1077,"Sainsbury's, Asda, Tesco and Morrisons will all cut petrol prices as oil falls ...",Tesco,Stock/Price Action/Future Price,-0.222,headline
+1077,"Sainsbury's, Asda, Tesco and Morrisons will all cut petrol prices as oil falls ...",Sainsbury,Corporate/Financial/Bankruptcy/Entering bankruptcy,-0.259,headline
+1079,"EU drops Shell, BP, Statoil from ethanol benchmark investigation",Shell,Stock/Insider Activity/Insider Trading,0.276,headline
+1079,"EU drops Shell, BP, Statoil from ethanol benchmark investigation",Statoil,Stock/Insider Activity/Insider Trading,0.294,headline
+1089,AstraZeneca Explores Potential Deal With Acerta for Cancer Drug,AstraZeneca,Corporate/M&A/Joint Venture,0.372,headline
+1095,Shell and BG Shareholders to Vote on Deal at End of January,Shell,Corporate/Sales/Deal,0.0,headline
+1109,AstraZeneca chases Acerta to secure next cancer drug winner,AstraZeneca,Stock/Buyside/Stock Buyside,0.519,headline
+1112,CompaniesTesco off to a bad start over Xmas â€“ Kantar,Tesco,Stock/Price Action,-0.604,headline
+1117,"DBS, Julius Baer emerge as potential bidders for Barclays Asia wealth unit ...",Julius Baer,Stock/Buyside/Stock Buyside,0.31,headline
+1118,Why AstraZeneca plc & Dixons Carphone PLC Are Red-Hot Growth Stars!,Dixons Carphone,Corporate/Dividend Policy/Dividend/Dividend going up,0.766,headline
+1120,BBCN Bancorp to buy Wilshire Bancorp in $1 bln deal,Wilshire Bancorp,Corporate/M&A,0.818,headline
+1122,ITV share price jumps on report of Comcast's NBCUniversal bidding to takeover ...,ITV,Stock/Price Action/Current Price/Stock Price,0.611,headline
+1122,ITV share price jumps on report of Comcast's NBCUniversal bidding to takeover ...,Comcast,Stock/Price Action,0.623,headline
+1131,Glencore Studies Possible IPO for Agricultural Trading Business,Glencore,Stock/IPO,0.408,headline
+1132,Can Christmas Save Sainsbury's plc And Tesco plc?,Tesco,Corporate/Rumors/Rumors,-0.175,headline
+1133,UPDATE 1-AstraZeneca boosts respiratory unit with $575 mln Takeda deal,Takeda,Corporate/M&A/,0.47,headline
+1142,Bilfinger Industrial Services win Â£100m BP contract extension,BP,Corporate/Sales/Deal,0.113,headline
+1143,"Standard Chartered, RBS Escape Capital Raising in Stress Test",RBS,Economy/Central Banks,0.335,headline
+1143,"Standard Chartered, RBS Escape Capital Raising in Stress Test",Standard Chartered,Corporate/Regulatory,0.321,headline
+1147,AstraZeneca weighing up Acerta bid to secure blood cancer drug,AstraZeneca,Stock/Buyside/Stock Buyside,0.284,headline
+115,GlaxoSmithKline set to complete $20 billion Novartis asset swap next week,Novartis,Corporate/M&A,0.189,headline
+1154,2 Turnaround Buys For 2016? BHP Billiton plc And Home Retail Group Plc,Home Retail Group,Economy/Central Banks/Monetary Policy/Monetary Policy - SNB,0.492,headline
+1155,L&G completes UK's largest medically underwritten bulk pension risk deal,L&G,Corporate/Risks,0.25,headline
+116,Meggitt share price tumbles as profit falls in 'challenging year',Meggitt,Stock/Price Action,-0.854,headline
+1160,Drugmaker Shire to buy Baxalta for $32 billion after 6-month pursuit,Shire,Corporate/M&A/M&A,0.437,headline
+1165,Kingfisher share price slides on cost to implement new strategy,Kingfisher,Stock/Price Action,-0.786,headline
+1168,Shire says internal synergy goals from Baxalta deal higher,Shire,Corporate/Company Communication/Dividend,0.287,headline
+1172,"European shares plunge, roiled by BHP and oil; hopes turn to ECB",BHP,Economy/Central Banks/?,-0.736,headline
+1183,Morrisons and Debenhams surprise City with Christmas bounce back,Morrisons,Stock/Price Action/Volatility,0.619,headline
+1183,Morrisons and Debenhams surprise City with Christmas bounce back,Debenhams,Stock/Price Action/Volatility,0.573,headline
+1190,"Britain's FTSE falls back with Ashtead, commodities under pressure",Ashtead,Market/Volatility,-0.59,headline
+1192,Tesco shares jump 6% after Christmas sales beat expectations,Tesco,Corporate/Sales,0.814,headline
+1195,"CEOs of BPM, UBI meet Italy econ minister as M&A talk heats up",UBI,Corporate/Risks/Extraordinary Meeting,0.133,headline
+1200,CompaniesHome Retail trims gains but is considered 'in play',Home Retail,Stock/Price Action,0.135,headline
+1202,Philippines' San Miguel says to partner with Kirin if it bids for SABMiller's ...,San Miguel,Corporate/Sales/Partnership,0.19,headline
+1202,Philippines' San Miguel says to partner with Kirin if it bids for SABMiller's ...,SABMiller,Corporate/Sales/Partnership,0.577,headline
+1203,Investors Remain Skeptical About Shell-BG Deal,Shell,Corporate/Rumors/Rumors,-0.266,headline
+1210,MarketsShire up 2.5% and Baxalta up 6% on $32bn deal,Shire,Stock/Buyside/Stock Buyside,0.487,headline
+1217,Shire share price under pressure after $32bn Baxalta deal,Baxalta,Stock/Price Action,-0.198,headline
+1217,Shire share price under pressure after $32bn Baxalta deal,Shire,Stock/Price Action/Volatility,-0.186,headline
+1218,Valeant Names Interim Leader as CEO Remains Hospitalized,Valeant,Corporate/Appointment,0.0,headline
+1222,Valeant Said to Name New CEO With Pearson Still Hospitalized,Valeant,Corporate/Appointment,0.015,headline
+1223,Shares in BAE Systems hit 10-month high on rating upgrade,BAE,Stock/Coverage,0.905,headline
+1224,Japan's Asahi to submit bid next week for SABMiller's Grolsch and Peroni - Yomiuri,SABMiller,Stock/Buyside/Stock Buyside,0.236,headline
+123,Analyst Views: Astrazeneca shares have seen recent volatility; what will 2015 ...,Astrazeneca,Market/Volatility,-0.12,headline
+1230,CompaniesDixons Carphone to close 134 UK stores as sales jump,Dixons Carphone,Corporate/Sales,0.144,headline
+1239,"Broker tips: RBS, Croda, Sage",Sage,Corporate/Rumors/Rumors,0.393,headline
+1239,"Broker tips: RBS, Croda, Sage",RBS,Corporate/Rumors/Rumors,0.381,headline
+1241,Shell share price: Standard Life announce position against BG acquisition,Shell,Corporate/M&A/M&A,-0.134,headline
+1241,Shell share price: Standard Life announce position against BG acquisition,Standard Life,Corporate/M&A/M&A,-0.099,headline
+1242,Tesco share price down as grocer faces SFO investigation outcome,Tesco,Stock/Price Action,-0.542,headline
+1243,"Britain's FTSE outperforms Europe, Royal Mail and Tesco rise",Tesco,Market/Volatility/Volatility,0.439,headline
+1256,Greene King's third quarter sales boosted by festive season,Greene King,Corporate/Sales,0.363,headline
+127,ARM Royalties Accelerate as Smartphone Market Regains Strength,ARM,Market/Market,0.571,headline
+128,ConAgra Names Former Hillshire Farms CEO Connolly to Top Post,ConAgra,Corporate/Appointment,0.101,headline
+1283,InterContinental Hotels Group share price climbs on $1.5bn special dividend,InterContinental Hotels Group,Corporate/Dividend Policy,0.631,headline
+1284,Amazon to attack UK grocery market with Morrisons deal,Morrisons,Market/Market/Market Outlook,0.333,headline
+1287,AstraZeneca share price: Acerta deal pays off with orphan drug status,AstraZeneca,Corporate/M&A,0.495,headline
+1288,"BHP Billiton posts big loss, slashes dividend",BHP Billiton,Corporate/Dividend Policy,-0.938,headline
+1289,Merged LSE and Deutsche BÃ¶rse would be led by Germany's Kengeter,LSE,Corporate/M&A/M&A,0.136,headline
+129,BG Group appoints new CEO one month early,BG Group,Corporate/Appointment,0.069,headline
+1297,"Should You Buy Jumbo Yielders British American Tobacco plc, Centrica PLC & John Wood Group PLC?",Centrica PLC,Corporate/Rumors/Scoop,0.1,headline
+1297,"Should You Buy Jumbo Yielders British American Tobacco plc, Centrica PLC & John Wood Group PLC?",John Wood Group PLC,Corporate/Rumors/Scoop,0.103,headline
+1311,Is Trouble Brewing At Legal & General Group Plc And Aviva plc?,Legal & General Group Plc,Corporate/Rumors/Rumors,-0.271,headline
+1313,BHP Billiton drags FTSE lower after slashing dividend,BHP Billiton,Corporate/Dividend Policy,-0.604,headline
+1314,"BHP Billiton slashes dividend, posts $5.67 billion net loss",BHP Billiton,Corporate/Dividend Policy,-0.341,headline
+1315,CompaniesMeggitt profits hit by weak energy and military markets,Meggitt,Market/Market,-0.302,headline
+1316,Royal Mail share price edges lower as group raises stamp price,Royal Mail,Stock/Price Action,-0.269,headline
+132,"Glencore Cuts 2015 Budget, Plans To Divest From Lonmin",Lonmin,Corporate/Strategy/Divestment,-0.314,headline
+1323,GlaxoSmithKline starts hunt for successor to CEO Witty,GlaxoSmithKline,Corporate/Appointment/Executive Appointment,0.0,headline
+1324,"Rio Tinto swings to loss, drops dividend policy",Rio Tinto,Corporate/Dividend Policy,-0.511,headline
+1327,France raises concerns over proposed LSE-Deutsche Boerse deal,LSE,Corporate/Risks/Sale Halt,-0.347,headline
+1334,MarketsBP promotes upstream boss to deputy CEO,BP,Corporate/Appointment,0.066,headline
+1336,Legal & General share price: Finance chief to step down,Legal & General,Corporate/Appointment,-0.166,headline
+1343,Barclays poaches new chief operating officer Paul Compton from JP Morgan Chase,JP Morgan Chase,Corporate/Appointment/Executive Appointment,-0.092,headline
+1346,Arm profits and sales up as shift away from mobile gains pace,Arm,Corporate/Sales,0.497,headline
+1349,Barclays appoints JPMorgan's Paul Compton as new COO,JPMorgan,Corporate/Appointment/Executive Appointment,-0.014,headline
+1349,Barclays appoints JPMorgan's Paul Compton as new COO,Barclays,Corporate/Appointment,0.036,headline
+135,U.S. Debt Lures Schroders as ECB Depresses Rates,Schroders,Economy/Central Banks,0.048,headline
+1350,"FastJet slams EasyJet founder Stelios for going public, is 'taking legal advice' over letter about contractual ...",EasyJet,Corporate/Legal,-0.238,headline
+1353,NYSE owner ICE considers offer for LSE,LSE,Corporate/Rumors/Scoop,0.396,headline
+1356,News FeedFTSE 100 movers: LSE surges as ICE says mulling offer; Ashtead and Barclays tank,ICE,Corporate/M&A,0.226,headline
+1356,News FeedFTSE 100 movers: LSE surges as ICE says mulling offer; Ashtead and Barclays tank,LSE,Corporate/M&A,0.843,headline
+1360,Balfour Beatty plc Set To Reinstate Dividend (And Rival National Grid plc And Centrica PLC Once More?),Balfour Beatty plc,Corporate/Dividend Policy,0.413,headline
+1360,Balfour Beatty plc Set To Reinstate Dividend (And Rival National Grid plc And Centrica PLC Once More?),Rival National Grid plc,Corporate/Dividend Policy/Dividend,0.408,headline
+1360,Balfour Beatty plc Set To Reinstate Dividend (And Rival National Grid plc And Centrica PLC Once More?),Centrica PLC,Corporate/Dividend Policy/Dividend,0.403,headline
+1365,Intertek swings to Â£347 mln loss on oil's slump,Intertek,Market/Volatility,-0.734,headline
+1372,Sanofi poaches AstraZeneca scientist as new research head,Sanofi,Corporate/Appointment/Executive Appointment,0.066,headline
+1373,Tesco breaks its downward slide by cutting sales decline in half,Tesco,Corporate/Sales,0.172,headline
+1376,"News FeedSchroders books solid earnings growth, several board changes",Schroders,Stock/Fundamentals,0.5,headline
+1378,Intertek Group announces strategic update outlining its plan,Intertek Group,Corporate/Strategy,0.046,headline
+1379,London Stock Exchange seals Â£22 billion merger with Germany's Deutsche BÃ¶rse,London Stock Exchange,Corporate/M&A/M&A,0.327,headline
+138,Tullow Oil Suspends Dividend Amid Oil Price Fall,Tullow Oil,Corporate/Dividend Policy,-0.498,headline
+1380,NYSE owner ICE may gatecrash Deutsche Boerse-LSE merger,LSE,Corporate/M&A/Proposed Merger,-0.2,headline
+1381,AB InBev to Sell SABMiller Stake in China's Snow Beer,SABMiller,Stock/Signal/Sell Signal,-0.045,headline
+1383,LSE-Deutsche Boerse merger would signal end to exchange mega-deals,LSE,Corporate/M&A/M&A,0.105,headline
+1387,RBS Pays $1.7 Billion to Scrap U.K. Treasury's Dividend Rights,RBS,Corporate/Dividend Policy,0.066,headline
+1396,Industry NewsWolseley confident in reslilience amid mixed markets,Wolseley,Market/Market,0.287,headline
+1402,Tesco criticised for 'disgraceful' advert showing domestic worker being slapped,Tesco,Corporate/Reputation,-0.498,headline
+1405,FTSE edges up as investors cheer Kingfisher results,Kingfisher,Stock/Price Action,0.678,headline
+1410,Barclays Bonds Rise as Lender Cuts Dividends to Shore Up Capital,Barclays,Corporate/Dividend Policy,0.261,headline
+1412,Britain's FTSE gets lift from Prudential results,Prudential,Corporate/Financial,0.582,headline
+1415,Amazon's grocery deal with Morrisons is only the beginning,Morrisons,Corporate/Sales/Deal,0.389,headline
+142,"Oil majors like Royal Dutch Shell, Chevron, BP fail to find reserves to counter ...",Royal Dutch Shell,Corporate/Risks,-0.402,headline
+1425,ICE Said to Start Lining Up Financing for LSE Bidding War,LSE,Corporate/Rumors/Rumors,0.328,headline
+1426,"BP, Statoil, to Withdraw Staff From Algeria Following Rocket Attack",Statoil,Corporate/Appointment/Staff Hiring,-0.242,headline
+1431,Merkel's Government Said to Support Deutsche Boerse-LSE Merger,LSE,Corporate/M&A/Proposed Merger,0.358,headline
+1435,Aviva weighs cash handout after beating profit forecast,Aviva,Corporate/Dividend Policy,0.377,headline
+1436,"WPP, World's Largest Ad Agency, Reports Strong 2015 Growth",WPP,Stock/Fundamentals,0.555,headline
+1443,"Saudi Aramco, Shell plan to break up Motiva, divide up assets",Saudi Aramco,Corporate/Strategy/Reorganization,-0.142,headline
+1443,"Saudi Aramco, Shell plan to break up Motiva, divide up assets",Shell,Corporate/Strategy/Reorganization,-0.102,headline
+1449,AB InBev to sell more SAB assets as seeks EU deal approval,SAB,Corporate/M&A/M&A,-0.079,headline
+1455,Tesco's Sales Pickup Isn't Enough,Tesco,Corporate/Sales,-0.23,headline
+1462,Spain's CaixaBank Expects To Close Deal For Banco BPI,CaixaBank,Corporate/Sales/Deal,0.375,headline
+1463,ITV share price: Group mulls takeover of Canada's Entertainment One,ITV,Corporate/M&A/M&A,0.422,headline
+1469,Entertainment One dispels ITV takeover rumours,Entertainment One,Corporate/Rumors,0.138,headline
+1469,Entertainment One dispels ITV takeover rumours,ITV,Corporate/Rumors,0.003,headline
+1475,GE to Sell Majority Stake in Bank BPH's Core Bank to Alior Bank,Bank BPH,Stock/Price Action/Volatility/Sell-Off,0.213,headline
+1475,GE to Sell Majority Stake in Bank BPH's Core Bank to Alior Bank,GE,Stock/Price Action/Volatility/Sell-Off,0.211,headline
+1476,Tata Steel working with StanChart for UK unit sale - source,StanChart,Stock/IPO,0.218,headline
+1476,Tata Steel working with StanChart for UK unit sale - source,Tata Steel,Corporate/Sales/Deal,0.143,headline
+1487,Crown Castle buys Tower Development Corp for $461 million,Tower Development,Corporate/M&A/M&A,0.366,headline
+1492,Tesco sells half of stake in ecommerce site Lazada to Alibaba for Â£90m,Lazada,Stock/Price Action/Volatility/Sell-Off,-0.038,headline
+1492,Tesco sells half of stake in ecommerce site Lazada to Alibaba for Â£90m,Tesco,Stock/Price Action/Volatility/Sell-Off,0.365,headline
+1496,"CaixaBank, dos Santos Agree on Plan for BPI Angola Exposure",CaixaBank,Corporate/Strategy/Company Agreement,0.244,headline
+1499,"BPI Says Caixabank, Isabel dos Santos Reach Agreement Over Angola Exposure",CaixaBank,Corporate/Strategy/Company Agreement,0.243,headline
+1503,Spain's Caixabank launches new takeover bid for Banco BPI,Caixabank,Corporate/M&A/M&A,0.185,headline
+1507,"Despite sales growth, UK's Tesco cautions recovery to be bumpy",Tesco,Corporate/Sales,-0.077,headline
+1508,ITV to pursue takeover of Canada's Entertainment One: Bloomberg,ITV,Corporate/M&A/M&A,0.199,headline
+1516,Shire Sees Baxalta Deal Closing as Expected After New Rules,Shire,Corporate/Sales/Deal,0.224,headline
+1517,"OCBC to Buy Barclay's Wealth Management Unit in Singapore, Hong Kong",OCBC,Corporate/M&A/M&A,0.257,headline
+1528,Tesco share price steady as analysts weigh in on results,Tesco,Stock/Price Action,0.052,headline
+153,Standard Chartered lags on capital worries,Standard Chartered,Corporate/Risks,-0.358,headline
+1530,Lloyds Banking Group's share price lifts amid reports bank is poised to axe hundreds of UK jobs,Lloyds,Stock/Price Action,0.292,headline
+1545,Should You Follow Berkshire Hathaway Into Apple Stock?,Berkshire Hathaway,Corporate/Rumors/Scoop,0.0,headline
+1554,Morrisons book second consecutive quarter of sales growth,Morrisons,Corporate/Sales,0.43,headline
+1556,Royal Mail gets mixed bag from Ofcom postal regulation report,Royal Mail,Corporate/Regulatory,-0.084,headline
+1559,UPDATE 3-Ex-Barclays director accused by US of illegal tips to plumber,Barclays,Stock/Insider Activity,-0.34,headline
+156,Standard Life share price: Insurer buys advice firm Pearson Jones,Standard Life,Corporate/Strategy/Corporate Planning,0.364,headline
+1560,"EU regulators clear $100 billion-plus AB InBev, SABMiller deal",SABMiller,Corporate/Sales/Deal,0.392,headline
+1568,Retail giant Kingfisher reports 'solid' start to the year,Kingfisher,Corporate/Company Communication,0.368,headline
+158,Tesco closes in on new chairman with Dixons Carphone's John Allan in the frame,Tesco,Corporate/Appointment/Staff Hiring,0.295,headline
+158,Tesco closes in on new chairman with Dixons Carphone's John Allan in the frame,Dixons Carphone,Corporate/Appointment,0.129,headline
+1581,"Berkshire discloses unit's ties to Iran, opens probe",Berkshire,Corporate/Company Communication,-0.288,headline
+1583,Berkshire Hathaway names Kara Raiguel to lead General Re unit,Berkshire,Corporate/Appointment,0.077,headline
+1585,"European stocks hover near 3-week low, Dialog and BHP slump",Dialog,Stock/Price Action/Volume/Unusual Low Volume,-0.584,headline
+1586,Hargreaves Lansdown bucks weak markets to see assets rise 2.6 percent,Hargreaves Lansdown,Market/Market,0.571,headline
+159,MillerCoors Delivers 2.9% Underlying Net Income Growth for 2014,MillerCoors,Stock/Fundamentals,0.495,headline
+1590,Australia clears AB Inbev's $100 billion SABMiller buyout plan,AB InBrev,Corporate/Strategy/Buyout,0.437,headline
+1598,Goodwin not to face Scottish prosecution over RBS,RBS,Corporate/Legal,0.114,headline
+1599,Royal Mail turnaround proving expensive in tough UK market,Royal Mail,Market/Market,-0.057,headline
+1604,Whitbread buys 49% stake in Pure food chain,Whitbread,Corporate/M&A/M&A,0.365,headline
+1609,"Irish Said Chasing Standard Chartered, RBS as Brexit Vote Nears",Standard Chartered,Corporate/Strategy/Corporate Planning,0.128,headline
+1611,Royal Mail share price rallies amid positive broker comments,Royal Mail,Stock/Price Action,0.59,headline
+1619,InterContinental Hotels first-quarter global room revenue lags estimates,InterContinental,Corporate/Sales,-0.329,headline
+1629,Aspen to Buy Anaesthetics From AstraZeneca for $520 Million,AstraZeneca,Corporate/M&A/M&A,0.395,headline
+1634,London Stock Exchange â€“ Deutsche Boerse merger under threat from Brexit,London Stock Exchange,Corporate/M&A/M&A,-0.421,headline
+1635,Sainsbury CFO Rogers to Replace Home Retail CEO Walden,Sainsbury,Corporate/Appointment/Executive Reshuffle,0.0,headline
+1635,Sainsbury CFO Rogers to Replace Home Retail CEO Walden,Home Retail,Corporate/Appointment,0.0,headline
+1636,BP joins forces with Det Norske in Norway,Det Norske,Corporate/Strategy/Company Agreement,0.248,headline
+1639,BRIEF-Legal & General's retirement business books 4 billion stg H1 sales,Legal & General,Corporate/Sales,0.252,headline
+1640,Johnson Matthey revs up on clean air drive,Johnson Matthey,Corporate/Strategy,0.224,headline
+165,RBS will reportedly appoint Howard Davies as its next chairman,RBS,Corporate/Appointment,0.089,headline
+1663,"Goldman Sachs, Barclays, HSBC downplay Brexit threat",HSBC,Corporate/Risks,-0.14,headline
+1663,"Goldman Sachs, Barclays, HSBC downplay Brexit threat",Goldman Sachs,Corporate/Risks,-0.147,headline
+1663,"Goldman Sachs, Barclays, HSBC downplay Brexit threat",Barclays,Corporate/Risks,0.0,headline
+1669,Asahi could be about to snap up more of SABMiller's beers ahead of AB InBev sale,Asahi,Corporate/Strategy/Investment,0.207,headline
+1669,Asahi could be about to snap up more of SABMiller's beers ahead of AB InBev sale,SABMiller,Corporate/Strategy/Investment,0.329,headline
+1670,LSE-Deutsche BÃ¶rse dealmakers wrong to ignore Brexit risk,Deutsche BÃ¶rse,Corporate/Risks,-0.473,headline
+1670,LSE-Deutsche BÃ¶rse dealmakers wrong to ignore Brexit risk,LSE,Corporate/Risks,-0.415,headline
+168,HSBC Hit by Fresh Details of Tax Evasion Claims,HSBC,Corporate/Legal,-0.594,headline
+1682,Tesco sales recover as focus returns to core business,Tesco,Corporate/Sales,0.35,headline
+1692,Johnson Matthey profit falls but dividend rises,Johnson Matthey,Corporate/Dividend Policy,0.0,headline
+1699,"Are ARM Holdings plc, Domino's Pizza Group plc and ASOS plc 3 must-have growth stocks?",Domino's Pizza Group plc,Corporate/Rumors/Scoop,0.063,headline
+1699,"Are ARM Holdings plc, Domino's Pizza Group plc and ASOS plc 3 must-have growth stocks?",ASOS plc,Corporate/Rumors/Scoop,0.0,headline
+1700,Priceline's stock jumps to new high for the year after Barclays upgrade,Priceline,Stock/Coverage,0.847,headline
+1708,"Tesco set to sell Kipa, Giraffe businesses - Sky News",Tesco,Stock/Signal/Sell Signal,0.23,headline
+1708,"Tesco set to sell Kipa, Giraffe businesses - Sky News",Kipa,Stock/Signal/Sell Signal,-0.192,headline
+171,Relief for Lewis as Tesco sees sales grow for first time in a year,Tesco,Corporate/Sales,0.42,headline
+1712,The Coca-Cola Company and Coca-Cola FEMSA to Acquire AdeS Soy-Based Beverage Business From Unilever,Coca-Cola Companp,Corporate/M&A/M&A,0.259,headline
+1712,The Coca-Cola Company and Coca-Cola FEMSA to Acquire AdeS Soy-Based Beverage Business From Unilever,Coca-Cola FEMSA,Corporate/M&A/M&A,0.293,headline
+1717,HSBC Says Unit to Book $585 Million Charge on Settlement,HSBC,Corporate/Legal,-0.434,headline
+1718,"Hammerson, JV Partner secure ownership of Ireland's Dundrum - Quick Facts",JV Partner,Corporate/M&A/M&A,0.427,headline
+1728,Aviva promises higher dividends to boost flagging share price,Aviva,Corporate/Dividend Policy,0.281,headline
+1734,CompaniesFresnillo shares jump 8% as silver price breaks $21,Fresnillo,Stock/Price Action,0.874,headline
+1735,"Should you buy Associated British Foods plc, Great Portland Estates plc and Dunelm Group plc following today's news?",Dunelm Group plc,Corporate/Rumors/Rumors,0.14,headline
+1735,"Should you buy Associated British Foods plc, Great Portland Estates plc and Dunelm Group plc following today's news?",Great Portland Estates plc,Corporate/Rumors/Rumors,0.165,headline
+1737,Berkshire seeks to boost its Wells Fargo stake above 10 percent,Wells Fargo,Stock/Signal/Buy Signal,0.429,headline
+1741,Tesco share price tumbles after negative broker note,Tesco,Stock/Price Action,-0.779,headline
+1742,London Stock Exchange Shareholders Approve Merger With Deutsche BÃ¶rse,London Stock Exchange,Corporate/M&A/M&A,0.406,headline
+1743,UPDATE 1-Berkshire applies to boost Wells Fargo stake above 10 pct,Wells Fargo,Stock/Signal/Sell Signal,0.432,headline
+1748,Berkshire applies to boost Wells Fargo stake above 10 percent,Wells Fargo,Stock/Signal/Buy Signal,0.484,headline
+1750,"Aviva, M&G suspend property funds as investors panic",M&G,Corporate/Risks,-0.807,headline
+1754,"UK housing market steadies after Brexit dip, Persimmon says",Perssimon,Market/Market,0.339,headline
+1755,BRIEF-Aviva aims to increase dividend pay-out ratio to 50 pct in 2017,Aviva,Corporate/Dividend Policy,0.439,headline
+176,Morrisons finance chief to fill gap as CEO leaves early,Morrisons,Corporate/Appointment,-0.114,headline
+1764,Builder Persimmon hails 6% rise in house sales,Persimmon,Corporate/Sales,0.435,headline
+1779,EasyJet attracts more passengers in June but still lags Ryanair,Ryanair,Corporate/Sales/Sales,0.259,headline
+178,"UPDATE: Persimmon Profit Up Strongly, Outlook Positive",Persimmon,Stock/Fundamentals,0.937,headline
+182,TRLPC - CRH backs Lafarge Holcim asset buy with 6.5 bln euro bridge loan,Lafarge Holcim,Corporate/Strategy/Share Buyback,0.365,headline
+183,Tesco shareholders back ITV head for chairman,Tesco,Corporate/Appointment/Executive Appointment,0.139,headline
+184,"Buffett's Berkshire builds Deere stake, dumps Exxon",Exxon,Stock/Signal/Buy Signal,-0.548,headline
+184,"Buffett's Berkshire builds Deere stake, dumps Exxon",Deere,Stock/Signal/Buy Signal,0.316,headline
+185,Aviva Fined $27 Million by U.K. Regulator Over Fee Failings,Aviva,Corporate/Regulatory,-0.675,headline
+186,AstraZeneca's patent on asthma drug invalidated by US court,AstraZeneca,Corporate/Legal,-0.656,headline
+187,Rolls-Royce to Ensure Compliance After Petrobras Bribery Report,Rolls-Royce,Corporate/Legal/Court Ruling,-0.075,headline
+188,Whitbread share price climbs on Q4 sales growth,Whitbread,Stock/Price Action,0.513,headline
+190,Warren Buffett defends Berkshire Hathaway's conglomerate structure,Berkshire Hathaway,Corporate/Company Communication,0.144,headline
+199,G4S sees profits rise but UK contract problems remain,G4S,Corporate/Risks,0.252,headline
+206,Friends Life lifts profits 38% and hikes divi ahead of proposed Aviva takeover,Friends Life,Corporate/Financial/Financial Results/Earnings,0.387,headline
+212,Auto Trader share price surges as company floats on LSE,Auto Trader,Stock/Price Action,0.655,headline
+214,New Credit Suisse boss faces stiff challenge in Asia,Credit Suisse,Corporate/Risks,-0.181,headline
+218,"UPDATE: EasyJet Passenger Numbers, Aer Lingus Traffic Up In February",EasyJet,Corporate/Sales,0.315,headline
+218,"UPDATE: EasyJet Passenger Numbers, Aer Lingus Traffic Up In February",Aer Lingus,Corporate/Sales,0.284,headline
+219,Is It Worth Investing In Tesco PLC And Prudential plc Now?,Tesco PLC,Corporate/Strategy/Investment,0.161,headline
+22,Insight hires Aviva's David Hillier for multi-asset team,Insight,Corporate/Appointment/Executive Appointment,0.137,headline
+225,UK WINNERS & LOSERS: Aviva And Friends Life Lead FTSE 100 Gainers,Friends Life,Market/Market/Market Trend,0.516,headline
+234,Sainsbury's says to outperform rivals in tough market,Sainsbury,Market/Market,0.536,headline
+239,CompaniesKingfisher bid for Mr Bricolage runs into trouble,Mr Bricolage,Corporate/M&A/Proposed Merger,-0.253,headline
+240,UPDATE 3-Auto Trader shares leap in UK's biggest private equity-backed listing,Auto Trader,Stock/IPO,0.641,headline
+241,"London open: Taylor Wimpey and Ashtead drive markets higher, Barclays falls",Ashtead,Market/Market,0.514,headline
+241,"London open: Taylor Wimpey and Ashtead drive markets higher, Barclays falls",Barclays,Market/Market/Market Trend,-0.657,headline
+241,"London open: Taylor Wimpey and Ashtead drive markets higher, Barclays falls",Tailor Wimpey,Market/Market/Market Trend,0.508,headline
+242,GSK and Novartis complete deals to reshape both drugmakers,Novartis,Corporate/Strategy/Reorganization,0.264,headline
+244,"Aviva, Friends Life top forecasts ahead of 5.6 billion pound merger",Friends Life,Corporate/M&A/M&A,0.39,headline
+246,Citigroup to Sell OneMain to Springleaf for $4.25 Billion,OneMain,Corporate/M&A/M&A,0.283,headline
+246,Citigroup to Sell OneMain to Springleaf for $4.25 Billion,Springleaf,Corporate/M&A/M&A,0.225,headline
+247,"U.K. Stocks Resume Gains to Rally to Record; CRH, Tullow Climb",Tullow,Stock/Price Action/Bullish/Bullish Behaviour,0.544,headline
+248,British American Tobacco drops and sues PwC over pollution scandal,PwC,Stock/Price Action/Bearish/Bearish Behaviour,-0.437,headline
+252,UK's FTSE has worst day so far in 2015 as BG and Prudential fall,Prudential,Market/Market/Market Trend,-0.651,headline
+253,"Kraft, Cadbury's and Britvic in Total Recall: how pulling a product affects profit",Kraft,Corporate/Rumors/Scoop,-0.179,headline
+253,"Kraft, Cadbury's and Britvic in Total Recall: how pulling a product affects profit",Cadbury's,Corporate/Rumors/Scoop,-0.158,headline
+257,How Kraft-Heinz Merger Came Together in Speedy 10 Weeks,Kraft,Corporate/M&A/M&A,0.214,headline
+258,AstraZeneca Teams With Daiichi Sankyo To Sell Movantik In US,Daiichi Sankyo,Corporate/Sales/Partnership,0.364,headline
+258,AstraZeneca Teams With Daiichi Sankyo To Sell Movantik In US,Movantik,Corporate/Sales/Partnership,0.369,headline
+263,RBI surprises Street; Sensex pares gains after hitting mount 30k,Sensex,Stock/Price Action,-0.216,headline
+264,Credit Suisse poaches Prudential's Thiam for Asian push,Prudential,Corporate/Strategy,-0.031,headline
+264,Credit Suisse poaches Prudential's Thiam for Asian push,Credit Suisse,Corporate/Strategy,0.125,headline
+266,Kingfisher takeover of Mr Bricolage could hit a brick wall,Mr Bricolage,Corporate/M&A/Proposed Merger,-0.311,headline
+270,"U.K. Stocks Little Changed Near Record as Barclays, Shell Fall",Shell,Stock/Price Action/Bearish/Bearish Behaviour,-0.508,headline
+274,Insurers: Admiral blows hot and cold but Aviva soars pre-Friends Life merger,Friends Life,Stock/Price Action/Volatility/Stock Volatility,0.053,headline
+275,AstraZeneca And Daiichi Sankyo To Jointly Commercialise MOVANTIK In The US,MOVANTIK,Corporate/Sales/Partnership,0.454,headline
+275,AstraZeneca And Daiichi Sankyo To Jointly Commercialise MOVANTIK In The US,Daiichi Sankyo,Corporate/Sales/Partnership,0.361,headline
+279,Legal & General arm buys 50 pct stake in MediaCityUK in Manchester,MediaCityUK,Stock/Signal/Buy Signal,0.379,headline
+281,Randgold profit hit by poor gold price but dividend still increases,Rangold,Corporate/Dividend Policy,-0.052,headline
+290,"CompaniesTravis Perkins lifts dividend, earnings rise 15%",Travis Perkins,Corporate/Dividend Policy,0.494,headline
+293,Market Report: Aviva tops the market as traders approve of its choice of Friends,Friends,Market/Market/Market Trend,0.443,headline
+296,Insurer Old Mutual picks Standard Bank's Hemphill as new CEO,Standard Bank,Corporate/Appointment/Executive Appointment,0.025,headline
+30,Primark racks up a happy Christmas after strong sales,Primark,Corporate/Sales,0.704,headline
+302,"FDA panel backs safety updates for AstraZeneca, Takeda drugs",Takeda,Corporate/Regulatory,-0.198,headline
+302,"FDA panel backs safety updates for AstraZeneca, Takeda drugs",AstraZeneca,Corporate/Regulatory,0.143,headline
+304,CompaniesDiageo stays neutral on India boardroom turmoil,Diageo,Corporate/Risks,0.0,headline
+31,UPDATE 1-Pearson expects to grow this year after solid end to 2014,Pearson,Stock/Fundamentals,0.446,headline
+315,Germanwings disaster will not affect image of budget air travel - easyJet,easyJet,Corporate/Reputation,0.096,headline
+315,Germanwings disaster will not affect image of budget air travel - easyJet,Germanwings,Corporate/Reputation,-0.046,headline
+318,Shell's $70 Billion BG Deal Meets Shareholder Skepticism,Shell,Corporate/Rumors/Rumors,-0.345,headline
+32,Tesco sells Blinkbox and broadband service to TalkTalk,Tesco,Corporate/Sales/Deal,0.192,headline
+32,Tesco sells Blinkbox and broadband service to TalkTalk,TalkTalk,Corporate/Sales/Deal,0.136,headline
+321,Shell offers 50 percent premium to buy BG for $70 billion,Shell,Corporate/M&A/M&A,0.193,headline
+324,WPP boosts sales despite cautious clients,WPP,Corporate/Sales,0.251,headline
+335,Shell to buy BG Group in $69.7 billion takeover,Shell,Corporate/M&A/M&A,0.25,headline
+336,LONDON MORNING BRIEFING: HSBC And Standard Chartered Shares Rise,Standard Chartered,Stock/Price Action/Bullish/Bullish Behaviour,0.556,headline
+342,UPDATE 1-BP shareholders back more disclosure on climate change risks,BP,Corporate/Risks,0.037,headline
+345,Shell challenges Exxon dominance with 47 billion-pound bid for BG,Shell,Corporate/Strategy/Corporate Expansion,0.078,headline
+345,Shell challenges Exxon dominance with 47 billion-pound bid for BG,Exxon,Corporate/Strategy/Corporate Expansion,-0.196,headline
+347,Royal Dutch Shell to Buy BG Group for Nearly $70 Billion,Royal Dutch Shell,Corporate/M&A/M&A,0.259,headline
+349,City spirits sink after Diageo comes up short with sales slide,Diageo,Corporate/Sales,-0.521,headline
+358,Diageo receives reports from United Spirits on financial irregularities involving ...,Diageo,Corporate/Reputation,-0.255,headline
+358,Diageo receives reports from United Spirits on financial irregularities involving ...,United Spirits,Corporate/Reputation/Scoop,-0.272,headline
+36,Unilever profit rises despite sales slump in China,Unilever,Corporate/Sales,0.213,headline
+361,Rolls-Royce Wins $9.2 Billion Order From Emirates Airline,Rolls-Royce,Corporate/Sales/Deal,0.777,headline
+372,Tesco sales rise shows tentative recovery continues,Tesco,Corporate/Sales,0.256,headline
+374,Diageo sales disappoint as currency and comparatives leave bitter taste,Diageo,Corporate/Sales,-0.545,headline
+38,Tesco leads leap in FTSE 100; Marks & Spencer drops,Tesco,Stock/Technical Analysis/Trend/Trending up,0.389,headline
+381,AstraZeneca profit down as sales of stalwarts fade,AstraZeneca,Corporate/Sales,-0.405,headline
+382,"Whitbread Profit Up As Sales Continue To Rise, Looking For New CEO",Whitbread,Corporate/Sales,0.385,headline
+391,Glencore blames rivals for creating metals glut,Glencore,Corporate/Risks,-0.331,headline
+394,Doubts grow over GlaxoSmithKline's $6 bln capital return plan,GlaxoSmithKline,Corporate/Dividend Policy,-0.221,headline
+395,easyJet leads Britain's FTSE lower as global bond rout resumes,easyJet,Market/Volatility,-0.495,headline
+398,Imperial Tobacco Adds Quarterly Dividends After Profit Rose,Imperial Tobacco,Corporate/Dividend Policy,0.336,headline
+40,Royal Dutch Shell profit rises; dividend up 4%,Royal Dutch Shell,Corporate/Dividend Policy,0.65,headline
+401,BG Group Still Happy With Shell's $70 Billion Offer,Shell,Corporate/M&A/Proposed Merger,0.235,headline
+402,SABMiller buys Meantime to quench thirst for craft beer,SABMiller,Corporate/M&A/Proposed Merger,0.296,headline
+405,Aviva shuts Friends Life head office in rapid integration move,Friends Life,Corporate/Strategy/Corporate Expansion,-0.09,headline
+409,Retailers Kingfisher and Sports Direct rise in Britain's share index,Sports Direct,Stock/Technical Analysis/Trend/Trending up,0.459,headline
+412,"GlaxoSmithKline targets growth across units, scraps ViiV IPO",GlaxoSmithKline,Stock/IPO,0.229,headline
+413,Tesco share price closes higher as two more directors leave grocer,Tesco,Stock/Price Action,0.354,headline
+415,Tesco leads FTSE higher on Clubcard bid reports,Tesco,Corporate/Rumors,0.453,headline
+417,Eli Lilly & Co. (LLY) Has Broken Out To A New High On AstraZeneca Collaboration,Eli Lilly & Co,Stock/Technical Analysis/Volume/Unusually high volume,0.516,headline
+422,"RPT-Old Mutual Q1 gross sales beat forecasts, up 18 pct",Old Mutual,Corporate/Sales,0.724,headline
+427,"UPDATE 3-BP settles oil spill-related claims with Halliburton, Transocean",BP,Corporate/Legal/Settlement,-0.121,headline
+427,"UPDATE 3-BP settles oil spill-related claims with Halliburton, Transocean",Halliburton,Corporate/Legal/Settlement,-0.042,headline
+429,GlaxoSmithKline share price slips as FDA okays asthma therapy only for adults,GlaxoSmithKline,Stock/Price Action,-0.408,headline
+430,Glencore chief blames rivals' overproduction for share price fall,Glencore,Stock/Price Action,-0.301,headline
+435,"Philip Morris, BAT Sue Over Law Taking Branding Off Packs",Philip Morris,Corporate/Legal/Lawsuit,-0.152,headline
+435,"Philip Morris, BAT Sue Over Law Taking Branding Off Packs",BAT,Corporate/Legal/Lawsuit,-0.152,headline
+440,Hargreaves Lansdown share price falls as costs mount - although pensions ...,Hargreaves Lansdown,Stock/Price Action,-0.514,headline
+444,"PRESS: Serco Set To Appoint Roy Gardner, Ex-Centrica, As Chairman - FT",Centrica,Corporate/Appointment,0.195,headline
+444,"PRESS: Serco Set To Appoint Roy Gardner, Ex-Centrica, As Chairman - FT",Serco,Corporate/Appointment/Executive Appointment,0.122,headline
+449,UPDATE 1-Cypress Semiconductor offers to buy Integrated Silicon Solution,Integrated Silicon Solution,Stock/Signal/Buy Signal,0.461,headline
+454,"UPDATE 1-Nomura, RBS must pay $806 mln in mortgage bond case-US judge",RBS,Corporate/Legal/Settlement,-0.69,headline
+459,MillerCoors Board Names Gavin Hattersley Interim CEO,MillerCoors,Corporate/Appointment,0.0,headline
+461,"Britain's FTSE gains, Land Securities up after dividend hike",Land Securities,Corporate/Dividend Policy,0.549,headline
+466,"Britain's FTSE bounces back, Mondi and Barratt lead",Barratt,Stock/Price Action,0.558,headline
+466,"Britain's FTSE bounces back, Mondi and Barratt lead",Mondi,Stock/Price Action,0.552,headline
+47,Morning Agenda: Shire's Deal for NPS,Shire,Corporate/Sales/Deal,0.195,headline
+470,Old Mutual First-Quarter Sales Up 18% Buoyed by Emerging Markets,Old Mutual,Corporate/Sales,0.689,headline
+473,Do it for me' trend underpins UK sales growth at Kingfisher,Kingfisher,Corporate/Sales,0.304,headline
+476,"Aldi and Lidl expansion plans speed ahead as Tesco, Sainsbury's, Morrisons ...",Lidl,Corporate/Strategy/Corporate Expansion,0.372,headline
+477,"Centrica extends gas deals with Gazprom, Statoil",Statoil,Corporate/Sales/Deal,0.239,headline
+477,"Centrica extends gas deals with Gazprom, Statoil",Gazprom,Corporate/Sales/Deal,0.199,headline
+48,Carnival Corporation and China Merchants Group Sign Memo of Understanding ...,China Merchants Group,Corporate/Strategy/Company Agreement,0.119,headline
+480,"Aberdeen AM posts H1 outflows, says conditions to remain challenging",Aberdeen AM,Market/Conditions,-0.364,headline
+49,Teva: FDA Approves Generic Version of AstraZeneca Heartburn Drug,Teva,Corporate/Regulatory,0.476,headline
+49,Teva: FDA Approves Generic Version of AstraZeneca Heartburn Drug,AstraZeneca,Corporate/Regulatory,0.242,headline
+492,Severn Trent share price jumps as Canadian investor renews pursuit of utility,Severn Trent,Stock/Price Action,0.433,headline
+495,New Morrisons duo get former boss's support to diffuse investor tension,Morrisons,Corporate/Risks,0.143,headline
+14860,Slowly adding some $FIO here but gotta be careful. This will be one of biggest winners in 2012,FIO,Stock/Price Action/Bullish/Bull Position,0.459,post
+14864,$TRX http://stks.co/1KkK Long setup. MACD cross.,TRX,Stock/Technical Analysis,0.438,post
+14867,I am not optimistic about $amzn both fundementals and charts look like poopoo this quarter.,AMZN,Stock/Price Action/Bearish,-0.506,post
+14875,$GRPN might be selling off ahead of $P earnings...,P,Stock/Price Action/Bearish/Bearish Behavior,-0.202,post
+14876,$IACI http://stks.co/tJU Looks good on the weekly chart.,IACI,Stock/Technical Analysis,0.379,post
+14877,"$pcln back over ""up"" trendline from 10/4",PCLN,Stock/Price Action/Bullish,0.308,post
+14880,RT @robbieLOLZ $NFLX A close above here is looking good for the bulls. Will hold my positions to see where we close at. Keep buying here.,NFLX,Stock/Price Action/Bullish/Bullish Behavior,0.578,post
+14882,Profit taking on $AAPL this morning?  That has to be the pressure on the stock.  I'm still bullish on $AAPL.,AAPL,Stock/Price Action/Bearish,0.222,post
+14886,$SKX turning. Coming from far could go far. Stock price implies you pay nothing for the business,SKX,Stock/Price Action/Bullish,0.298,post
+14891,$MOS looking good here at $58.65. Calls are active in this month and weekly,MOS,Stock/Options/Strategies,0.492,post
+14893,"Sold out $TZA 45 $PUT (down $1), which were hedging my 45 $CALL. Letting the calls ride solo now.",TZA,Stock/Options/Strategies,0.385,post
+14899,$YMI http://stks.co/Xyf Long setup. Closed above the 20MA. MACD cross. November catalyst.,YMI,Stock/Price Action/Bullish,0.444,post
+14902,$TZOO a close above 28.64 and we are ready to rock and roll,TZOO,Stock/Price Action/Bullish,0.308,post
+14905,"I'm liking the price action in $SWKS, currently @21.80 ; my target: 24.00+ before year end.",SWKS,Stock/Price Action,0.603,post
+14918,$WFT closng higher from here,WFT,Stock/Price Action/Bullish/Bullish Behavior,0.48,post
+14924,$SPPI..building RS. Sweet. I want this to break a new 52week. The earnings growth justifies way higher,SPPI,Stock/Price Action/Bullish,0.601,post
+14925,$SPY bull move ended waiting for next setup,SPY,Stock/Price Action/Bearish,-0.204,post
+14927,Double bottom with handle buy point of 29.51 $IP http://chart.ly/akvujxh,IP,Stock/Technical Analysis,0.446,post
+14928,"$GLD http://stks.co/jr8 Daily chart - though RSI and Stoch. point at a possible move up, there's a lot of resistance.",GLD,Stock/Technical Analysis,0.176,post
+14929,$ACOM http://stks.co/1G6x Downside breakout looks to be coming soon.,ACOM,Stock/Price Action/Bearish,-0.536,post
+14930,$ZAGG getting ready...Target $15 plus on a close over $13.50 on better than avg daily Volume http://chart.ly/lha44tn,ZAGG,Stock/Price Action/Bullish,0.385,post
+14931,volatility squeeze in $AAPL. I hope it gets resolved to the upside,AAPL,Market/Volatilit,0.042,post
+14933,"Still short $LNG from $11.70 area...next stop could be down through $9.00. Someone slammed it hard with 230,000 shs this am! More to follow",LNG,Stock/Price Action/Volatility/Short Selling,-0.543,post
+14934,Covered my small $MWW short @ 7.99 for a .16 loss. Flat on the day. All cash now.,MWW,Stock/Price Action/Bullish/Bullish Behavior,0.348,post
+14935,That bearish outside day Tuesday is significant. 200 day resistance still intact. just my opinion $SDS http://chart.ly/2bey48t,SDS,Stock/Technical Analysis,-0.39,post
+14944,"RT FITZSTOCK2004: $IYT http://stks.co/1NBF the Transports always lead  the way, and  they broke DT  line  1st, MACD cross,  bull  flag=",IYT,Stock/Technical Analysis,0.594,post
+14945,$DUG weekly stochastics finally starting to turn up after long consolidation. Buying here.,DUG,Stock/Technical Analysis/Stochastic,0.702,post
+14955,$SPY Don't hang your bull hat yet. Next week we will pop higher on QE3 hope on back of fed's 2 day meeting.,SPY,Stock/Price Action/Bullish,0.412,post
+14959,longed $AMZN 300 @ 189.82,AMZN,Stock/Price Action/Bullish/Bull Position,0.65,post
+14961,"$SLW is down, but weekly $34 calls (-28.95%), .23 x .25 have 321 volume. Worth a chance here, jmho: http://stks.co/1Qfg",SLW,Stock/Options,0.145,post
+14965,"$HSC Receives 7-Year, $50M Contract at New Saudi Arabian Steel Mill",HSC,Corporate/Sales/Deal,0.497,post
+14971,"Reuters: Green Mountain revenue misses, shares plunge http://stks.co/13mW > $GMCR prints 43.80, market in a foul mood, bad day to disappoint",GMCR,Corporate/Financial/Financial Results,-0.668,post
+14986,"$XLF http://stks.co/1KJ9 Bounced off target buy area, bought $skf as a hedge. watch 50ma's slope",XLF,Stock/Technical Analysis,-0.299,post
+14994,$vxx adding to position here !,VXX,Stock/Price Action/Bullish/Bull Position,0.685,post
+14995,$GPS Gap September Comparable Store Sales -4%,GPS,Corporate/Sales,-0.441,post
+15000,Double bottom with handle buy point of 56.49 $WMT http://chart.ly/ml857v3,WMT,Stock/Technical Analysis,0.654,post
+15001,$MA http://stks.co/1CYN continues to consolidate / base here,MA,Stock/Price Action/Bullish/Bullish Behavior,0.148,post
+15003,Nasdaq Sets Up for Breakout Part II | via @AllStarCharts http://stks.co/15Nv  $GOOG $AMZN $QCOM,QCOM,Stock/Price Action/Bullish,0.396,post
+15009,$isrg trading at all-time high after strong earnings report with 4 days of short interest.,ISRG,Stock/Price Action/Current Price/52-Week High,0.729,post
+15016,$UTSI http://stks.co/15uR Long setup. Reported very good earnings.,UTSI,Corporate/Financial/Financial Results/Earnings,0.63,post
+15021,Here come the shorts marchin' in.  $GMCR.  Lovin' it!,GMCR,Stock/Price Action/Volatility/Short Selling,-0.522,post
+15022,$aapl news is becoming very bullish again http://stks.co/tMU,AAPL,Stock/Price Action/Bullish,0.526,post
+15031,stole my tweet. really wouldn't be surprised if we took out 423 and pinned around it RT @totalguru We could possibly even see425 today $AAPL,AAPL,Stock/Price Action,0.142,post
+15034,"$DPZ broke out now of his bull flag channel and make new highs, but volume is very poor",DPZ,Stock/Price Action/Bullish/Bullish Behavior,0.369,post
+15035,$ES_F. Nice little cup-and-handle shaping up on the 15-minute. End-of-day $SPY $SPX favours a good day for the index. Will we see a gap open,SPY,Stock/Technical Analysis,0.341,post
+15043,Short more $FAZ for all who don't know that means markets will tank now :-p,FAZ,Stock/Price Action/Bearish,-0.605,post
+15046,RT @alphatrends VMarkets Are Still Acting Weak http://stks.co/1agn  $SPY $QQQ $XLF $SMH $IWM,XLF,Stock/Price Action,-0.443,post
+15047,"FBR Capital reiterated ""Outperform"" rating on $BRCM with a price target of $45.00 on Friday.",BRCM,Stock/Coverage/AnalystRatings/Upgrade,0.521,post
+15050,$ELN longs...congrats...another HOD,ELN,Stock/Price Action/Bullish/Bullish Behavior,0.445,post
+15051,"Casinos red before the bell: $LVS -0.75%, $WYNN -0.47%, $WYNN -0.47% > unusual comibinations of what's running, what's red before the bell",WYNN,Stock/Price Action/Bearish/Bearish Behavior,-0.424,post
+15053,$TSPT  long 8.00,TSPT,Stock/Price Action/Bullish/Bull Position,0.499,post
+15060,$SKH http://stks.co/163e Long setup. Watch for continuation and volume expansion here. Hot sector.,SKH,Stock/Price Action/Bullish/Bullish Behavior,0.622,post
+15064,Looks like its booking a one way ticket to its 40 week MA near 50. Losing 10 week here $LULU http://chart.ly/7xb9h9b,LULU,Stock/Price Action/Bearish,0.006,post
+15066,"RT @joemccann the correleation between the dollar index and $SPY is simply amazing. $DX finds support, $SPY retreats like clockwork",SPY,Stock/Price Action,-0.312,post
+15069,$FIO won't stay down,FIO,Stock/Price Action/Current Price/Oversold,0.376,post
+15073,$AAPL http://stks.co/1LDx Clearing this descending trend line / buy area now,AAPL,Stock/Technical Analysis,0.529,post
+15079,$ROST Nov 90 calls 2.08 .. Go Long until exp imo ! Unless europeans keeps F'ing around !,ROST,Stock/Price Action/Bullish,0.414,post
+15080,i-Grid shows $DIA capped for the long term at range of 123.40- 124.77;any rally beyond today's levels or into this range leads to meltdown.,DIA,Stock/Price Action/Bearish,-0.172,post
+15088,"Whats up with $LULU?  Numbers looked good, not great, but good.  I think conference call will instill confidence.",LULU,Stock/Fundamentals,0.011,post
+15092,"$ZSL looking very weak, could be a good short setup.",ZSL,Stock/Price Action/Bearish/Bearish Behavior,-0.614,post
+15096,"@Dlerch LOL! $FMCN back under $17, darn those shorts! No chit Sherlock!",FMCN,Stock/Price Action/Volatility/Short Selling,-0.483,post
+15099,$mcp rolling over for a new intraday low. Bottom Pickers continue to get destroyed,MCP,Stock/Price Action/Bearish/Bearish Behavior,-0.607,post
+15104,"ACE Limited, which has a 17 year dividend growth streak, plans a 33% dividend hike: http://stks.co/1BUE $ACE",ACE,Corporate/Dividend Policy,0.455,post
+15109,"$AAPL 50DMA turned up, MACD crossover a half-a-hair away on the weekly. EOD break out likely.",AAPL,Stock/Technical Analysis/MACD,0.498,post
+15117,$CIEN http://stks.co/dZU CIEN seems to have broken out of a major horizontal resistance. Targets $14.35.,CIEN,Stock/Technical Analysis,0.345,post
+15119,like $T for a breakout long as well. getting through the 100 and 200 MA could see it run.,T,Stock/Price Action/Bullish,0.655,post
+15122,My $DWA play up 6% today. I'm still skeptical. Will take profits. Not a time cheer,DWA,Stock/Price Action/Bearish,-0.088,post
+15132,$IBM staying strong,IBM,Stock/Price Action/Bullish,0.532,post
+15141,"$SINA even though the ""report"" is untrue and has been proven unture, the damage is done. No one wants to touch it now",SINA,Corporate/Reputation,-0.55,post
+15149,"$amzn 4 period RSI is down at 20, just read Connors book on trading strategies",AMZN,Stock/Technical Analysis,0.221,post
+15152,$SIGA Bid for Reargument Denied by Judge,SIGA,Corporate/Legal,-0.354,post
+15153,"RT @andrewnyquist Chartology: Yahoo: http://stks.co/1itr $YHOO  Crazy looking chart, but nearing breakout resistance line...",YHOO,Stock/Technical Analysis/Breakout,0.194,post
+15159,$CERN - consolidating above 50 & 200 MA - nice long entry here w stop below 10 MA - targeting $70 area,CERN,Stock/Price Action/Bullish/Bullish Behavior,0.443,post
+15162,$SPY http://stks.co/1MiR We're holding above Wednesday and Thursday closes. I'm leaning bullish. Small postions. Waiting.,SPY,Stock/Price Action/Bullish,0.316,post
+15167,$RDC Rowan Expands Share Repurchase Program to $150 million,RDC,Stock/Fundamentals/Share Buyback,0.285,post
+15175,$NVDA sideways,NVDA,Stock/Price Action,0.0,post
+15176,$HITK  Resuming advance into new historical highs.,HITK,Stock/Price Action/Current Price/52-Week High,0.68,post
+15188,Held its recent double bottom buy point of 56.57 almost to the penny today $WMT http://chart.ly/6nosp5q,WMT,Stock/Technical Analysis,0.198,post
+15194,$GOOG breakout very likely medium target $700+ http://stks.co/1Lpz http://chart.ly/lgb94rr,GOOG,Stock/Technical Analysis/Breakout,0.518,post
+15195,RT @Street_Insider The Steve Jobs Effect? Apple $AAPL First Day iPhone 4S Sales Were Off the Charts http://stks.co/YYe,AAPL,Corporate/Sales,0.539,post
+15198,"that was quick, out $FIO 21.35, market tanking, scaling down longs now",FIO,Market/Market,-0.497,post
+15201,$SPY extreme win today - 2 cents above 2009  low on 10-year and $SPY up 2 percent - life is a bowl of cherries - great short setting up $$,SPY,Stock/Price Action,-0.406,post
+15209,$LNT Increases Annual Dividend Target to $1.80/Share from $1.70/Share,LNT,Corporate/Dividend Policy,0.324,post
+15221,"RT @Cash_Cow $TLT still has a rising RSI & MACD, all this bond buying is signaling some bad moves for the market. $SPY $UUP",UUP,Stock/Technical Analysis,-0.361,post
+15222,$IDCC - $89 share total value of company after crunching #'s. The 4g technology is their diamond in the rough.,IDCC,Corporate/Financial/Financial Results/Earnings,0.477,post
+15223,$mako hanging in well today. still in a basing pattern. have eyes on it,MAKO,Stock/Price Action/Bullish,0.195,post
+15225,"RT @stockdemons think shorting here into close might be play, $SPY - high beta reversing..looks worth a shot",SPY,Stock/Price Action/Volatility/Short Selling,-0.469,post
+15227,$TZA is a rocket ship!!!,TZA,Stock/Price Action/Bullish/Bullish Behavior,0.807,post
+15238,"Lots of metal stocks look like a 5-10% run awaits. Long $SSRI,$PAAS and $NEM but most high quality names should go if metal prices cooperate",SSRI,Stock/Price Action/Bullish,0.394,post
+15241,$vxx starting to creep up while $spy sits near hod ...,SPY,Stock/Price Action/Bullish/Bullish Behavior,0.141,post
+15249,$AAPL I'm sure those short are holding their breath hoping for a miracle. lol,AAPL,Stock/Price Action/Volatility/Short Selling,0.411,post
+15250,VIVUS $VVUS bear raid in effect. Stock down 12%,VVUS,Stock/Price Action/Volatility/Short Selling,-0.57,post
+15254,looks like a big feb 18-22 $put spread on $cree.  Last quarter 0% YoY rev growth trading @ 24x earnings.  I may try a short.,CREE,Stock/Price Action/Bearish/Bear Position,-0.352,post
+15260,$YELP wayyy overvalued right now IMO. Should be trading single digits. May take a short pos. into earnings. Near term target 18 ......,YELP,Stock/Price Action/Current Price/Overbought,-0.451,post
+15265,$renn topping tail 5 min. chart at 7.31 short from here.,RENN,Stock/Price Action/Bearish,-0.64,post
+15267,$SPY weak close,SPY,Stock/Price Action/Bearish,-0.297,post
+15274,$ZNGA http://stks.co/3rdu Looking for a test at 9.25 resistance point. cc @ cfrazierjr @FletchTrade #traders,ZNGA,Stock/Technical Analysis,0.248,post
+15276,$EFUT hod  posted buy pm at $4.40,EFUT,Stock/Price Action/Bullish/Bullish Behavior,0.354,post
+15279,$AAPL short some 592.49,AAPL,Stock/Price Action/Bearish/Bear Position,-0.464,post
+15280,"@SOULLOR the regular scrappy Q $SWY usually presents. Sales weak, margins down, debt still way up.",SWY,Corporate/Financial/Accounting,-0.515,post
+15285,"$AAPL Taking out the shorts here, a punishing reminder not to spear the  strongest in the herd.",AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.144,post
+15296,Think $FMS will challendge 200-EMA in not distant future.   Look at yesterday's volume,FMS,Stock/Technical Analysis,0.221,post
+15299,"RT @Dasan @TMTanalyst ...since $AAPL mastered their supply chain // in cornering NAND, Apple mastered EVERYONE'S supply chain!",AAPL,Corporate/Strategy,0.461,post
+15313,$PRLB hanging tough in down market due to analyst upgrades last week. Up almost 3%.,PRLB,Stock/Coverage/AnalystRatings/Upgrade,0.394,post
+15314,$AMRN It's accumulating. I think buy now or hold your peace. This should go up today/tomorrow.,AMRN,Stock/Price Action/Bullish/Bullish Behavior,0.469,post
+15323,$AXP Looking for continuation with volume increase http://stks.co/c8sR,AXP,Stock/Price Action,0.308,post
+15327,MT @TheAcsMan Amazing seeing everyone suddenly touting $MSFT. Long been favorite covered call & double dip dividend play.,MSFT,Corporate/Dividend Policy,0.444,post
+15329,Surprising to see $JWN and $SKS sales numbers still holding up so well. I guess the high end might not be a concern after all.,SKS,Corporate/Sales,0.315,post
+15333,"AP: Caterpillar posts 60 percent jump in 4Q profit on steep global sales increase, tops Wall St. view > $CAT",CAT,Corporate/Sales,0.586,post
+15334,$SPY Long 1/2 position 137.89,SPY,Stock/Price Action/Bullish/Bull Position,0.428,post
+15338,$AAPL price momentum weakening going into the close.,AAPL,Stock/Price Action,-0.22,post
+15340,RT @ACInvestorBlog $AAPL still on track for $500,AAPL,Stock/Price Action/Future Price/Direction,0.166,post
+15345,$SPY $MITK fast 56pc dive http://stks.co/3ffN $$,SPY,Stock/Price Action/Bearish,-0.26,post
+15353,$BAC in for swing trade  looks like want go up,BAC,Stock/Price Action/Bullish/Bull Position,0.433,post
+15356,$PCLN runs into the 50sma on the acquisition news,PCLN,Corporate/M&A/M&A,0.486,post
+15358,$aapl short term fund/redemption liquidations.. Should have the channel cleared soon and on solid footing. $520 is new floor come July! :),AAPL,Stock/Technical Analysis,-0.175,post
+15360,$WYNN big bounce,WYNN,Stock/Price Action/Bullish,0.61,post
+15362,$GLD http://stks.co/44ow On closer inspection.  Resistance 10 points north at 200d and downward trendline. Chart 2 of 2.,GLD,Stock/Technical Analysis,-0.143,post
+15367,$AAPL wants lower. up waves getting smaller on the 2 min,AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.37,post
+15372,Short interest increases yet again http://stks.co/e19h via @ryandetrick $SPY,SPY,Stock/Fundamentals/Short Interest Rate,-0.342,post
+15378,"$QCOR a little pullback is fine but if this erases all of todays gains, I cannot believe the manipulation its capable of",QCOR,Stock/Price Action/Bearish,-0.169,post
+15380,$WMT BULLISH with MACD CROSSOVER with RSI and STO going up - above 73.4$ MA50 res. could run http://stks.co/gGCq,WMT,Stock/Technical Analysis,0.574,post
+15384,Rival companies $GWR and WATCO eyeing $RA w take-over interest.  http://stks.co/o0xY,RA,Corporate/M&A/M&A,0.396,post
+15392,$AAPL 620 resistance area,AAPL,Stock/Technical Analysis,-0.025,post
+15400,what is up with $HK..... from Jan to now it's been a sinking ship...,HK,Stock/Price Action/Bearish,-0.573,post
+15405,"$WGO's BoD was right to reject the offer. That company is low because of the economy, not because of any type of mismanagement or anything.",WGO,Corporate/M&A,0.076,post
+15410,I'm no professional ANAL-yst but I DO put my $ where my mouth is. $AAPL will do $575 b4 yr.endâ€”That's another hun from here.Long LEAPS =^.^=,AAPL,Stock/Options,0.579,post
+15414,"$AAPL bounce right now has no vol, more vol when it slid",AAPL,Stock/Price Action,0.19,post
+15421,"$LULU http://stks.co/o17i Bounced off support early in week - now indicators turning up (RSI, MACD, SMI) Worth a look",LULU,Stock/Technical Analysis,0.351,post
+15422,$NIHD insiders got this one wrong. Looking for bottom. Rsi under 30,NIHD,Stock/Technical Analysis,-0.202,post
+15429,$AAPL long 630.91,AAPL,Stock/Price Action/Bullish/Bull Position,0.512,post
+15437,"It's a bad idea to make 5 min predictions based on faith: RT @dandyduct $AAPL Sell signal hit at 584, it will go down for the next 5 min",AAPL,Stock/Signal/Sell Signal,-0.445,post
+15439,$KCG bot at 2.24,KCG,Stock/Price Action/Bullish/Bull Position,0.384,post
+15448,$HZNP havent seen vol like this since the runup. lets see one more dip to 2.0x,HZNP,Stock/Price Action/Bearish/Bearish Behavior,-0.274,post
+15450,pretty steady accumulation off support today.  Purdy. $AGU,AGU,Stock/Price Action,0.464,post
+15452,Out of shorts $ALTR at 38.85 with loss,ALTR,Stock/Price Action/Bullish/Bullish Behavior,0.372,post
+15462,"$GMCR with the way this has been acting, it may fall to 65 today, horrible action since it hit 70 yesterday",GMCR,Stock/Price Action/Bearish,-0.51,post
+15464,$EBAY had a nice breakout of the recent consolidation. Congrats to those who had it. http://stks.co/2TAd,EBAY,Stock/Technical Analysis/Breakout,0.452,post
+15470,"$SDS +1.46% 15.32, picking up some speed. May 16 calls now +35% .19: http://stks.co/3eiK, Next week $16 calls .11c: http://stks.co/3eiL",SDS,Stock/Price Action/Bullish/Bullish Behavior,0.41,post
+15479,"$AAPL AAPL: Gundlach Slams iPad mini, Sees Downside to $425. http://stks.co/bDqV",AAPL,Stock/Coverage/AnalystRatings/Downgrade,-0.325,post
+15480,$AAPL AUG 645 calls +550% .67c: http://stks.co/i9T3,AAPL,Stock/Options/Unusual Call Activity,0.553,post
+15482,"Went long on this $COG, will see 70's again me thinks",COG,Stock/Price Action/Bullish/Bull Position,0.574,post
+15505,$AAPL nibbling on a small long via 525.. buying off 13min charts..,AAPL,Stock/Price Action/Bullish,0.509,post
+15508,Added. Cost now at 1.54. Bounce off of Put OI & S1 pivot. @moteltan BTO $AAPL Apr 27 2012 605.0 Calls @ 1.66 for ride to 609 ish.,AAPL,Stock/Price Action/Bullish,0.47,post
+15516,"$WAC trade continuing very nicely from yesterday, almost up $3 from yesterday entry, deal pricing tonight looking very strong here... $SPY",WAC,Stock/Price Action/Bullish/Bullish Behavior,0.495,post
+15518,Equity indexes working on a positive engulfing for March. $SML $RUT $IWC $SMH $SOX  Small-caps / semis with a fakeout before the b/out.,SOX,Stock/Price Action/Bullish,0.308,post
+15520,$BONE Earnings Stocks Poised to Pop http://stks.co/2zWE,BONE,Stock/Price Action/Bullish,0.432,post
+15525,$SONC Amazing run since middle of March - obvious that the quality/tastiness of their burgers is not being factored into this price advance,SONC,Stock/Price Action/Bullish,0.492,post
+15531,$LEE http://stks.co/24kM LEE ready to exit bankruptcy. Strong volume today.,LEE,Corporate/Financial/Bankruptcy/Exisiting bankruptcy,0.298,post
+15533,$RCON some upside today. This thing is severe low float. If there is catalyst for this guy. It can run.,RCON,Stock/Price Action/Bullish,0.254,post
+15537,$KITD Looking for a oversold bounce.,KITD,Stock/Price Action/Current Price/Oversold,0.436,post
+15543,$PPG Descending triangle but I am liking it for an upside break http://stks.co/o9nY,PPG,Stock/Technical Analysis,0.201,post
+15549,$NSM ascending base breakout starting to gain traction; strong stock http://stks.co/gBSH,NSM,Stock/Technical Analysis,0.605,post
+15554,$aapl.  Test the high today and probably go beyond after hours...,AAPL,Stock/Technical Analysis,0.505,post
+15557,Long $PCLN,PCLN,Stock/Price Action/Bullish/Bull Position,0.663,post
+15567,"$HLF shorts made a killing last couple days, might make more if cover and buy back?",HLF,Stock/Price Action/Volatility/Short Selling,-0.334,post
+15576,Multi Top on $MCD chart finally leads to a fall in price.  Stability is questioned in the stock but coming weeks will tell.,MCD,Stock/Technical Analysis,-0.474,post
+15580,$MFLX up  pre mkt. Looks like GAP has been filled....lookin 4 short opt here,MFLX,Stock/Price Action/Bullish/Bullish Behavior,-0.412,post
+15582,RT @jan $ARNA Don't think buyout rumor strong enough too be driving this up just yet...when it is this may fly like aapl...// fly how high?,ARNA,Corporate/Rumors,-0.02,post
+15585,$AAPL Right back in ... - Buy the dips brought to you by CNBC. LOL,AAPL,Stock/Price Action/Bullish/Bull Position,0.346,post
+15588,$DMND green and moving,DMND,Stock/Price Action/Bullish,0.477,post
+15596,$MTD (Mettler-Toledo) ready for a breakout,MTD,Stock/Technical Analysis/Breakout,0.428,post
+15605,$ACAD under $2 today?,ACAD,Stock/Price Action/Bearish/Bearish Behavior,-0.164,post
+15607,$amzn breaking,AMZN,Stock/Price Action,0.251,post
+15609,$EA points to the two Facebook games and accuses $ZNGA of copyright infringement. http://stks.co/g3A1,ZNGA,Corporate/Legal,-0.284,post
+15610,"$KGC http://stks.co/3Qta Oversold, falling wedge and positive divergence place it on the launch pad; looking for a bounce.",KGC,Stock/Price Action/Current Price/Oversold,0.303,post
+15612,RT @bman1 $LNG looks primed also $EGHT poised to run too...,LNG,Stock/Price Action/Bullish,0.381,post
+15614,$AAPL broke descending channel....will it hold?,AAPL,Stock/Technical Analysis,-0.07,post
+15621,$JNK http://stks.co/2Fcm Does not want to go down... risk appetite still high,JNK,Stock/Price Action/Bullish/Bullish Behavior,0.272,post
+15624,"PNC, Goldman Sachs Receive Dividend Hike Green Light (But Don't Act): http://stks.co/2pa7 $PNC $GS",PNC,Corporate/Dividend Policy,0.316,post
+15630,$AMD big dumping... would not touch it for a while,AMD,Stock/Price Action/Bearish/Bearish Behavior,-0.699,post
+15633,$GNRC finding support at its 10-day line so far.,GNRC,Stock/Price Action/Bullish/Bullish Behavior,0.256,post
+15646,"Loaded up on $bsx yesterday,looking good now. Still think way more upside than downside.",BSX,Stock/Price Action/Bullish,0.664,post
+15647,"$QCOR Just added 3,000 shares @28.",QCOR,Stock/Price Action/Bullish/Bull Position,0.73,post
+15648,"RT @StockTwits RT @fallondpicks Breadth Consolidates: After weeks of steady gains,advances in mkt breadth slowe... http://stks.co/2TrG $QQQ",QQQ,Stock/Price Action,-0.146,post
+15649,$AAPL rejected the hod...should head lower. Sitting on the sidelines for now.,AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.36,post
+15650,"Google, Inc. completes acquisition of ICOA, Inc. http://stks.co/nFEI $ICOA $GOOG",ICOA,Corporate/M&A/M&A,0.451,post
+15676,Amazon declares 'best ever' Black Friday and Cyber Monday for Kindle family http://stks.co/cEtw via Engadget $AMZN,AMZN,Corporate/Sales,0.434,post
+15691,Long $VVUS shares as a call option w/ an expiration of..  umm.. TODAY.    Hitting HOD here.,VVUS,Stock/Price Action/Bullish/Bullish Behavior,0.609,post
+15693,$ISR- @IsoRay Up 6% and high on volume http://stks.co/iFpo #biotech,ISR,Stock/Price Action/Bullish/Bullish Behavior,0.612,post
+15697,$FB Nice buyable intraday dip right here,FB,Stock/Price Action/Bullish,0.492,post
+15712,$LSCC Accumulation chart continues to make new highs showing accumulation continuing to take place http://stks.co/aDpO,LSCC,Stock/Price Action/Volume/Unusual high volume,0.497,post
+15716,$SAVE breaking it's downtrend line on increasing volume. A move above 20.57 could see more upside. http://stks.co/l8y4,SAVE,Stock/Price Action/Bullish,0.546,post
+15719,$GOOG resistance turned support?  It,GOOG,Stock/Technical Analysis,0.34,post
+15720,$CRM Sep 40 calls are +35% since entry #BANG http://stks.co/deDm,CRM,Stock/Price Action/Bullish/Bullish Behavior,0.519,post
+15726,Current holdings via options - Long: $AAPL $V $GS $AET & Short: $VXX,V,Stock/Options,0.635,post
+15729,$AAPL I am big OUT from this. seems its falling towards 530.. :(,AAPL,Stock/Price Action/Bearish,-0.639,post
+15730,$PKT Momentum building for breakout trigger ! Long setup http://stks.co/eXVU,PKT,Stock/Price Action/Bullish/Bullish Behavior,0.592,post
+15732,$NFLX VISION : short term consolidation then movement higher http://stks.co/j05uu,NFLX,Stock/Price Action,0.231,post
+15749,$UUP at major resistance right now. Can go much higher if it can break above. May take several attempts - few days to a week,UUP,Stock/Price Action/Bullish/Bullish Behavior,0.171,post
+15751,$spy $vxx $aapl the parties over loaded on $uvxy volatility is back,VXX,Market/Volatilit,-0.223,post
+15753,$brcm raises revenue forecast,BRCM,Corporate/Financial/Financial Results/Earnings/Company Guidance,0.367,post
+15754,$BBRY bye bye Sammy. Hello BB. Sounds like we'll see some green tomorrow.,BBRY,Stock/Price Action/Bullish,0.395,post
+15755,$ASTX Daily technical indicators are bullish. Breakout watch over 4.58  http://stks.co/eOvw,ASTX,Stock/Technical Analysis,0.516,post
+15758,$EDU bouncing nicely after add-on (posted),EDU,Stock/Price Action/Bullish/Bullish Behavior,0.437,post
+15763,$YHOO A breakout above $29.83 would constitute a technical entry for the short term trader. http://stks.co/jkUF,YHOO,Stock/Technical Analysis,0.389,post
+15767,BULLISH Engulfing of COCA COLA: http://stks.co/fYCo $KO,KO,Stock/Technical Analysis,0.551,post
+15769,$IWM buy programs popping $iwm for close print cheap money means higher stock prices $spy robot buying,SPY,Stock/Price Action/Bullish/Bullish Behavior,0.529,post
+15775,"$JE LOOKS like we are bouncing.  Would be nice to finish over $6 today, and make the hammer.  Nice volume from 5.77 bottom.  Fingers crossed",JE,Stock/Price Action/Bullish/Bullish Behavior,0.391,post
+15777,$XLB the weakest sector this year and possible false breakout  http://stks.co/dL1Z,XLB,Stock/Price Action,-0.458,post
+15778,"$TYC just about to break out to new highs, lots of technicals looking great right now.",TYC,Stock/Price Action/Bullish,0.602,post
+15779,"$AAPL at pivot area on intraday chart- break here could send this to 50-day SMA, 457.80 http://stks.co/jPbN",AAPL,Stock/Technical Analysis,0.128,post
+15783,"$BRK.B $SPY  All time high tomorrow? 150k on the A shares, Dec 13, 2007.",SPY,Stock/Price Action/Bullish/Bullish Behavior,0.297,post
+15784,$SPY wouldn't be surprised to see a green close,SPY,Stock/Price Action/Bullish,0.416,post
+15797,@Vegastrader66 Looks like good entry for $QIHU here.,QIHU,Stock/Signal/Buy Signal,0.453,post
+15810,$INO back in this am small post,INO,Stock/Price Action/Bullish/Bull Position,0.554,post
+15812,"@harmongreg: $BBRY wkly, Inverse Head and Shoulders forming, triggers over 18.50, PO at least 30.80, watching http://stks.co/iPVJ",BBRY,Stock/Technical Analysis,0.394,post
+15817,$LINE biggies must be loading up here at lows..,LINE,Stock/Price Action/Bullish/Bullish Behavior,0.438,post
+15824,$GS is looking weak while this market is moving higher not a good sign. Unless $gs can get above 157. early short below 154.00 today.,GS,Stock/Price Action/Bearish/Bearish Behavior,-0.398,post
+15826,Key level to watch in $FB for today is 25.53-- watching to see if it can hold as support http://stks.co/bOH4,FB,Stock/Technical Analysis,-0.042,post
+15843,"$YNDX and the price of some stocks was 2 times lower then annual earnings, I could not resist, I  was buying when everyone was selling",YNDX,Stock/Price Action/Bullish,0.531,post
+15844,"Red Daily Triangle on $SHOR,...Scaling Up on Long Position http://stks.co/r82S",SHOR,Stock/Technical Analysis,0.661,post
+15848,@Megaas2000 $AAPL McDonalds had a big GROWING success for years with the same BigMac and Apple update and improbe Iphone and Ipad,AAPL,Corporate/Reputation,0.295,post
+15852,EA Launches Origin Online Game Distribution for Mac http://stks.co/aKTU via MacRumors $EA,EA,Corporate/Strategy/New Product,0.121,post
+15863,$ETN UPGRADE today by MS to overweight.  Excellent company and leadership,ETN,Stock/Coverage/AnalystRatings/Upgrade,0.685,post
+15874,"$AAPL double bottom could be in, keep in mind",AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.271,post
+15879,@Joerazorback This time I think $AAPL will miss again. Generally speaking market is near top when everyone thinks that market goes only up,AAPL,Corporate/Financial/Financial Results/Earnings/Earnings miss,-0.363,post
+15881,"$amrn Full bull call spread ranging July to Jan 15. Lets see what this baby does,",AMRN,Stock/Options/Strategies/Bull Call Spread,0.681,post
+15888,$FB Dax says bye bye 2013 - finished a great yr w 28% plus!,FB,Stock/Price Action/Bullish/Bullish Behavior,0.319,post
+15892,@CH_Roark: $UNXL I like this Ascending Triangle on the 30-minute chart. Breakout coming Monday! http://stks.co/aT3GLooks promising.,UNXL,Stock/Technical Analysis/Breakout,0.478,post
+15894,"@StockTwits: @Kbkiwi: $TSLA Tesla Model S sales exceed target, profitability guidance amended upward: http://stks.co/jQ0w""""",TSLA,Corporate/Sales,0.526,post
+15901,"Long Position on $GOL,...Updating http://stks.co/fdmm",GOL,Stock/Price Action/Bullish/Bull Position,0.674,post
+15905,$SMH got a sell signal on 6/4 and needs to take out 39.28 to go higher otherwise headed lower than 37.60 gap below at 35.38,SMH,Stock/Signal/Sell Signal,-0.538,post
+15908,$OSUR up 33% since 6/25 buy signal. resistance 5.33 - expect 1. pullback 2nd half of day or 2. break abov 5.33 & continue rally for 4-5 days,OSUR,Stock/Signal/Buy Signal,0.552,post
+15918,$SPY Could the pride of social media be gettin ready to fall?  $FB - chart rolling over?,SPY,Stock/Technical Analysis,-0.287,post
+15921,$NFLX +3% of the lows,NFLX,Stock/Price Action/Bullish/Bullish Behavior,0.323,post
+15926,$SBUX getting sold here.,SBUX,Stock/Price Action/Bearish/Bearish Behavior,-0.551,post
+15936,$PG Ackman making the big added efficiency argument. betting on operational imporvement in a huge conglomerate can go either way imo.,PG,Corporate/Strategy/Business Model,0.116,post
+15938,$RIMM $spx $nya $compq $djia all going down,SPX,Stock/Price Action/Bearish,-0.559,post
+15939,"@IfHeDiesHeDies: @Bullhorn334: $ZNGA shorts are getting nervous""""",ZNGA,Stock/Price Action/Bullish,0.366,post
+15957,$ocn has the stuff. Will be looking to add shares if we get a new high breakout.,OCN,Stock/Price Action/Bullish/Bull Position,0.421,post
+15962,$BBRY hearing rumours of a major joint venture announcement.,BBRY,Corporate/Rumors,0.427,post
+15980,$AAPL Good time to buy. Will the run come before earnings or after?,AAPL,Stock/Price Action/Bullish,0.533,post
+16004,"$QIHU totally missed this one, was about to jump in on that 60 break test but didn't, congrats shorts",QIHU,Stock/Price Action/Volatility/Short Selling,-0.494,post
+16005,$UVXY Put the chum out there at key support then next level down - careful,UVXY,Stock/Price Action/Bearish,-0.32,post
+16006,Entering long Lockheed Martin $LMT at Thursday's open. http://stks.co/eXtA,LMT,Stock/Price Action/Bullish/Bull Position,0.627,post
+16010,@catskillfishing  Note the monthly chart of $GDX & how it recaptured support. $GLD possible double bottom set up. http://stks.co/aw6z,GLD,Stock/Technical Analysis,0.272,post
+16011,"Key price to watch in $NFLX, off the previous double top reject, 218.23 http://stks.co/sIYn",NFLX,Stock/Technical Analysis,-0.341,post
+16012,$SPY Tomorrow party time for the Bears!! $GOOG and $MSFT -5.5%,SPY,Stock/Price Action/Bearish,-0.454,post
+16014,"$SLV -4.44% at 18 now AWFUL, down from 42.50",SLV,Stock/Price Action/Bearish,-0.591,post
+16015,$SPY c'mon bulls buy DIPS!,SPY,Stock/Price Action/Bullish,0.228,post
+16019,@gakrum nice chart shows distinctive down channel not a dip.. where do you see the bottom? $SPY ..$150? ..$130?,SPY,Stock/Technical Analysis,-0.443,post
+16026,$DXCM - Making higher highs & higher lows as it consolidates over past several weeks. 26.70 was all time high (2006).,DXCM,Stock/Price Action/Bullish/Bullish Behaviour,0.478,post
+16028,"#Apple breaks major support, here are some levels to watch - http://stks.co/jRmW $AAPL $QQQ",QQQ,Stock/Price Action,-0.455,post
+16031,$CRUS Upgraded to a buy by Alpha Street Research,CRUS,Stock/Coverage/AnalystRatings/Upgrade,0.715,post
+16039,"$NFLX small pos, short 180 wkly puts.",NFLX,Stock/Options/Strategies/Bear Put Spread,-0.597,post
+16040,$TSLA I see more downside in next two weeks be careful -20 dollars drop potential vs +10 up moved,TSLA,Stock/Price Action/Bearish,-0.477,post
+16044,$FB Big Money Is Pouring Into Facebook From All Directions;http://stks.co/sOwG,FB,Stock/Price Action/Bullish,0.645,post
+16048,$LULU #Outlook #Q1 2013 #lost revenue in the range of $12 million to $17 million -not good,LULU,Corporate/Sales,-0.43,post
+16054,@Dojiknows th SP and the potential of QNX BES10 and BBM  cross platform will bring good news in time $bbry,BBRY,Corporate/Strategy/New Product,0.284,post
+16058,$NUGT longer term bullish,NUGT,Stock/Price Action/Bullish,0.814,post
+16059,"2nd raise this year.  ""@BVHealthcare: $QCOR Questcor Increases Quarterly Cash Dividend 20 Percent.. http://stks.co/goan""",QCOR,Corporate/Dividend Policy,0.576,post
+16061,$PAY 2nd time test of the 21.20-30 b/o zone.  Still not breaking out.  Moved my stop up to 20.80.,PAY,Stock/Price Action,0.093,post
+16066,$SPY  still wants higher I think.,SPY,Stock/Price Action/Bullish,0.448,post
+16079,$BBRY lets see 14+ today,BBRY,Stock/Price Action/Future Price/Direction,0.302,post
+16083,$DCTH Near HOD,DCTH,Stock/Price Action/Bullish/Bullish Behavior,0.366,post
+16084,$MSFT SQL Server revenue grew double-digit with SQL Server Premium revenue growing over 30% http://stks.co/ir2F,MSFT,Corporate/Sales,0.454,post
+16085,$GTE LONG at 7.44,GTE,Stock/Price Action/Bullish/Bull Position,0.732,post
+16089,$DARA breaking out,DARA,Stock/Price Action/Bullish,0.427,post
+16094,$TSLA gyrating @ S1 above gap. keeping an eye on S2 http://stks.co/jQfB,TSLA,Stock/Price Action/Bullish,0.346,post
+16100,"$CNP Sell Short Position on CNP,...Closed for Profit $ 59,367.00 (7.75%) http://stks.co/ghjc",CNP,Stock/Price Action/Volatility/Short Selling,0.155,post
+16102,$BBRY Actually lost .03c per share if U incl VZ as no debt and 3.1 in Cash.,BBRY,Corporate/Financial/Financial Results/Earnings,-0.238,post
+16103,$BBRY nice bounce,BBRY,Stock/Price Action/Bullish,0.296,post
+16108,"$DNN picked some up, like this going into 2014",DNN,Stock/Price Action/Bullish/Bull Position,0.653,post
+16110,$NUGT Gold above 1400...wow,NUGT,Stock/Price Action/Bullish,0.424,post
+16111,$BBRY Ready for Take OFF!,BBRY,Stock/Price Action/Bullish,0.472,post
+16112,$VOLC THIS STOCK HAS A VERY VERY VERY VERY VERY HIGH PROBABILITY OF RALLYING TOMORROW AND/OR EARLY NEXT WEEK,VOLC,Stock/Price Action/Bullish,0.72,post
+16121,"$YOKU high volume blast off Friday, goes higher  http://stks.co/qSaL",YOKU,Stock/Price Action/Bullish/Bullish Behavior,0.565,post
+16132,$aapl key is to breakout above 460 on solid volume or else it's a no trade for now,AAPL,Stock/Technical Analysis/Breakout,0.123,post
+16133,$spy bumping its head on declining daily 8ma as overhead resistance. Then the big brother 50ma just above that.,SPY,Stock/Price Action/Bullish/Bullish Behavior,-0.35,post
+16141,"Long Position on $IP,....Scaling UP http://stks.co/sIln",IP,Stock/Price Action/Bullish/Bull Position,0.662,post
+16142,$FB churning in high volume @ IPO price. Lot's of sellers trying to get out. Might take a while here to consolidate before moving higher.,FB,Stock/Price Action/Bearish/Bearish Behavior,-0.215,post
+16144,The Boeing Company (NYSE:BA) Bearish Trader bets $550K that Stock Will Sell Off 9.79% by July Expiry $BA http://stks.co/tCSE,BA,Stock/Price Action/Bearish/Bear Position,-0.493,post
+16154,"$TXRH reports Q1 EPS of $0.37 versus the estimated $0.35, beating by $0.02. EPS were Up 19% from the same quarter last year.",TXRH,Corporate/Financial/Financial Results/Earnings,0.365,post
+16156,"$AAPL is now beaten down, hated, etc. / hhhmm opposite of 700> what happens next?",AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.303,post
+16160,@asdfLLC. Nice pop today. Told ya we would be green haha. Funny you bring that up. I'm actually working on a story about $NOK at the moment,NOK,Stock/Price Action/Bullish/Bullish Behavior,0.404,post
+16161,$AMCN pushing highs,AMCN,Stock/Price Action/Bullish/Bullish Behavior,0.543,post
+16163,@pierrules: $SIRI LONG!!,SIRI,Stock/Price Action/Bullish/Bull Position,0.759,post
+16164,$FB SHIFTING ON THE 15 MINUTE HERE - SUSPECT TO TAKE HIGHS,FB,Stock/Price Action/Bullish/Bullish Behavior,0.442,post
+16166,$AMRN You can many times find top and bottoms when shorts start rejoicing or bulls start rejoicing. Currently it is the shorts rejoicing,AMRN,Stock/Price Action,-0.54,post
+16176,"$CNDO 21% short float, shorts likely to take profits into close",CNDO,Stock/Price Action/Current Price/Oversold,-0.327,post
+16177,$RNN staying above the open a very good sign!!!,RNN,Stock/Price Action/Bullish/Bullish Behavior,0.551,post
+16178,Watch these bancos.they're holding up relatively well compared to the broad market $XLF $BAC $GS $C <--large C buying in $BAC in backburner,XLF,Stock/Price Action,0.394,post
+16190,$CAT is hangin on my a thread. 1click away from a cliff drop.. Needs follow through (or snap-back on the VIX),CAT,Stock/Price Action/Bearish/Bearish Behavior,-0.337,post
+16200,$PRGN A bottom right here?,PRGN,Stock/Price Action,0.041,post
+16202,"$SPY Less than 0.2% down and people are calling it bearish. Some heading for exits already. Maybe 1% down will be ""the crash""? Disturbing!",SPY,Stock/Price Action,-0.148,post
+16203,"$P bull flag on the daily, earnings on the table tomorrow +/-12 move.Will straddle this one into earnings..lots of vol guaranteed here",P,Stock/Price Action/Bullish,0.335,post
+16204,$AAPL Action into the close indicates that $AAPL probably hit a near term high.  Momentum slowing after a huge run.,AAPL,Stock/Price Action,0.124,post
+16213,$V A potential bearish shark pattern if point B $226 to be taken out. http://stks.co/i0GGH,V,Stock/Technical Analysis,-0.326,post
+16215,$AMZN Trailing 12 months operating cash flow rose 48% to $4.98 billion & free cash flow decreased 63% to $388 million http://stks.co/c06zG,AMZN,Corporate/Financial/Accounting/Cash Flow,-0.009,post
+16217,"$RNN day traders flushed out, it should start going up slowly from now on .",RNN,Stock/Price Action/Bullish,0.411,post
+16220,@chessNwine: $IWM 30-Minute Chart. Small caps threatening descending triangle breakdown under $110.20.  http://stks.co/r0KKm,IWM,Stock/Technical Analysis,-0.382,post
+16223,$YELP This goes green and so many shorts are toast!,YELP,Stock/Price Action/Bullish,0.463,post
+16224,RT @tomhend777 $MU needs to hold here -Broken for now. Needs big flush. Still not technically oversold so now big bounce yet,MU,Stock/Technical Analysis,-0.046,post
+16227,$AMRN Got sell signal 7/1/14 still in force with target below 1.50,AMRN,Stock/Signal/Sell Signal,-0.431,post
+16228,"$SLV POS, been saying it for 2 years. Going lower. Forget about it or go short.",SLV,Stock/Price Action/Bearish/Bearish Behavior,-0.631,post
+16238,New recommendation from Carl Kirst of BMO Capital Markets for $WMB is BUY.Price target is $62:http://stks.co/t0S0r,WMB,Stock/Coverage/AnalystRatings,0.566,post
+16239,$DNKN $KKD $DPZ $LOCO Inside week buy triggers. http://stks.co/h0vV8  http://stks.co/r0ebN,LOCO,Stock/Technical Analysis,0.485,post
+16270,"$RIG whos ever pushing this is crazy, get ready for suspended dividend (turning into growth stock) blow out earnings, and major buyback, lol",RIG,Corporate/Dividend Policy,-0.023,post
+16271,$AAPL Nice RSI 33 bounce at 9:58,AAPL,Stock/Technical Analysis,0.291,post
+16284,"$AXDX I got bored, and took my proprietary profit exit. I didn't like the option liquidity and lousy spreads.",AXDX,Stock/Price Action/Bearish,-0.334,post
+16287,$NFLX Easy pop to 500$ by end of feb.. Then steady as she goes for 600 into second earnings report..800$ year end no matter what,NFLX,Stock/Price Action/Bullish,0.577,post
+16298,$IWM relative weakness is pretty apparent but the short boat is getting full on this one. I prefer the boat closer to empty.,IWM,Stock/Price Action/Bearish,-0.262,post
+16306,@saltwaternurse $INO can test 10 again in next few days. time to take some profits here. or hedge with puts.,INO,Stock/Price Action/Bearish,-0.169,post
+16309,"@Stockoptionexpert: $MAT - 6%, big trader added 10000 April put contracts 3 days ago  http://stks.co/c1Ols",MAT,Stock/Options/Unusual Put Activity,-0.576,post
+16311,$FTI Breakout today after reporting earnings last night,FTI,Stock/Technical Analysis/Breakout,0.554,post
+16321,"$KO had missed earnings expectations for the last two quarters, so today’s strong results came as a major surprise http://stks.co/d0RHF",KO,Corporate/Financial/Financial Results/Earnings/Earnings Beat,0.338,post
+16337,$COH Gaining Momentum! Nice buy signals here! Long Over $35.92 http://stks.co/t0tAh,COH,Stock/Signal/Buy Signal,0.527,post
+16344,$BABA may take a few days wks months watch what happened to $FB $TWTR after they IPO. mrkt needs to washout. to hunt well need 2 wait stalk.,TWTR,Stock/Price Action,-0.055,post
+16347,$RAD All my charts are flashing oversold.,RAD,Stock/Price Action/Current Price/Oversold,-0.011,post
+16363,$RSOL bought 3500 shares today!,RSOL,Stock/Price Action/Bullish/Bull Position,0.738,post
+16364,$ARIA This is the reason why shorts don't show up...long steady small climbs. The best way to accrue value. IMO,ARIA,Stock/Price Action/Bullish/Bullish Behaviour,0.484,post
+16373,$CAMT Looks like might break down. I'm out,CAMT,Stock/Price Action/Bearish/Bearish Behaviour,-0.516,post
+16395,$ATHN Seems like a good short setup. Stop above the 50 day. No position.,ATHN,Stock/Price Action/Volatility/Short Selling,-0.338,post
+16396,$KIOR My god. Market getting crushed today. Gotta hold if anything g should recover some tomorrow I imagine.,KIOR,Market/Market,-0.302,post
+16398,$AAPL  downgrade is bias. This stock is a buy.,AAPL,Stock/Price Action/Bullish,0.498,post
+16399,LinkedIn Revenue Up Nearly 50% http://stks.co/g1F4T  $LNKD,LNKD,Corporate/Financial/Financial Results/Earnings,0.423,post
+16403,$PLUG bear raid,PLUG,Stock/Price Action/Bearish,-0.48,post
+16405,$GPRO down 25% since Tue morning.,GPRO,Stock/Price Action/Bearish,-0.527,post
+16417,$ROST Ross Stores Upgraded to Outperform at RBC Capital Markets http://stks.co/j0Q9t,ROST,Stock/Coverage/AnalystRatings/Upgrade,0.565,post
+16433,$ARIA Bounce Player! Long above $6.17 http://stks.co/q0WfF,ARIA,Stock/Price Action/Bullish/Bullish Behavior,0.383,post
+16435,"$TSLA looking good..i'd love to see a basing action here, letting the RSI take a breather. http://stks.co/g1T7c",TSLA,Stock/Technical Analysis,0.362,post
+16438,$RAD I would consider this opportunity to add my position because the company is on the right track they are still improving sales...,RAD,Corporate/Sales/Sales,0.401,post
+16440,$GTAT Will re-enter short on bounce...,GTAT,Stock/Price Action/Bearish,-0.46,post
+16450,$TROW Ascending triangle gives a bullish bias to this chart. Breakout above 84 will be positive http://stks.co/g0ls5,TROW,Stock/Technical Analysis,0.544,post
+16464,$AEGN MACD and ADX are crossing over the signal lines! Long Setup http://stks.co/qzzx,AEGN,Stock/Signal/Buy Signal,0.569,post
+16465,what #stocks large players are selling http://stks.co/t0Vel $CROX $GOGO $INO,INO,Stock/Price Action/Volatility/Selling Pressure,-0.507,post
+16468,$RNN More bleeding Monday.,RNN,Stock/Price Action/Bearish,-0.465,post
+16476,$PLUG Closed short position. Small gain. Not interested in options expiring worthless,PLUG,Stock/Price Action/Volatility/Short Selling,0.143,post
+16477,$UBNT still having some trouble at the resistance line. Should resolve soon.@cheri1 @strattonite   http://stks.co/c0sU4,UBNT,Stock/Price Action,0.071,post
+16483,$TWTR The best scenario going forward is this stock slowly falling everyday....Which is quite probable...,TWTR,Stock/Price Action/Bearish/Bearish Behaviour,-0.264,post
+16491,$MXWL Oh snap. Just went long again. LT,MXWL,Stock/Price Action/Bullish/Bull Position,0.691,post
+16493,$HRL ready to pop! http://stks.co/s0Ny4,HRL,Stock/Price Action/Bullish,0.336,post
+16501,Just stumbled upon this amazing chart - $OFIX - holy guac. SUPER overbought. http://stks.co/e0PX1,OFIX,Stock/Price Action/Bearish,-0.497,post
+16505,$FB i guess they want it down look at the those sell orders,FB,Stock/Price Action/Bearish/Bearish Behaviour,-0.465,post
+16506,@ACInvestorBlog: $SPY eod run :),SPY,Stock/Price Action/Bullish/Bullish Behavior,0.391,post
+16513,Phew! So far good $BBRY did not break 10.40 coz I was told that is key support level.,BBRY,Stock/Price Action,0.145,post
+16517,$Oil slid to a four-year low after #OPEC kept its oil production unchanged  http://stks.co/a1IX4 $USO $WTI $Brent,WTI,Stock/Price Action/Bearish/Bearish Behavior,-0.369,post
+16525,$CDTI bounce here on support or H&S setup this area is very important for bulls to not lose http://stks.co/c0mf3,CDTI,Stock/Price Action,0.374,post
+16526,$LNKD Daily Phase 2 retest - Price experiencing early rejection. Can it retest? http://stks.co/t04xX,LNKD,Stock/Price Action/Bearish,-0.228,post
+16536,3-star analyst Joe Wittine from Longbow Research reiterated a HOLD rating on $NTAP.,NTAP,Stock/Coverage/AnalystRatings,0.214,post
+16555,$GOOG Testing the 200 day after some consolidation http://stks.co/h0cPJ,GOOG,Stock/Technical Analysis,0.285,post
+16569,Walter Investment Management Corp Receives a Sell from Compass Point $WAC http://stks.co/c1IvX,WAC,Stock/Coverage/AnalystRatings/Downgrade,-0.45,post
+16587,"So as of today's close (8/15/14), I'm long $TSLA $AMTD $TWTR $FB $AAPL $CELG - all on a longer-term, technical swing long basis.",TWTR,Stock/Technical Analysis,0.591,post
+16588,"$HAL If bulls lucky enuff to get an upside gap fill, better take it. Wouldn't chase it here. http://stks.co/r12Us",HAL,Stock/Price Action/Bullish/Bullish Behavior,0.054,post
+16598,@1nvestor: $SODA has a 42.71% Float Short. LoL  http://stks.co/e0DfP,SODA,Stock/Price Action/Bearish/Bearish Behavior,-0.392,post
+16600,"@BrooklynBandit: $SIMO Basing nice. A close over 24.18 is bullish $QQQ $SPY $STUDY watch for a close near HOD. Currently up +3%"" up +5%",SPY,Stock/Price Action,0.361,post
+16602,$KEP breaking out when the market pulls back  http://stks.co/r0cet,KEP,Stock/Price Action/Bullish,0.413,post
+16604,$VIPS similar pattern like beginning of May. Did u sell? Same now..will go up much higher after this drop.,VIPS,Stock/Price Action,0.479,post
+16609,"@Binkster69 Not that. it's just ER's lol. But looking at the correlation of $ARIA and foreign price charts, they are all poised to breakout.",ARIA,Stock/Technical Analysis/Breakout,0.5,post
+16618,$GDX $GDXJ $JNUG - strong move today for the Junior Gold Miners - keep an EYE out for a gap fill -,JNUG,Stock/Price Action/Bullish/Bullish Behavior,0.55,post
+16629,@BULLYA @pollux654321 My 50 $KORS 80 Calls are going to b a Blessing for my Daughters tuition!,KORS,Stock/Price Action/Bullish,0.431,post
+16634,$FB they are hitting  everything in sight.short it. but twtr,FB,Stock/Price Action/Bearish,-0.504,post
+16637,$TSLA You have to love these types of articles. SS interest rose on 12/15 on day before we hit our lows. http://stks.co/c1QKr,TSLA,Stock/Price Action/Bearish,-0.405,post
+16641,"$KNDI Let's see some higher highs and higher lows rest of the day , slow and steady",KNDI,Stock/Price Action,0.396,post
+16643,"$IFF technical alerts: Stochastic Sell Signal, 200 DMA Support, and 50 DMA Support  http://stks.co/p12QY",IFF,Stock/Signal/Sell Signal,-0.471,post
+16647,"$INO Up, up, and away!",INO,Stock/Price Action/Bullish,0.604,post
+16648,$BOBE down $2.84  premarket,BOBE,Stock/Price Action/Bearish/Bearish Behavior,-0.512,post
+16668,$CHRM Loooooongggggg base,CHRM,Stock/Price Action/Bullish,0.557,post
+16672,$NQ got hit hard lower this AM --> looks like it has found support a 18.89 http://stks.co/s052z,NQ,Stock/Price Action,-0.551,post
+16687,$RSH - looking for first profitable quarter in 3 years!!!  ;).  LONG & STRONG,RSH,Stock/Price Action/Bullish,0.643,post
+16688,$GS sells flat..I am out..,GS,Stock/Price Action/Bearish,-0.541,post
+16691,Synergy Pharma Soars 67% Today On Positive Phase 3 Results $SGYP http://stks.co/j2awg,SGYP,Stock/Price Action,0.623,post
+16692,NaturalGas Settles At 3-year Low $DBO $BNO  http://stks.co/d27qX,DBO,Stock/Price Action/Bearish,-0.563,post
+16693,$WX Decent pull back . .,WX,Stock/Price Action/Bearish/Bearish Behavior,-0.325,post
+16698,"09:01 AM      $AKS  DJ AK Steel Revenue Rises 36% on Auto Sector Demand, Acquisition",AKS,Corporate/Financial/Financial Results/Earnings,0.42,post
+16699,$BBRY both 1m/6m trends turn bullish today with a resistance level at $11.31. http://stks.co/j1qt6,BBRY,Stock/Price Action/Bullish/Bullish Behavior,0.561,post
+16700,Long $GPRO for a brealout trade,GPRO,Stock/Price Action/Bullish/Bull Position,0.594,post
+16706,$UGAZ Will this cold put a dent in the massive horizontal rig production. Who knows  http://stks.co/p1V6P,UGAZ,Corporate/Risks/Halt in Services,-0.237,post
+16708,$ISRG - ISRG Short - http://stks.co/f1vVU http://stks.co/c1qrm,ISRG,Stock/Price Action/Bearish/Bear Position,-0.678,post
+16716,"$HPQ Says Breakup Will Cost Billions, but Sees Savings Too http://stks.co/p27hZ",HPQ,Corporate/Risks,-0.265,post
+16740,@Renatta @Fr0van @kjepeneter @RPTL  Strong close 4 $PLNR  coming,PLNR,Stock/Price Action/Bullish/Bullish Behavior,0.523,post
+16741,Buyback not trending right ( $CPIX spending more as shares pricier). Hopefully will pull back w 6.87 Q2 closing VWAP,CPIX,Stock/Price Action/Bearish/Bearish Behavior,-0.231,post
+16747,"$GILD Sandbagged the guidance so the can use that last 3 billion up.  CC was cautiously optimistic, wait til Next ER for confirmation",GILD,Corporate/Financial/Financial Results/Earnings/Company Guidance,-0.083,post
+16751,End Of Day Scan: Stochastic Overbought $JDST $FREE $BLRX $LPG $AFSI $DVAX $HDGE $AHT $ALR $ASMB  www.dailystockplays.com,LPG,Stock/Technical Analysis,-0.385,post
+16765,$YANG Double bottom 5.2,YANG,Stock/Technical Analysis,0.23,post
+16786,$HYG Potential continuation Uptrend on a 60'-15'-4' charts http://stks.co/t1Qp6,HYG,Stock/Technical Analysis,0.437,post
+16798,$CYTX looks like an ascending channel on Finfiz http://stks.co/f26r4,CYTX,Stock/Technical Analysis,0.363,post
+16799,$AAPL Now I'm glad I got stopped out of my $113 weeklies when I did. Will re-enter next Monday for the #earnings run-up.,AAPL,Stock/Price Action/Bearish/Bearish Behavior,0.089,post
+16804,"$WFM Bought a little yesterday, hoping for an earnings pop.",WFM,Stock/Price Action/Bullish/Bull Position,0.562,post
+16806,EUR/USD Finding Support Near 1.10 Level $ERO $UUP $UDN $FXE  http://stks.co/b29eU,UUP,Stock/Price Action,0.259,post
+16817,$IBIO  up 10% in premarket ready for lift off,IBIO,Stock/Price Action/Bullish/Bullish Behavior,0.507,post
+16833,"RECAP: $MSFT rumor this morning had them spinning off XBOX unit, stock grinds up all day to close on highs",MSFT,Corporate/Rumors/Rumors,0.594,post
+16849,"$AAPL AAPL finally breaking under the 49 M.A.. With no buybacks this week, look for AAPL to test the 120 support area.",AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.2,post
+16856,"$DGI technical alerts: Gilligan's Island Buy Setup, Stochastic Buy Signal, Lizard Bullish, Hammer Candlestick, Wid... http://stks.co/c29Nu",DGI,Stock/Signal/Buy Signal,0.564,post
+16863,$LUV Continues to consolidate above previous break out area...,LUV,Stock/Price Action/Bullish,0.227,post
+16866,$REN bottoming out again.. Good time to buy,REN,Stock/Price Action/Bullish/Bullish Behavior,0.587,post
+16868,$GOOGL Hit With Lawsuit from Russian Search Engine $YNDX http://stks.co/b1kD8,YNDX,Corporate/Legal/Lawsuit,-0.17,post
+16870,$AAPL at resistance right here...sold my shares...will buy back if it dips or if it goes in the 128 gap zone,AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.238,post
+16873,$GALE Breakout Coming Soon!,GALE,Stock/Technical Analysis/Breakout,0.465,post
+16880,"$RUSS Don't catch falling knives, but I think an entry is coming soon on this",RUSS,Stock/Price Action/Bearish,0.1,post
+16885,$AAPL $131 rally mode,AAPL,Stock/Price Action/Bullish,0.5,post
+16888,$MPWR CEO sells 450k april 15th..meh,MPWR,Stock/Insider Activity/Insider Selling,-0.195,post
+16890,"Homebuilders - $RYL breaking below support, watch this one.  $SPY",SPY,Stock/Price Action/Bearish/Bearish Behavior,-0.397,post
+16912,$AAPL afternoon selloff as usual will be brutal. get ready to lose a ton of money.,AAPL,Stock/Price Action/Bearish,-0.569,post
+16914,$AMZN Going thru the roof needs a sell!,AMZN,Stock/Price Action,0.441,post
+16915,"$ESI on lows, down $1.50 to $2.50 BK a real possibility",ESI,Stock/Price Action/Bearish/Bearish Behavior,-0.465,post
+16916,Short on $ATVI from 24.55.,ATVI,Stock/Price Action/Bearish/Bear Position,-0.745,post
+16920,End Of Day Scan: Bullish MA  Crossovers $BBVA $PDS $NTLS $NGL $SBRCY $FGL $MTNOY $TTT  www.dailystockplays.com,TTT,Stock/Technical Analysis,0.457,post
+16925,"@louiebeene vwap is 1.63, held the trend line. Should be on a LOT of radars. $NAVB",NAVB,Stock/Price Action,0.325,post
+16926,$NEON oversold,NEON,Stock/Price Action/Current Price/Oversold,0.43,post
+16927,"$SSYS just re-tested lows . Should rise steadily from here. It hit $81 just 21 trading days ago, and $130.86 on Sept 18. It'll do it again.",SSYS,Stock/Price Action/Bullish,0.395,post
+16928,"$KNDI Break that HOD on volume, and we have a nice consolidation completed for another run.",KNDI,Stock/Price Action/Bullish/Bullish Behavior,0.602,post
+16934,$INVE : SEE YA ABOVE $8,INVE,Stock/Price Action/Bullish,0.502,post
+16938,$BXS: BancorpSouth Announces Extension of Merger Agreements with ... http://stks.co/s2PDF,BXS,Corporate/M&A/Proposed Merger,0.348,post
+16940,"Maglan Capital Up +20.84% In February, Long Fairpoint  http://stks.co/s1eQc $$ $FRP",FRP,Stock/Price Action/Bullish/Bullish Behavior,0.559,post
+16947,Exact (EXAS) Flagged As Strong On High Volume $EXAS http://stks.co/r26Ra,EXAS,Stock/Price Action/Bullish,0.385,post
+16956,$BIOC RSI extremely in long's favor looking at BIOC historically.,BIOC,Stock/Technical Analysis,0.503,post
+16966,$TNH Looks like an explosive setup if it can break the 20EMA and 105 level http://stks.co/b1SVH,TNH,Stock/Price Action/Bullish,0.348,post
+16971,$VMW  Got a nice push today following small sweepers of May C this morning,VMW,Stock/Price Action/Bullish,0.28,post
+16975,$DDD 3D Systems (DDD) Stock Receives Ratings Downgrade Today at Jefferies http://stks.co/g1cqd,DDD,Stock/Coverage/AnalystRatings/Downgrade,-0.501,post
+16977,$AAPL Dips being bought up real quick. Higher lows fo sho,AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.249,post
+16978,Long $X 24.62,X,Stock/Price Action/Bullish/Bull Position,0.601,post
+16982,$NKE gapping up to all time highs http://stks.co/q1jAu #tradeideas http://stks.co/r1j6c,NKE,Stock/Price Action/Current Price/52-Week High,0.782,post
+16986,@Intuitiv $CLNE gasoline prices spike in California. http://stks.co/t1bOi,CLNE,Stock/Price Action/Bullish,0.46,post
+16994,ESPN Files Lawsuit Against Verizon - http://stks.co/i2Cj1 $VZ,VZ,Corporate/Legal/Lawsuit,-0.346,post
+17008,$AVGO great growth stk &  also raised dividend . clearly a great investment http://stks.co/r2F3h,AVGO,Corporate/Dividend Policy/Dividend/Dividend going up,0.597,post
+17010,"$RXII Tang really is toxic, they keep bringing the share price down. At least they could let it climb a little before dragging it down.",RXII,Stock/Price Action/Bearish,-0.507,post
+17020,$AAPL near a 3% drop thats a lot... now the best i can do is HOLD ER lol,AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.304,post
+17025,$HCP Come to the party and buy this -gonna give solid gains and a dividend $$$$$$,HCP,Corporate/Dividend Policy,0.52,post
+17028,"$ONTY Continues to base as debate lingers. ONT-10 data next potential catalyst. If positive, stock quickly moves to $10. Downside limited.",ONTY,Stock/Price Action/Bullish,0.3,post
+17038,$SPY Looks like bear traps getting laid faster than Cadbury Creme Eggs by the Easter Bunny,SPY,Stock/Price Action/Bullish,0.351,post
+17049,$BBRY Sierra. Has a great cash balance and impressive growth rate.Would be a wonderful marriage!,BBRY,Corporate/Financial/Accounting/Cash Reserves,0.493,post
+17051,$IWM same conditions that sent markets to tumble all hitting this week,IWM,Market/Conditions,-0.236,post
+17055,$CRK time to accumulate for a long position with far more upside than downside,CRK,Stock/Price Action/Bullish/Bull Position,0.668,post
+17066,$BWLD bearish engulfing candle,BWLD,Stock/Technical Analysis,-0.532,post
+17075,for @vnoto74 to follow:  after a SELL signal by $NDX internals [06/23] ~> technical SELL $QQQ [06/25] ~> DOWN,QQQ,Stock/Signal/Sell Signal,-0.541,post
+17077,$AWR Standard & Poor's Affirms 'A+' Credit Rating at American States Water Company and Golden State Water Company http://stks.co/f2P94,AWR,Stock/Coverage/Credit Rating,0.526,post
+17080,$FREE Ha Heeeeeere comes the pump! So glad I picked up 9K end of day! Get ready for the bull ride!,FREE,Stock/Price Action/Bullish,0.538,post
+17082,$NUAN held up well after the big gains! Maybe we're finally on the move on this!!its still very undervalued and has major upside,NUAN,Stock/Price Action/Bullish,0.695,post
+17085,Why $MCD looks set to fall further. http://stks.co/f2fgj,MCD,Stock/Price Action/Bearish/Bearish Behavior,-0.545,post
+17087,@technik I still have a smaller $GILD pos. Being very tender with cash due to volatility. So reluctant to keep many big positions.,GILD,Market/Volatilit,0.153,post
+17093,$FB bot some @78.47 breakout from the consolidation zone :D,FB,Stock/Price Action/Bullish/Bull Position,0.724,post
+17095,$XLI Potential intermediate top in an Uptrend on a 60'-15'-4' charts http://stks.co/j1TdF,CRM,Stock/Price Action/Bearish,0.126,post
+17097,$TWTR sad the only thing to move this is a takeover rumor only to be sold off next day !,TWTR,Corporate/Rumors/Rumors,-0.278,post
+17098,"$VRTX Vertex. Monthly -lower hi/lower lo,  Long term uptrend intract so far",VRTX,Stock/Price Action/Bullish,0.368,post
+17103,$GEVO PLUNGING!  Back to $3.55.,GEVO,Stock/Price Action/Bearish/Bearish Behavior,-0.628,post
+17108,energy still failing to close above the 10D MA.  continues to stand out weak $XLE,XLE,Stock/Technical Analysis,-0.517,post
+17119,$ENB.CA {Head&Shoulders} bullish reversal setup and breakout. Oil and Gas Pipleline stock. $USO,USO,Stock/Technical Analysis,0.253,post
+17123,"$IMRS - it's important to be pragmatic in analysis...high prices could offer head-winds....bullish story intact,evenif the market rolls over",IMRS,Stock/Price Action/Bullish,0.4,post
+17124,Micron Shares Pounded On Fears Of Loss Of Business From Apple; Stifel Defends $AAPL $MU http://stks.co/t1Z8T @Marjo,MU,Corporate/Sales/Contract Withdrawn,-0.596,post
+17125,"$CHKP ABC Bullish Pattern, Targets https://t.co/uVMmRSR5Zy",CHKP,Stock/Technical Analysis,0.496,post
+17130,$TSLA is now up 57% from its February low. Amazing rebound.,TSLA,Stock/Price Action/Bullish,0.582,post
+17147,$SBUX downgraded to neutral at Deutsche Bank. Price target reduced to $64 from $70.,SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.446,post
+17148,"Micron Technology Inc #NASDAQ: $MU down 2.3% today and down 8.9% since being put on ""The Short"" https://t.co/EQQLTfUiOU",MU,Stock/Price Action/Bearish/Bearish Behavior,-0.469,post
+17157,$YHOO About to break out on the 5-min...,YHOO,Stock/Technical Analysis,0.313,post
+17162,$GILD 91 now support. $IBB $BIB https://t.co/GIoOf6zbKv,IBB,Stock/Technical Analysis,0.188,post
+17172,$FB down 7.5% from this #bearish pattern.  Considering the #bullish sentiment - That's an impressive bearish move https://t.co/TaJF0cH2qh,FB,Stock/Price Action/Bearish/Bearish Behavior,-0.39,post
+17195,$SAVE long. https://t.co/yEJuS9cMlC,SAVE,Stock/Price Action/Bullish/Bull Position,0.388,post
+17209,@mugatushair Now it is time to short $TSLA,TSLA,Stock/Price Action/Volatility/Short Selling,-0.385,post
+17213,$COST Costco less than stellar day but it held the 50 day moving average,COST,Stock/Technical Analysis,-0.14,post
+17219,"$AGN and $PYPL under pressure along with the market, however there were bullish options trades in both this morning https://t.co/9xG5W8nONT",PYPL,Stock/Price Action/Bearish/Bearish Behavior,0.014,post
+17238,Costco: A Premier Retail Dividend Play https://t.co/Fa5cnh2t0t $COST,COST,Corporate/Dividend Policy,0.354,post
+17244,$INTC finally some nice downside move... looking for the 31 handle to break,INTC,Stock/Price Action/Bearish/Bearish Behavior,-0.462,post
+17250,"$YHOO fishy action. New party interested (DailyMail) bounce & retreats. Not short by any means, but action questions big up move. Thoughts?",YHOO,Stock/Price Action,-0.043,post
+17252,"Sheryl Sandberg Sells 109,000 Shares of Facebook Inc $FB Stock https://t.co/3vXT7AMnpk via @RatingsNetwork",FB,Stock/Insider Activity/Insider Selling,-0.186,post
+17267,Amazon has been selling surveillance cameras infected with malware $AMZN #Amazon  https://t.co/TohLEQ8FK6 https://t.co/5PR4cBtVVy,AMZN,Corporate/Risks/Product Flaws,-0.186,post
+17269,"$TSLA 5th wave down on the 1 hour chart, hammer candle developing, close to 200 sma, might be a good spot for calls",TSLA,Stock/Price Action/Bearish,0.4,post
+17272,Baird Upgrades Tesla Motors $TSLA to Outperform https://t.co/1FA6aTOqlw,TSLA,Stock/Coverage/AnalystRatings/Upgrade,0.52,post
+17274,$ilmn piper Jeffries raises pt.  I remain long,ILMN,Stock/Coverage/AnalystRatings/Upgrade,0.467,post
+17289,"@HopeTurock yes, the expectations of a deal are somewhat priced in but we could see a nice pop if bids come in higher than expected... $YHOO",YHOO,Stock/Price Action,0.234,post
+17293,I don't see it. 200 day sma is the big hurdle. There is a good base building. $NFLX  https://t.co/ImKYGO2cyc,NFLX,Stock/Technical Analysis,0.228,post
+17304,Daily Mail parent company in talks with potential partners about joint bid for Yahoo's internet assets: https://t.co/mK7MEMtADT $YHOO,YHOO,Corporate/M&A,0.228,post
+17343,expecting  $SPY to close above 205.20 $AAPL,SPY,Stock/Price Action/Bullish,0.385,post
+17345,"$FB trending nicely, intraday.",FB,Stock/Price Action/Bullish/Bullish Behavior,0.404,post
+17348,Starbucks' Digital Strategy To Drive Significant Growth With Customer Loyalty $SBUX https://t.co/Xk6lZ3UI3K,SBUX,Corporate/Strategy,0.388,post
+17359,"$QCOM chart: Qualcomm Short 61.8% Retracement, Trendline and Resistance. https://t.co/2WQqh35KOY",QCOM,Stock/Technical Analysis/Trend,-0.371,post
+17373,"$INTU is in the process of streamlining its structure, especially through divestment of non-core businesses   https://t.co/dR5baNun2u",INTU,Corporate/Strategy,0.229,post
+17383,"$TSLA steaming up again, this stock is relentless at the moment",TSLA,Stock/Price Action/Bullish/Bullish Behavior,0.535,post
+17387,.@barronsonline sees #Apple at $150/share in a year (+36% from today) on growing services business. $AAPL https://t.co/3BDNEKN7l1,AAPL,Stock/Coverage,0.408,post
+17404,Adobe Receives New Rating from Top Analyst $ADBE https://t.co/LJNXPEvHZN,ADBE,Stock/Coverage/Credit Rating,0.141,post
+17409,Activision Blizzard Media Networks Announces Record #Esports Viewership https://t.co/729BiqLbtK $ATVI partnered with $HDSI for 9 #tournament,HDSI,Corporate/Sales,0.208,post
+17423,"Also, BMO had just initiated $incy with an outperform yesterday, while several other firms all reiterated buy ratings.",INCY,Stock/Coverage/AnalystRatings/Upgrade,0.574,post
+499,S&P downgrades Barclays and RBS on government bailout fears,RBS,Stock/Coverage/AnalystRatings/downgrade,-0.53,headline
+502,Irish housebuilder Cairn Homes plans London listing,Cairn Homes,Stock/IPO,0.189,headline
+507,Arm slammed by handset sales outlook,Arm,Corporate/Sales,-0.41,headline
+511,CompaniesLSE adds ex-SEC head Schapiro to board,LSE,Corporate/Appointment,0.076,headline
+512,Sales boost for new Morrisons chief David Potts as Tesco turnaround stalls,Tesco,Corporate/Sales/Sales,-0.41,headline
+516,FTSE 100 flat; Standard Chartered leads risers,Standard Chartered,Stock/Price Action,0.589,headline
+517,CompaniesHoward Davies appointment as RBS director delayed,RBS,Corporate/Appointment,-0.025,headline
+519,Keith Skeoch to step up as David Nish quits as chief executive of Standard Life,Standard Life,Corporate/Appointment,-0.09,headline
+52,Passengers rise at EasyJet and Aer Lingus,EasyJet,Corporate/Sales/Sales,0.329,headline
+520,Dixons Carphone profit boost on strong sales,Dixons Carphone,Corporate/Sales,0.478,headline
+521,"FTSE rallies off three-month low, boosted by StanChart, Sainsbury",Sainsbury,Stock/Price Action,0.334,headline
+521,"FTSE rallies off three-month low, boosted by StanChart, Sainsbury",StanChart,Market/Market/Market Outlook,0.465,headline
+530,"Royal Mail, Johnson Matthey lead FTSE lower",Royal Mail,Market/Market/Market Trend,-0.438,headline
+539,Sainsbury sales slip again as price pressures take a toll,Sainsbury,Stock/Price Action,-0.303,headline
+540,Sophos aims to raise $100m in London IPO,Sophos,Stock/IPO,0.214,headline
+541,UPDATE 3-Stifel to buy former Lehman brokerage from Barclays,Lehman,Corporate/M&A/Proposed Merger,0.164,headline
+545,Borealis Infrastructure putting together new Severn Trent bid,Severn Trent,Corporate/M&A/Proposed Merger,0.214,headline
+546,"FTSE falls to 3-month low on Greek debt concerns, easyJet skids",easyjet,Corporate/Risks,-0.414,headline
+547,Johnson Matthey share price slumps as company posts full-year results,Johnson Matthey,Stock/Price Action,-0.626,headline
+548,UPDATE: Barclays Expects Gain After Settling With Lehman Bros Trustee,Lehman,Corporate/Legal/Settlement,0.239,headline
+548,UPDATE: Barclays Expects Gain After Settling With Lehman Bros Trustee,Barclays,Corporate/Legal,0.199,headline
+55,Tesco Abandons Video-Streaming Ambitions in Blinkbox Sale,Blinkbox,Corporate/Strategy,-0.195,headline
+55,Tesco Abandons Video-Streaming Ambitions in Blinkbox Sale,Tesco,Corporate/Strategy,-0.335,headline
+552,Petrofac books further Â£30m cost for Shetland gas terminal delays,Petrofac,Corporate/Risks,-0.343,headline
+553,Petrofac share price rises despite Â£30m costs on North Sea project,Petrofac,Stock/Price Action,0.09,headline
+554,Whitbread boss Andy Harrison defends sales fall as 'just a blip',Whitbread,Corporate/Sales,-0.1,headline
+555,Barclays share price subdued as bank faces fresh forex probe,Barclays,Stock/Price Action,-0.373,headline
+556,CompaniesActelion shares hit record on Shire takeover talk,Actelion,Corporate/Rumors,0.721,headline
+556,CompaniesActelion shares hit record on Shire takeover talk,Shire,Corporate/Rumors/Rumors,0.345,headline
+56,"FDA approves NPS drug, in move validating Shire takeover deal",Shire,Corporate/M&A/Proposed Merger,0.332,headline
+563,LSE gets Hong Kong regulatory nod to HK firms to become LSE members,LSE,Corporate/Regulatory,0.247,headline
+573,Diageo Shares Surge on Report of Possible Takeover by Lemann,Lemann,Stock/Technical Analysis/Trend/Trending up,0.415,headline
+576,RBS chairman admits surprise at size of regulatory penalties,RBS,Corporate/Regulatory,-0.333,headline
+584,RSA Insurance Hires Towergate's Egan as Chief Financial Officer,Towergate,Corporate/Appointment/Executive Appointment,0.002,headline
+590,Johnson Matthey raises prospect of investor payout,Johnson Matthey,Corporate/Dividend Policy,0.281,headline
+593,InterContinental Hotels Denies Reports of Starwood Merger Talks,Starwood,Corporate/Rumors/Scoop,-0.078,headline
+594,REFILE-Hikma and Barclays help Britain's FTSE to climb higher,Hikma,Market/Market/Market Trend,0.452,headline
+60,Ocwen Reaches Settlement With California Regulator,Ocwen,Corporate/Legal/Settlement,0.171,headline
+601,FDA Approves AstraZeneca's Iressa As Lung Cancer Treatment,AstraZeneca,Corporate/Regulatory,0.42,headline
+602,AstraZeneca suffers setback after drug fails to treat eye cancer,AstraZeneca,Corporate/Risks,-0.392,headline
+613,British American Tobacco first-half sales hurt by currency moves,British American Tobacco,Market/Currency,-0.346,headline
+614,Zurich Insurance Considering Offer for UK Rival RSA Insurance,Zurich Insurance,Corporate/Rumors/Rumors,0.25,headline
+616,Japan's Nikkei lands Financial Times in $1.3 billion deal,Nikkei,Corporate/Sales/Deal,0.262,headline
+622,"Ingenious, HSBC, UBS and Coutts sued by 'tax avoidance' clients",UBS,Corporate/Legal/Lawsuit,-0.281,headline
+622,"Ingenious, HSBC, UBS and Coutts sued by 'tax avoidance' clients",HSBC,Corporate/Legal/Lawsuit,-0.251,headline
+622,"Ingenious, HSBC, UBS and Coutts sued by 'tax avoidance' clients",Coutts,Corporate/Legal/Lawsuit,-0.248,headline
+624,UPDATE 1-AstraZeneca sells rare cancer drug to Sanofi for up to $300 mln,Sanofi,Corporate/Sales/Deal,0.258,headline
+627,Sainsbury sells unit to LloydsPharmacy,Sainsbury,Corporate/Sales/Deal,0.234,headline
+632,BAE Systems's sales boosted by European Typhoon and currencies,BAE Systems,Corporate/Sales,0.39,headline
+634,"Royal Mail 'breached competition law' over delivery service changes, Ofcom claims",Royal Mail,Corporate/Legal,-0.315,headline
+17425,@REC_Zakaria Monday Bulls Are Out! Stock Ticker- Michael James Ent. Other picks $SBUX $GVP $NKE,SBUX,Stock/Price Action/Bearish/Bearish Behavior,0.457,post
+17431,#Tesla: Model X Recall Adds To Reliability Issues $TSLA https://t.co/jVXQ4DoXnP,TSLA,Corporate/Risks/Product Recall,-0.267,post
+17436,Microsoft joins the open-source Eclipse Foundation https://t.co/z8G5cZaKeU focus on collaboration & open business is a smart strategy! $MSFT,MSFT,Corporate/Strategy,0.26,post
+17437,"Sudden optimism about iPhone sales (i.e., not as bad as expected) gives Apple $AAPL a lift.  https://t.co/oKTCw4YiB5",AAPL,Corporate/Sales,0.279,post
+17446,$NFLX +1% $104.80 LONG streaming services rapidly outpacing traditional cable,NFLX,Stock/Price Action/Bullish/Bullish Behavior,0.571,post
+17453,Infection worries prompt regulatory reviews of Gilead leukaemia drug $GILD https://t.co/H9vqXpZ15G via @YahooFinance,GILD,Corporate/Regulatory,-0.401,post
+17455,Preparing for a Breakout Trade in Netflix $NFLX  https://t.co/CzHIX3tuAG $$ https://t.co/z1qb9xa4LD,NFLX,Stock/Technical Analysis/Breakout,0.358,post
+17457,"$CTRP just broke resistance, watching for a #redtogreen #breakout right out of the gate tomorrow morning. #stocks https://t.co/8VXFUUIt04",CTRP,Stock/Technical Analysis,0.598,post
+17471,Deutsche Bank cuts $SBUX,SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.539,post
+17477,"Fastenal misses by $0.01, misses on revenue $FAST #NYSE https://t.co/63JHQ7pwMN",FAST,Corporate/Financial/Financial Results,-0.374,post
+17508,$TSLA recall,TSLA,Corporate/Risks/Product Recall,-0.227,post
+17512,Piper upgrades Symantec on improving renewal rates and enterprise growth $SYMC,SYMC,Stock/Coverage/AnalystRatings/Upgrade,0.525,post
+17514,#FusionIQ NEW Positive Timing Signal on $SBUX Today https://t.co/9ImlXz4YNa Please Retweet #Signals,SBUX,Stock/Signal/Buy Signal,0.341,post
+17525,#LongPos $TSLA 256 Break-out thru 50 & 200- DMA (197-230) upper head res (274-279) Short squeeze in progress Nr term obj: 310 Stop loss:239,TSLA,Stock/Technical Analysis,0.504,post
+17539,Starbucks' Digital Strategy To Drive Significant Growth With Customer Loyalty https://t.co/9Q7cI79IYO $SBUX,SBUX,Corporate/Strategy,0.335,post
+17542,Apple: Another attempt to break out on Apple but with weak PVT   $AAPL #Trading #investing #aapl https://t.co/DNh7Hgv22V,AAPL,Stock/Price Action,0.138,post
+17555,$ISRG Break out confirmed. Bought Leaps. Good trading!,ISRG,Stock/Technical Analysis/Breakout,0.36,post
+17558,"@sharkbiotech If anyone is selling/shorting $AGN b/c you believe $ENDP rumors to be realistic, then I'll take the other side of that trade",ENDP,Corporate/Rumors,0.422,post
+17562,$FB & $TSLA cracking lower early. $short #correction #stocks,TSLA,Stock/Price Action/Bearish/Bearish Behavior,-0.511,post
+17590,Today I bought more $MU $YHOO $VALE $NBL $TWTR $AXP $ZNGA https://t.co/Vt6T5Zp2is,ZNGA,Stock/Price Action/Bullish/Bull Position,0.248,post
+17591,Hard to find new buyers of $TSLA at 250.  Shorts continue to pile in.,TSLA,Stock/Price Action/Volatility/Short Selling,-0.373,post
+17631,"$AMZN trades in mid to upper range. No break out yet, either direction",AMZN,Stock/Price Action,0.059,post
+17636,$TSLA announces a recall and the stock doesn't sell off. This stock is teflon. Won't last forever.,TSLA,Corporate/Risks/Product Recall,0.213,post
+17637,$NFLX and $TSLA making all kinds of gains 📈,TSLA,Stock/Price Action/Bullish/Bullish Behavior,0.42,post
+17638,"@TraceyRyniec not just energy, it's so broad. You will see it in WWG and Kaman as well. I'd be short $fast",FAST,Stock/Price Action/Bearish,-0.625,post
+17669,$AAPL Goldman Sachs reiterates conviction buy on Apple with a $155 PT $SPY $DJIA $GS https://t.co/h5hmXSITwM,SPY,Stock/Coverage/AnalystRatings/Upgrade,0.335,post
+17670,Tesla issues its first Model X recall https://t.co/t1kMqVwhQQ $TSLA,TSLA,Corporate/Risks/Product Recall,-0.287,post
+17671,$ENDP being sued by FTC.....nobody will buy them with that hanging over their heads,ENDP,Corporate/Legal/Lawsuit,-0.602,post
+17688,$TSLA weakest in todays DT watchlist,TSLA,Stock/Price Action/Bearish,-0.383,post
+17692,"$TSLA on fire, what is that 6 up days in a row. Someone neeeeds!! in",TSLA,Stock/Price Action/Bullish,0.452,post
+17724,$GILD chart: With $IBB back over support. https://t.co/GpRZ2UJFC4,IBB,Stock/Technical Analysis,0.362,post
+17729,"$KNDI #China #ElectricCar maker. China car sales +7.8%. Also, may feed off $TSLA momentum run lately.",TSLA,Corporate/Sales,0.225,post
+17732,"took some $ENDP long this am, using VWAP as guide",ENDP,Corporate/Technical Analysis,0.613,post
+17733,"maybe closing all those $AAPL calls i had this morning was a bad idea, money left on the table...",AAPL,Stock/Options,0.501,post
+17758,$AAPL weekly still under the 50 moving average and creating a lower high. https://t.co/vT7ppzY2UY,AAPL,Stock/Price Action/Bearish/Bearish Behavior,-0.215,post
+17759,"Intuitive Surgical $ISRG is in a great financial position, take a look https://t.co/VahhJAcBFG https://t.co/24hQTQX4ou",ISRG,Corporate/Financial,0.406,post
+17764,$NFLX I say it's time to short at this point.,NFLX,Stock/Price Action/Volatility/Short Selling,-0.489,post
+17773,$TSLA upgraded to Buy @ Argus w/ $333 PT - you'd almost think after ~100pt run in 5 weeks this would be the sell signal,TSLA,Stock/Coverage/AnalystRatings/Upgrade,0.349,post
+17780,$FB slight green... May be runner later,FB,Stock/Price Action/Bullish,0.328,post
+17784,"$AAPL Stock Climbs as Barron's Sees 40% Upside, Jim Cramer's Take  https://t.co/lKlD9mVKBQ",AAPL,Stock/Coverage/AnalystRatings/Upgrade,0.517,post
+17793,"Tesla to recall 2,700 Model X SUVs over seat issue https://t.co/OdPraN59Xq $TSLA https://t.co/xvn4blIwpy https://t.co/ThfvWTnRPs",TSLA,Corporate/Risks/Product Recall,-0.31,post
+17794,Juniper tumbles on Q1 warning; Cisco also lower $JNPR $CSCO https://t.co/bGvIntk43h,JNPR,Corporate/Financial/Financial Results/Earnings/Profit Warning,-0.366,post
+17798,"$ATVI ooks pretty bullish for now. from a short-term perspective, it's got a good chance of maybe sliding back to 33.70 #stocks #investing",ATVI,Stock/Price Action/Bullish,0.323,post
+17805,$CTRP  breaking out here on good vol and a parser buy signal  ..noticed this on bob langs comments looking for 48 fast,CTRP,Stock/Price Action/Bullish/Bullish Behavior,0.418,post
+17807,"78 users on Vetr are bearish on Tesla Motors, Inc., indicating a SELL Rating (2 stars) for $TSLA https://t.co/vVpzqCXsNJ",TSLA,Stock/Coverage/AnalystRatings/Downgrade,-0.485,post
+17822,4 beaten-down Internet companies that may be ripe for a #takeover target: #Twitter $TWTR - #LinkedIn $LNKD - #Yahoo! $YHOO - #Groupon $GRPN,YHOO,Corporate/M&A,0.129,post
+17823,"$STX long play, another consistent profit zone.. check it out https://t.co/DQfuzOzYlh https://t.co/ggne4ayzqn",STX,Stock/Price Action/Bullish/Bullish Behavior,0.48,post
+17831,"$FB trend, hits mid 110's and drops",FB,Stock/Price Action/Bearish/Bearish Behavior,-0.343,post
+17833,$PCLN Trying to break daily trend line! Big move could happen https://t.co/gY0aDb2jsQ https://t.co/KPBBCgQ2xy,PCLN,Stock/Price Action,0.485,post
+17840,$FB I've been dead on so far. Such a bloated valuation. https://t.co/czCf8Kbrlt,FB,Stock/Fundamentals,-0.536,post
+17845,$TSLA recall model X https://t.co/b7izYa4BuE,TSLA,Corporate/Risks/Product Recall,-0.347,post
+17851,"$TSLA Recalls 2,700 Model X Vehicles; Shares Volatile https://t.co/tcKqZnMIqX #TSLA #tech #stockmarket https://t.co/FeMhJtAmQj",TSLA,Corporate/Risks/Product Recall,-0.336,post
+17856,Breaking: Tesla recalls all Model X cars  .. details on show now $TSLA,TSLA,Corporate/Risks/Product Recall,-0.308,post
+17858,"$QCOM The indicator RSI is over 50, which stands at 56.1, an upward movement is expected. https://t.co/yfa9jcUsQa",QCOM,Stock/Technical Analysis,0.387,post
+17866,Supermarket Stocks Rally as Tesco Plans to Axe Non-core UK Assets $TSCO https://t.co/BmvhcrwREA,TSCO,Stock/Price Action/Bullish/Bullish Behavior,0.248,post
+17869,$TRIP maintains Neutral rating at JP Morgan- PT cut $61 from $66,TRIP,Stock/Coverage/AnalystRatings,-0.019,post
+17903,Why Alphabet Inc was just upgraded to buy https://t.co/dEVnLKhqtZ $GOOGL,GOOGL,Stock/Coverage/AnalystRatings/Upgrade,0.465,post
+17909,@NASDboy I think the DNF crew can get this $NFLX short into the next 30 days heading into earnings,NFLX,Stock/Price Action/Bearish/Bearish Behavior,-0.308,post
+17925,Added more $BBBY @jimcramer is wrong about this one. Still a very profitable merchant with profitable stores,BBBY,Stock/Price Action/Bullish/Bull Position,0.557,post
+17952,Added long at friday close  $SPY $LABU $BLUE $AMZN,SPY,Stock/Price Action/Bullish/Bull Position,0.513,post
+17956,"Isolationism? Another Sell Rating, Sell Ratings On SPY, QQQ, IWM And Several Companies https://t.co/j35FNnx744 $AAPL #APPLE $AXP $BAC",BAC,Stock/Coverage/AnalystRatings/Downgrade,-0.513,post
+17962,long $SDLP $CPGX $TWTR $BITA $LABU $FB $TSLA $ETE $SDRL  Autocharts @ https://t.co/nxLx1ES7nY,TWTR,Stock/Price Action/Bullish/Bull Position,0.488,post
+17977,Costco: A Premier Retail Dividend Play https://t.co/J3UhTs022M $COST,COST,Corporate/Dividend Policy,0.463,post
+17994,Pivotal Research upgrading $GOOGL to buy.  https://t.co/LSahepdqhD    #stocktrading,GOOGL,Stock/Coverage/AnalystRatings/Upgrade,0.512,post
+18003,Most bullish stocks on Twitter during this dip. $YHOO $GDX $GOOGL $STZ $GOLD $EW $VZ $CELG $SBUX $SCTY more: https://t.co/iuZJelfwt3,YHOO,Stock/Price Action/Bullish,0.408,post
+18010,$TSLA <STUDY the CHARTS> Pullback_Time https://t.co/ZMDG0fb3I7,TSLA,Stock/Technical Analysis,-0.3,post
+18011,#Tesla Model S deliveries are up 35% in Germany - record deliveries in March [Chart] https://t.co/yCnClcBImV  $TSLA,TSLA,Corporate/Sales,0.365,post
+645,"Britain's FTSE steadies, supported by Dixons Carphone",Dixons Carphone,Stock/Price Action,0.329,headline
+651,Glaxo's ViiV Healthcare Signs China Manufacturing Deal With Desano,Glaxo,Corporate/Sales/Partnership,0.284,headline
+653,AstraZeneca sells Caprelsa rights to Sanofi unit,Sanofi,Corporate/Sales/Deal,0.233,headline
+659,UPDATE 5-Barclays Chairman McFarlane axes CEO to speed up strategic change,Barclays,Corporate/Strategy,-0.229,headline
+665,Miners Meltdown as BHP to Rio Tinto Sink in Commodities Rout,Rio Tinto,Stock/Price Action/Bearish/Bearish Behaviour,-0.665,headline
+669,"FTSE led lower by M&S, GlaxoSmithKline",M&S,Market/Market/Market Trend,-0.448,headline
+67,Morrisons faces festive sales test,Morrisons,Corporate/Sales,-0.113,headline
+670,GKN to buy Fokker Technologies for 706 mln euros,GKN,Corporate/M&A/M&A,0.276,headline
+671,Diageo Sells Ryder Cup Venue Gleneagles Hotel to Ennismore Group,Gleneagles Hotel,Corporate/Sales/Deal,0.237,headline
+671,Diageo Sells Ryder Cup Venue Gleneagles Hotel to Ennismore Group,Ennismore Group,Corporate/Sales/Deal,0.198,headline
+674,"UPDATE: CIB, Legal & General Sell Egyptian Life Joint Venture To AXA",CIB,Corporate/Sales/Deal,0.148,headline
+679,Chime Communications Set To Be Acquired By WPP And Providence,WPP,Corporate/M&A/M&A,0.202,headline
+680,"CompaniesNew Aggreko CEO to reshape business, strip costs",Aggreko,Corporate/Strategy,0.177,headline
+682,AstraZeneca to Pay Inovio Up to $700 Million for Cancer Drug,Inovio,Corporate/Sales/Deal,0.33,headline
+686,Rio Tinto CEO says iron ore market at equilibrium,Rio Tinto,Market/Market,0.0,headline
+687,US sanctions put Gazprom-Shell alliance plans in jeopardy,Shell,Economy/Trade/Sanctions,-0.314,headline
+688,Standard Chartered Not Raising Capital Yet As Dividend Cut,Standard Chartered,Corporate/Dividend Policy,-0.158,headline
+69,Tesco share price dips as Blinkbox Books closes ending supermarket's digital ...,Tesco,Stock/Price Action/Volatility,-0.389,headline
+69,Tesco share price dips as Blinkbox Books closes ending supermarket's digital ...,Blinkbox,Stock/Price Action,-0.357,headline
+692,"UPDATE 1-BHP Billiton's credit ratings fragile in FY16, agencies warn",BHP,Corporate/Risks,-0.338,headline
+693,CRH adds CR Laurence to acquisitions tally for $1.3bn,CRH,Corporate/M&A/M&A,0.231,headline
+7,Stakes High for AstraZeneca Heart Drug Facing Tough Competition,AstraZeneca,Corporate/Risks,-0.24,headline
+70,Shire to buy NPS for $5.2 billion to boost rare disease drugs,Shire,Corporate/M&A/M&A,0.235,headline
+701,Novartis buys remaining rights to GSK treatment in deal up to $1 billion,Novartis,Corporate/Sales/Deal,0.217,headline
+702,"AstraZeneca bags another cancer drug deal, this time with Inovio",Inovio,Corporate/Sales/Deal,0.316,headline
+704,REFILE-Aviva Investors to move 34 bln euros in assets from AXA fund arm,AXA,Market/Conditions/Mutual Fund flows,-0.398,headline
+715,"L&G still paying price for dividend cut during crisis, chief says",L&G,Corporate/Dividend Policy,-0.338,headline
+726,Buffett's Company Reports 37 Percent Drop in 2Q Earnings,Berkshire Hathaway Inc.,Corporate/Company Communication,-0.566,headline
+730,Travis Perkins Hikes Dividend 20% As Profit And Revenue Rise,Travis Perkins,Corporate/Dividend Policy,0.769,headline
+738,"Tesco, Asda sales fall as march of the discounters continues: Kantar",Tesco,Corporate/Sales,-0.398,headline
+741,Shire proposes $30 bln all-share tie-up with Baxalta,Shire,Corporate/M&A/Proposed Merger,0.22,headline
+742,Shire CEO steps up drive to get Baxalta board talking,Shire,Corporate/Strategy/Corporate Planning,0.124,headline
+747,"Tesco, Asda sales fall as march of the discounters continues-Kantar",Asda,Corporate/Sales/Demand Shortfall,-0.356,headline
+758,Verizon and AT&T accused of hurting rivals,Verizon,Corporate/Regulatory,-0.446,headline
+759,"FTSE 100 falls as China devaluation hits Burberry, mining stocks",Burberry,Market/Volatility,-0.479,headline
+76,AstraZeneca's MedImmune Inks Licensing Deal With Omnis Pharmaceuticals,Omnis Pharmaceuticals,Corporate/Sales/Deal,0.295,headline
+764,"Nine banks including Barclays, Citi, agree to pay $2 billion to settle forex ...",Citi,Corporate/Legal/Settlement,-0.647,headline
+78,FDA approves Shire's Vyvanse for binge-eating disorder,Shire,Corporate/Regulatory,0.291,headline
+784,CompaniesCar insurer Hastings Group driving Â£180m IPO,Hastings Group,Stock/IPO,0.302,headline
+8,UPDATE 1-Dairy Crest loses a third of Morrisons milk contract,Morrisons,Corporate/Sales/Failed Contract Discussion,-0.161,headline
+808,Glencore slumps 25 pct as debt fears grow,Glencore,Corporate/Risks,-0.718,headline
+815,Horizonte acquires neighbouring Glencore nickel property in Brazil,Horizonte,Corporate/M&A/M&A,0.182,headline
+82,Companies Thetrainline.com announces arrival of London IPO,Thetrainline.com,Stock/IPO,0.245,headline
+820,UPDATE 1-Engineering firm Smiths Group confirms CEO appointment,Morrissons,Corporate/Appointment,0.078,headline
+821,Industry NewsMorrisons unveils which stores will close as 900 jobs face the axe,Morrissons,Corporate/Company Communication,-0.731,headline
+827,Glencore slumps 30 percent as debt fears grow,Glencore,Corporate/Risks,-0.781,headline
+833,Aberdeen Asset Management Gains Foothold In China,Aberdeen Asset Managment,Corporate/Strategy,0.357,headline
+835,ARM Holdings plc Partners With International Business Machines Corp. To Drive ...,ARM Holdings,Corporate/Strategy,0.273,headline
+835,ARM Holdings plc Partners With International Business Machines Corp. To Drive ...,IBM,Corporate/Strategy,0.345,headline
+838,"FTSE 100 drops 2.5 pct on Glencore, metals price fears",Glencore,Stock/Price Action,-0.597,headline
+840,"After Barclays and Bank of America, Citigroup has blockchain in sight",Barclays,Corporate/Strategy/Investment,0.198,headline
+840,"After Barclays and Bank of America, Citigroup has blockchain in sight",Citigroup,Corporate/Strategy/Investment,0.224,headline
+841,AB InBev approaches SABMiller to explore $250bn tie-up,SAB Miller,Corporate/M&A/Proposed Merger,0.237,headline
+847,EU regulator backs approval for GSK injectable asthma drug,GSK,Corporate/Regulatory,0.379,headline
+855,Glencore fight back over debt fears lifts shares,Glencore,Corporate/Risks,0.278,headline
+856,"News FeedFTSE 100 movers: Ashtead jumps on strong interims; Glencore, BP in ...",Ashtead,Stock/Fundamentals,0.461,headline
+858,Brewer AB InBev seeks $275 bln tie-up with SABMiller,SABMiller,Corporate/M&A/Proposed Merger,0.295,headline
+861,AB InBev looks to win over SABMiller investors,SABMiller,Corporate/M&A/Proposed Merger,0.276,headline
+863,UPDATE 1-EU regulator backs approval for GSK injectable asthma drug,GSK,Corporate/Regulatory,0.418,headline
+866,Copper market may get a 2003-style supply shock from Glencore closures,Glencore,Market/Market,-0.571,headline
+87,Breakingviews: IAG can pay more for Aer Lingus,IAG,Corporate/M&A/M&A,0.12,headline
+872,TalkTalk hires BAE Systems to investigate cyber attack,TalkTalk,Corporate/Appointment/Staff Hiring,-0.113,headline
+876,Renewed AB InBev Bid for SABMiller Ups Stake in Beer Battle,SAB Miller,Corporate/M&A/M&A,0.236,headline
+879,CompaniesAB InBev signals it won't go hostile for SABMiller,SAB Miller,Corporate/Rumors/Scoop,0.107,headline
+88,Tesco share price jumps as Q3 sales top estimates,Tesco,Stock/Price Action,0.719,headline
+885,AstraZeneca diabetes drug combination faces delay after FDA rebuff,AstraZeneca,Corporate/Risks,-0.391,headline
+891,Mylan Appoints Ranjan Ray Chaudhuri as Global Commercial Lead for Mylan's Over ...,Mylan,Corporate/Appointment,0.0,headline
+896,SABMiller revenue hit by weaker EM currencies,SAB Miller,Market/Currency,-0.439,headline
+897,UPDATE 5-SABMiller rejects AB InBev's $104 bln takeover approach,SAB Miller,Corporate/M&A/Proposed Merger,0.172,headline
+90,CRH's concrete bid for Holcim Lafarge assets,Holcim Lafarge,Stock/Signal/Buy Signal,0.282,headline
+907,Market Report: Eight-day rally ends for FTSE 100 and Standard Chartered,Standard Chartered,Market/Market,0.008,headline
+908,AB InBev offers SABMiller $3 billion breakup fee,SAB Miller,Corporate/M&A/M&A,0.197,headline
+912,GSK joins China trade push as UK trumpets healthcare deals,GSK,Economy/Trade,0.294,headline
+914,AB InBev ups offer for SABMiller as deadline looms,SAB Miller,Corporate/M&A/Proposed Merger,0.257,headline
+919,Tesco PLC's Recovery Continues With A Â£250m Cash Infusion,Tesco,Stock/Fundamentals,0.337,headline
+922,"METALS-Zinc surges 12 pct after Glencore cuts output, fuelling metals rally",Glencore,Market/Volatility,0.162,headline
+924,CompaniesUnilever sales lifted by ice cream in soft economy,Unilever,Corporate/Sales,0.383,headline
+939,AB InBev's Latest Bid Said Unlikely to Win SABMiller's Approval,SABMiller,Corporate/Rumors/Rumors,0.127,headline
+94,Persimmon share price climbs on 23% rise in full-year revenue,Persimmon,Stock/Price Action,0.975,headline
+941,Britain's FTSE forges ahead as Shire surges,Shire,Stock/Price Action,0.512,headline
+942,AB InBev attacks SABMiller bid rebuffal,SABMiller,Corporate/M&A/M&A,-0.158,headline
+943,Anheuser-Busch InBev Increases Offer for Rival SABMiller,SABMiller,Corporate/M&A/Proposed Merger,0.24,headline
+945,Why I'd Buy ARM Holdings plc And BHP Billiton plc Today,BHP Billiton,Corporate/Reputation/Scoop,0.424,headline
+946,Barclays PLC & Lloyds Banking Group PLC Are The 2 Banks I'd Buy Today,Lloyds,Corporate/Reputation/Scoop,0.434,headline
+952,EasyJet Dismisses Lufthansa Low-Cost Plan in Contest for Germany,Lufthansa,Corporate/Risks/Price Competition,-0.227,headline
+96,Ruling sets lower limit on potential fine for BP,BP,Corporate/Legal,-0.261,headline
+963,"EXCLUSIVE-BP, China's CNPC to unveil oil alliance - sources",CNPC,Corporate/Rumors/Scoop,0.318,headline
+965,SAB's Chairman Digs In With Board Divided on InBev Offer,SABMiller,Corporate/Reputation/Dispute,0.016,headline
+966,Kinder Morgan and BP Form Joint Venture Limited Liability Company to Purchase ...,Kinder Morgan,Corporate/M&A/Joint Venture,0.225,headline
+967,Supreme Court Upholds $236 Million Jury Award Against ExxonMobil,ExxonMobil,Corporate/Legal,-0.459,headline
+972,Standard Chartered's Shares Plunge 7% After Fitch Downgrade,Standard Chartered,Stock/Coverage,-0.812,headline
+98,Reed Elsevier share price slides on underwhelming full-year results,Reed Elsevier,Stock/Price Action,-0.526,headline
+980,WPP wins race for 'programmatic buying' agency Essence Digital,WPP,Corporate/M&A/M&A,0.238,headline
+981,BHP Billiton share price: Brazil to sue Samarco for Â£3.5bn,Samarco,Corporate/Legal/Lawsuit,-0.637,headline
+986,G4S slides on balance sheet worries,G4S,Corporate/Risks,-0.593,headline
+988,FDA approves AstraZeneca drug for advanced lung cancer,AstraZeneca,Corporate/Regulatory,0.507,headline
+99,UPDATE 1-Meggitt reiterates annual outlook after tough 2014,Meggitt,Stock/Fundamentals,0.021,headline
+991,HSBC appoints business leaders to board,HSBC,Corporate/Appointment,0.154,headline
+999,"HSBC shakes up board with two new business chiefs, three departures",HSBC,Corporate/Appointment,-0.074,headline
+18014,"Last month we added to our $GILD position and started a new one in $BWLD We see slow, steady, unspectacular growth going forward near term",GILD,Stock/Fundamentals,0.422,post
+18047,"$TSLA lots of green on the 5 min, watch the hourly $259.33 possible resistance currently @ $257.00",TSLA,Stock/Technical Analysis,0.318,post
+18050,$AMGN And #UCB Announce Positive Top-Line Results From Ph3 Study Evaluating Romosozumab In Men... https://t.co/4hBoUDR8B8 via @YahooFinance,AMGN,Corporate/Sales/Sales,0.47,post
+18061,Sold some $TSLA Puts this morning Closed them at the close. Helps pay for monthly expenses,TSLA,Stock/Price Action/Bearish/Bear Position,-0.043,post
+18075,Windows 10 is awful why did it force an upgrade on my pc without my consent? #windows #Microsoft $msft,MSFT,Corporate/Risks/Product Flaws,-0.49,post
+18077,$EXPE working on the second leg of its reversal run as it breaks another down trend and continues higher. https://t.co/76DSJysyR0,EXPE,Stock/Price Action/Bullish/Bullish Behavior,0.536,post
+18078,"$ENDP exit reversal .11 X 3K shares = $330 - now Long - not getting follow through, either side of price action",ENDP,Stock/Price Action,0.469,post
+18088,$CTRP not a bad long chart now that it's through sma100 resistance.,CTRP,Stock/Technical Analysis,0.498,post
+18096,$ENDP Was looking for a long entry but today's price action wasn't appealing,ENDP,Stock/Price Action/Bearish/Bearish Behavior,0.034,post
+18097,"$INTC & $AAPL strong, tech leads DOW higher",INTC,Stock/Price Action/Bullish/Bullish Behavior,0.588,post
+18100,$CTRP breaking out https://t.co/Z2je3rTKch,CTRP,Stock/Price Action/Bullish,0.364,post
+18107,$CSX another strong rail today after breaking intraday resistance at 1$9.80 https://t.co/eA4FBVuqGP,CSX,Stock/Price Action/Bullish/Bullish Behavior,0.468,post
+18124,loading $SPY and $AAPL puts. think were toppy IMHO.,SPY,Stock/Price Action/Bearish,-0.537,post
+18126,bot $AMZN 600 weekly calls here @ 5.93,AMZN,Stock/Price Action/Bullish/Bull Position,0.659,post
+18143,$FB watching for bounce tomorrow,FB,Stock/Price Action/Bullish,0.366,post
+18145,#Fintech provider $CAFN Cachet Financial Solutions Surging Forward today post earnings Up +13.26% https://t.co/9BJ3csk2i9 $JKHY $FISV #Momo,CAFN,Corporate/Financial,0.418,post
+18151,"Really surprised by how much $FB has now fallen. Thought there'd be some support around the 50d, but I guess not.",FB,Stock/Price Action/Bearish,-0.334,post
+18152,$tsla bad day to short,TSLA,Stock/Price Action/Bullish,0.45,post
+18154,"$TSLA TO RECALL 2,700 MODEL X SUVS FOR SEAT-BELT FIX",TSLA,Corporate/Risks/Product Recall,-0.235,post
+18164,5 Best Analyst Rated Stocks in Last 72hrs: $ORCL $AAPL $CBS $INO $CPXX View all ratings here: https://t.co/IRID6zd5gc,ORCL,Stock/Coverage/AnalystRatings,0.509,post
+18169,Bought some more $CELG as it is ready for a bounce.,CELG,Stock/Price Action/Bullish/Bull Position,0.628,post
+18170,Analysts impressed with progress at Tesla's flagship factory; co spent $1.6B on upgrades in '15 https://t.co/SABxCSn8cd by @tsrandall $TSLA,TSLA,Stock/Coverage/AnalystRatings,0.474,post
+18180,"$CELG back near 104, where it opened and rallied higher last wk. A good place to take a shot https://t.co/zwHThSvFSF",CELG,Stock/Price Action/Bullish,0.465,post
+18185,$AMZN new HOD with conviction keeping $570 on watch for Resistance.,AMZN,Stock/Price Action/Bullish/Bullish Behavior,0.529,post
+18186,$FB  rejecting HIGHS shortable...at 109,FB,Stock/Price Action/Bearish,-0.387,post
+18196,"$CSX is up today to report.  Wall Street is expecting EPS to be at $0.37, and revenues at $2,732B.",CSX,Corporate/Financial/Financial Results/Earnings,0.461,post
+18206,$FB turns back down in early trading.... https://t.co/reuf5PzhBm,FB,Stock/Price Action/Bearish/Bearish Behavior,-0.393,post
+18207,Followed the levels I shared with you on $NFLX $GOOGL $TSLA calls for nice gains. Still holding $FB 110 calls. Week made in a morning.,FB,Stock/Price Action/Bullish,0.471,post
+18211,"$FAST $GWW - daily sales slowing again, pretty timely coincident indicator https://t.co/m6BKHBkzK5",GWW,Corporate/Sales,-0.105,post
+18213,"Tesla Motors recalls 2,700 Model X SUVs $TSLA https://t.co/xDGrAExkKz",TSLA,Corporate/Risks/Product Recall,-0.367,post
+18217,"SiriusXM added 465,000 net new subscribers in the first quarter of 2016 $SIRI #CEO #sales #marketresearch #tech #entrepreneur #Speaker",SIRI,Corporate/Sales,0.466,post
+18218,5-star analyst @brianwieser from Pivotal Research upgraded rating on $GOOGL to BUY. Brian has a 79% success rate https://t.co/t0dn02EOH5,GOOGL,Stock/Coverage/AnalystRatings/Upgrade,0.561,post
+18219,Long $ENDP @ $26.23 on $AGN b/o rumor,ENDP,Stock/Price Action/Bullish/Bull Position,0.57,post
+18226,"You know that back seat? Don't sit in it. - $TSLA -> Tesla recalls 2,700 Model X cars https://t.co/7J0Gwz89ZC",TSLA,Corporate/Risks/Product Recall,-0.319,post
+18229,This $BBBY stock options trade would have more than doubled your money https://t.co/Oa0loiRIJL via @TheStreet,BBBY,Stock/Options,0.294,post
+18237,X marks the recall: Tesla recalls #ModelX for faulty 3rd row seat. https://t.co/HSqdoVry07 $TSLA https://t.co/4Cs3CNZEBB,TSLA,Corporate/Risks/Product Recall,-0.26,post
+18250,$STX move off the bottom but still in bear market #datasecurity $EMC $SNDK $WDC https://t.co/VkYdWPxeSN,WDC,Market/Market,-0.421,post
+18259,$VRTX early technical BUY signal... for confirmation > 86 it needs some fundam. incentive https://t.co/QuYSrqFo2x,VRTX,Stock/Signal/Buy Signal,0.464,post
+18272,$FB (110.20) is starting to show some relative strength and signs of potential B/O on the daily.,FB,Stock/Price Action/Bullish/Bullish Behavior,0.334,post
+18275,"@CGrantWSJ I think this $TSLA bubble might go on for some time. So long as ppl love the cars, they might keep getting funding.",TSLA,Stock/Price Action/Bullish,0.424,post
+18285,$SBUX heading for the 200DMA and certain doom if it can not hold there.,SBUX,Corporate/Technical Analysis,-0.437,post
+18307,$AMZN long into earnings. looks good over 600,AMZN,Stock/Price Action/Bullish/Bull Position,0.613,post
+18312,$GOOGL is a short below 740 into the upper BB and is overbought,GOOGL,Stock/Technical Analysis,-0.48,post
+18313,Timberrrr $TSLA https://t.co/MRBgfDHHVa,TSLA,Stock/Price Action,-0.562,post
+18323,Interest Heats Up for @Yahoo $YHOO - The Wall Street Journal  https://t.co/j5jVjI9bia,YHOO,Corporate/Rumors/Rumors,0.413,post
+18340,"Tesla Recalling 2,700 Model X Units, Related to Faulty Latch for Third-Row Seats; Fall To $252.50 Level on Recall, Shares Up 1%  $TSLA",TSLA,Corporate/Risks/Product Recall,-0.385,post
+18349,Commented on It's Time To Embrace Dividend Growth https://t.co/wc2qfP79TN $ABBV $CSCO $WYN,WYN,Corporate/Dividend Policy,0.284,post
+18351,Word on the street is that Allergen is looking at Endo International after the failed Pfizer merger. May-20 $35 calls active. $ENDP,ENDP,Corporate/M&A/Proposed Merger,0.472,post
+18354,$SBUX inverted head & shoulders pattern in the works. bullish.,SBUX,Stock/Technical Analysis,0.572,post
+18361,I see a 20 percent upside in $FB shares from here,FB,Stock/Price Action/Bullish,0.589,post
+18370,long $AAPL,AAPL,Stock/Price Action/Bullish/Bull Position,0.648,post
+18383,$FB popping up to HOD,FB,Stock/Price Action/Bullish/Bullish Behavior,0.446,post
+18391,$TSLA yeah lets go down to 230s lol,TSLA,Stock/Price Action/Bearish/Bearish Behavior,-0.355,post
+18420,#NDX component Tesla has announced it is recalling 2700 Model X SUVs. $TSLA,TSLA,Corporate/Risks/Product Recall,-0.221,post
+18421,$YHOO making new HOD,YHOO,Stock/Price Action/Bullish/Bullish Behavior,0.442,post
+18424,"Daily Mail owner considering Yahoo bid $yhoo ,up 2,05% https://t.co/extZr1riyP",YHOO,Corporate/M&A,0.288,post
+18449,$PCLN Back to Back intraday reversals look out below. Shorts moving in!,PCLN,Stock/Price Action/Bearish,-0.53,post
+18471,$PYPL great vol flow trade here.. Love this company long time.,PYPL,Stock/Price Action/Bullish,0.408,post
+18479,$ISRG PT raised to $700 from $640 at Leerink - keeps Outperform rated,ISRG,Stock/Coverage/Stock Coverage,0.489,post
+18483,Long $TSLA short $MBLY https://t.co/jSpUSzo6na,TSLA,Stock/Price Action,0.607,post
+18486,"$TSLA recalls 2,700 Model X cars. Stock dropping hard...",TSLA,Corporate/Risks/Product Recall,-0.626,post
+18488,$AAPL - Has broken its downtrend - but 200DMA proving to be stiff resistance short term. https://t.co/VlzlgvIHZV,AAPL,Stock/Price Action/Bullish,0.222,post
+18492,"potential defect with third-row seat belts. Tesla Motors recalls 2,700 Model X SUVs $TSLA https://t.co/YVYDncdNdi",TSLA,Corporate/Risks/Product Recall,-0.366,post
+18500,Netflix Grows Efforts To Create Loyal Customers $NFLX https://t.co/5QXBkoBphe,NFLX,Corporate/Strategy,0.225,post
+18504,"Tesla Motors recalls 2,700 Model X SUVs $TSLA https://t.co/F55dx4aegI",TSLA,Corporate/Risks/Product Recall,-0.307,post
+18517,$FB $AAPL $NKE $JWN bearish charts keep getting worse.,NKE,Stock/Technical Analysis,-0.619,post
+18527,"Apple expected to launch new iPhone, iPad today $AAPL https://t.co/XfnICWeBeG",AAPL,Corporate/Strategy/New Product,0.264,post
+18542,$TSLA stock gaining steam... Plus other notable moves from this week: https://t.co/Hz0wdp5za1,TSLA,Stock/Price Action/Bullish/Bullish Behavior,0.349,post
+18549,$GILD  is expanding its research facilities...keeping up with the pace of innovation  https://t.co/uOE7FJ4LOP,GILD,Corporate/Strategy,0.297,post
+18561,"$ENDP - we saw a large order in this one last week, someone also accumulating May & Jun 35's Calls today",ENDP,Stock/Price Action/Bullish/Bullish Behavior,0.613,post
+18562,TripAdvisor jumps on M&A rumors https://t.co/O4lwCDXMbr $TRIP,TRIP,Corporate/M&A,0.47,post
+18564,Seat belt recall? who cares....  I'm a buyer $TSLA,TSLA,Corporate/Risks/Product Recall,0.598,post
+18581,$FB gettin in the buy zone soon ;),FB,Stock/Price Action/Bullish/Bullish Behavior,0.361,post
+18616,Starbucks downgraded on same day as new downgraded rewards program starts  $SBUX,SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.46,post
+18632,"$ADBE technical alerts: Expansion Breakout, Gilligan's Island Sell Setup, Volume Surge, and New 52... https://t.co/LxX66tknFH",ADBE,Stock/Technical Analysis,0.208,post
+18635,"$AAPL a new long IF 110.61 is broken. Targets are 112.19, 119.86 & 123.82. Bears must retake 102.77. $QQQ $NQ_F $NDX https://t.co/6l3m1wXChw",QQQ,Stock/Signal/Buy Signal,0.172,post
+18652,Thank you $GOOG (Google Alphabet) and $FB (Facebook) stocks! What a nice reversal.,GOOG,Stock/Price Action,0.318,post
+18672,"Tesla Motors recalls 2,700 Model X SUVs https://t.co/BFWS3DbM0U $TSLA",TSLA,Corporate/Risks/Product Recall,-0.424,post
+18676,"$AAPL bounces off support, it seems",AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.443,post
+18678,Deutsche Bank downgrades Starbucks because of new loyalty program https://t.co/Iy4LCUGABc $SBUX,SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.436,post
+18684,$GOOGL gets an upgrade price target $970,GOOGL,Stock/Coverage/AnalystRatings/Upgrade,0.47,post
+18692,NetApp downgraded by Macquarie to underperform. $22.00 PT. https://t.co/XCNgws0t4q $NTAP #NTAP via @RatingsNetwork,NTAP,Stock/Coverage/AnalystRatings/Downgrade,-0.574,post
+18707,"Tesla is recalling 2,700 Model X cars: https://t.co/8Z7BkVsTl9 $TSLA",TSLA,Corporate/Risks/Product Recall,-0.291,post
+18708,$fb small long 109.25 via calls,FB,Stock/Price Action/Bullish/Bull Position,0.352,post
+18712,Commodity Channel Index Indicator signaled a Oversold for $FB #stockmarket https://t.co/VM32d3M9xi https://t.co/cvkojk05Xn,FB,Stock/Price Action/Current Price/Oversold,0.324,post
+18724,"Isolationism? Another Sell Rating, Sell Ratings On SPY, QQQ, IWM And Several Companies https://t.co/6NKWEcrBA5 $AAPL $AXP $BAC $BLUE $FXE",FXE,Stock/Coverage/AnalystRatings/Downgrade,-0.389,post
+18741,ALERT: New RSI signal created on $COST - Buy at 148.78 - Time: 14:19 - Strength: 10. Powered by https://t.co/MhOBzU3Rmx,COST,Stock/Signal/Buy Signal,0.497,post
+18743,$SAP Q1 disappoints as #software licenses down. Real problem? #Cloud growth trails $MSFT $ORCL $GOOG $CRM $ADBE https://t.co/jNDphllzq5,SAP,Corporate/Financial/Financial Results/Earnings/Financial Results,-0.431,post
+18747,$FB gone green on day,FB,Stock/Price Action/Bullish/Bullish Behavior,0.476,post
+18750,"$AMZN rejected that 604 to the penny. Weak open and it goes r/g within first 30 mins, could have 8-10 points in it. https://t.co/58tEAEXxpE",AMZN,Stock/Price Action/Bearish/Bearish Behavior,-0.229,post
+18766,$GOOGL is setting up above its 50-day moving average. https://t.co/tTm9RnFoXJ,GOOGL,Stock/Technical Analysis,0.516,post
+18784,$FB still a dog going much lower this week,FB,Stock/Price Action/Bearish,-0.554,post
+18800,Academics claim Google Android two-factor authentication is breakable. #security #authentication #hacking $goog https://t.co/nJx4mnrGLo,GOOG,Corporate/Risks/Hacks,-0.309,post
+18819,ALERT: New MACD signal created on $CTXS - Buy at 77.09 - Time: 18:23 - Strength: 10. Powered by https://t.co/4TdgjEDLLZ,CTXS,Stock/Signal/Buy Signal,0.49,post
+18821,$BAC $ADSK $NFLX long this morning,NFLX,Stock/Price Action/Bullish/Bull Position,0.476,post
+18827,Locked in some $FB puts for nice gain,FB,Stock/Price Action/Bearish/Bear Position,-0.524,post
+18832,3rd red day in a row ? $TSLA,TSLA,Stock/Price Action/Bearish,-0.43,post
+18840,Just went long $ILMN,ILMN,Stock/Price Action/Bullish/Bull Position,0.558,post
+18846,#Apple up almost 20% from its February lows with very little fanfare. $AAPL,AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.431,post
+18857,$DISH weakness continues again. 49.43 area resistance after last week,DISH,Stock/Price Action/Bearish,-0.41,post
+18867,$AAPL iPhone shipments on track to exceed forecasts - MarketWatch https://t.co/2CXahJIX7d,AAPL,Corporate/Sales,0.367,post
+18877,$COST short finally making gains. I will take half my gains at 147,COST,Stock/Price Action/Volatility/Short Selling,-0.41,post
+18895,Why $TWTR is doomed in 1 chart $FB $GOOG  https://t.co/MpyLiReQjh https://t.co/nlcZawDoHP,GOOG,Stock/Technical Analysis,-0.07,post
+18903,Apple Inc.: The Rip-Roaring Rally Is Just Beginning! (AAPL) | InvestorPlace $AAPL https://t.co/jrcFC8XlY9,AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.559,post
+18910,"Upside moves in the volatile #mining sector, sending Anglo American PLC $AAL up 6.8% as of 4:30 PM, London time",AAL,Stock/Price Action,0.462,post
+18926,"Tesla: Voluntary recall of 2,700 Model X vehicles, due to back seat issue. $TSLA https://t.co/NPAkc3U6GS",TSLA,Corporate/Risks/Product Recall,-0.327,post
+18932,@scottrade Why is $tsla not available for shorting at this time?  Same for $w?,W,Stock/Price Action/Volatility/Short Selling,-0.528,post
+18945,Deutsche Bank Downgraded Starbucks Co. $SBUX https://t.co/QqlEvVwPMV https://t.co/f2PdQjuTHa,SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.611,post
+18966,Coke dividend - 3%. Google dividend - 0%. For passive income Coke takes it. $GOOG $KO https://t.co/QBsoWjxOST,GOOG,Corporate/Dividend Policy,-0.066,post
+18981,Juniper tumbles on Q1 warning; Cisco also lower https://t.co/N8X8BpLJ1E $JNPR $CSCO,JNPR,Corporate/Financial/Financial Results/Earnings/Profit Warning,-0.556,post
+18986,Looking for a strong bounce $SPY -- Lunchtime rally coming. $DIA $IWM $QQQ $AA $FB,SPY,Stock/Price Action/Bullish,0.521,post
+18994,"DJI overbought: $AAPL, $AXP, $BA, $CVX, $IBM, $INTC, $VZ https://t.co/wMy1PnomJF",VZ,Stock/Price Action/Bearish,-0.296,post
+19003,"Baird likes $TSLA - upgrades to outperform, lifts price target to $300. Research firm also sees no capital raise necessary in next few qtrs",TSLA,Stock/Coverage/AnalystRatings/Upgrade,0.61,post
+19007,$tsla X recall not a big deal... the problem is now they will have an excuse to guide way way lower...,TSLA,Corporate/Risks/Product Recall,0.003,post
+19011,$TSLA not dipping - testing the 200 day ma https://t.co/jEPLmZQKGW,TSLA,Stock/Technical Analysis,0.281,post
+19013,"On #FEDDAY looking for a sharp move up in equities $AAPL $HD $LOW $FB seeing $UVXY $TVIX getting hammered, even though market is down.",LOW,Stock/Price Action/Bullish,0.368,post
+19015,$JD down 20% in after-hour market. anyone care to explain why?,JD,Stock/Price Action/Bearish/Bearish Behavior,-0.551,post
+19020,Look at that $AMZN > 600,AMZN,Stock/Price Action/Bullish,0.326,post
+19031,Yahoo stock is up to $36.46 as the bidding war picks up for the company https://t.co/JDNZXDCMkl $YHOO https://t.co/HmOegfHgvn,YHOO,Corporate/M&A/M&A,0.391,post
+19052,Starbucks shares down as much as ~4.2% $SBUX https://t.co/JlgrprR54k,SBUX,Stock/Price Action/Bearish/Bearish Behavior,-0.383,post
+19072,$AAPL Beat the estimates. Will still go down on lack of new products. https://t.co/sX3z7u6N8o,AAPL,Corporate/Financial/Financial Results/Earnings/Earnings Beat,-0.248,post
+19075,long $AAPL 107 calls @ .40,AAPL,Stock/Price Action/Bullish/Bull Position,0.613,post
+19089,"Facebook, near a buy point last week, faces a different technical test today https://t.co/c72LLMpiNM $FB $AAPL $NFLX https://t.co/fPFbYTYPuY",NFLX,Stock/Technical Analysis,0.102,post
+19095,"$SBUX down PM, from $DB downgrade.. PT cut from 70 to $64",SBUX,Stock/Coverage/AnalystRatings/Downgrade,-0.531,post
+19099,$EBAY  e-bay bay!  working on a couple daily dojis .. should continue to the downside  https://t.co/lgU0yBxEZe,EBAY,Stock/Technical Analysis,-0.441,post
+19103,Breaking 52 week highs timing looks great now $AHS $BABY $POST $IGE $IRDM $EWBC $PHYS $ULTA $VNET $BIV https://t.co/11K8JzuzMU,VNET,Stock/Price Action/Current Price/52-Week High,0.419,post
+19105,$TSLA recalling pretty much every single model X @cnnbrk got to short that even at work you jump in money trade,TSLA,Corporate/Risks/Product Recall,-0.378,post
+19107,$aapl high of day just hit. Back at it tomorrow.,AAPL,Stock/Price Action/Bullish/Bullish Behavior,0.394,post
+19117,ouch looks like $tsla shorts getting skinned again,TSLA,Stock/Price Action/Bullish,0.518,post
+19119,"Qualcomm: 10% Dividend Increase Rewards Patient Investors, The Future Looks Bright https://t.co/TJjVpqhHqD $QCOM",QCOM,Corporate/Dividend Policy,0.484,post
+19130,Facebook $FB received a Buy rating from Wells Fargo 5-star Analyst Peter Stabler (Wells Fargo) https://t.co/jnB4c9vdCu,FB,Stock/Coverage/AnalystRatings/Upgrade,0.456,post
+19149,$TSLA Wish had my puts back but see if we can find support around 243.39 and pop up so that I can get back in. https://t.co/hFkLq3WObV,TSLA,Stock/Price Action/Bullish,-0.485,post
+19161,Citrix Systems Inc $CTXS Position Increased by Mizuho… https://t.co/v7Lkq08Flp @ShareStockNews,CTXS,Stock/Coverage/AnalystRatings/Upgrade,0.529,post
+19163,"Notable gainers among liquid option names this morning include $STX (+7.0%), $NEM (+4.6%), $WDC (+4.2%), $X (+4.1%), and $GME (+3.4%),",X,Stock/Options,0.513,post
+19167,Is #Facebook's user engagement falling? https://t.co/tqMMt7N16X $FB https://t.co/sedqRWgdkt,FB,Corporate/Strategy/Business Outlook,-0.39,post
