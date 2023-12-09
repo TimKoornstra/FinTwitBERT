@@ -42,8 +42,6 @@ For finetuning, we use several datasets, each offering varied sentiments in fina
 | Dataset | Bearish | Neutral | Bullish | Total |
 |---------|---------|---------|---------|-------|
 | [Dataset1.csv](https://www.kaggle.com/yash612/stockmarket-sentiment-dataset) | 2,106 | 0 | 3,685 | 5,791 |
-| [Dataset2.csv](https://www.kaggle.com/chenxidong/stock-tweet-sentiment-dataset) | 2,598 | 17,330 | 8,512 | 29,440 |
-| [Dataset3.csv](https://www.kaggle.com/utkarshxy/stock-markettweets-lexicon-data) | 348 | 424 | 528 | 1,300 |
 | [Dataset4.csv](https://www.kaggle.com/mattgilgo/stock-related-tweet-sentiment) | 869 | 905 | 8,302 | 10,076 |
 | [Dataset5.csv](https://github.com/surge-ai/stock-sentiment/blob/main/sentiment.csv) | 173 | 0 | 327 | 500 |
 | [Dataset6.csv](https://github.com/poojathakoor/twitter-stock-sentiment/tree/master/twitter_stock_sentiment/training_data) | 600 | 500 | 707 | 1,807 |
