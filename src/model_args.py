@@ -28,8 +28,8 @@ pretraining_args = {
 
 finetuning_args = {
     "num_train_epochs": 20,  # FinBERT uses 6
-    "per_device_train_batch_size": 128,
-    "per_device_eval_batch_size": 128,
+    "per_device_train_batch_size": 64,
+    "per_device_eval_batch_size": 64,
     "evaluation_strategy": "steps",
     "save_steps": calculate_steps(64),
     "eval_steps": calculate_steps(64),
