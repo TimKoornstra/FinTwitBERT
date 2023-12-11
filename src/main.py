@@ -13,6 +13,7 @@ from data import load_pretraining_data, load_finetuning_data, kfold_pretraining_
 from model import FinTwitBERT
 from eval.finetune import Evaluate
 
+# TODO: add this to config / argparse
 KFOLD = False
 PRETRAIN = False
 FINETUNE = True

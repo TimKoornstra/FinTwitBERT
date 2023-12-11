@@ -165,3 +165,5 @@ cython_debug/
 job.slurm
 ssh.txt
 wandb_key.txt
+data/finetune/TimKoornstra___financial-tweets-sentiment/default/0.0.0/622a7cf65a222fcb/dataset_info.json
+data/finetune/TimKoornstra___financial-tweets-sentiment/default/0.0.0/622a7cf65a222fcb/financial-tweets-sentiment-train.arrow

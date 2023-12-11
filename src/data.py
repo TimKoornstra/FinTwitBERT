@@ -5,7 +5,7 @@ import html
 import re
 
 # Third party
-from datasets import Dataset
+from datasets import Dataset, load_dataset
 import pandas as pd
 from sklearn.model_selection import KFold
 
@@ -39,7 +39,7 @@ def preprocess_tweet(tweet: str) -> str:
     return tweet
 
 
-def load_dataset(path: str, is_test: bool) -> pd.DataFrame:
+def load_local_dataset(path: str, is_test: bool) -> pd.DataFrame:
     """
     Load a dataset from a CSV file given as path.
 
@@ -119,7 +119,7 @@ def save_preprocessed_dataset(path: str):
     if path.endswith("test.csv"):
         is_test = True
 
-    dataset = load_dataset(path, is_test=is_test)
+    dataset = load_local_dataset(path, is_test=is_test)
     dataset["text"] = dataset["text"].apply(preprocess_tweet)
 
     # Drop duplicates
