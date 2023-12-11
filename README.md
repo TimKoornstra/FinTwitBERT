@@ -40,20 +40,7 @@ FinTwitBERT utilizes a diverse set of financial tweets for pre-training, includi
 - Data Preprocessing: [Information about preprocessing steps]
 
 ### Finetuning Datasets
-For finetuning, we use several datasets, each offering varied sentiments in financial contexts:
-
-| Dataset | Bearish | Neutral | Bullish | Total |
-|---------|---------|---------|---------|-------|
-| [yash612_stock_data.csv](https://www.kaggle.com/yash612/stockmarket-sentiment-dataset) | 2,106 | 0 | 3,685 | 5,791 |
-| [mattgilgo_scored_tweets_total.csv](https://www.kaggle.com/mattgilgo/stock-related-tweet-sentiment) | 869 | 905 | 8,302 | 10,076 |
-| [surge-ai_sentiment.csv](https://github.com/surge-ai/stock-sentiment/blob/main/sentiment.csv) | 173 | 0 | 327 | 500 |
-| [poojathakoor_twitter-stock-sentiment.csv](https://github.com/poojathakoor/twitter-stock-sentiment/tree/master/twitter_stock_sentiment/training_data) | 600 | 500 | 707 | 1,807 |
-| [surge-ai_crypto-sentiment.csv](https://github.com/surge-ai/crypto-sentiment/blob/main/sentiment.csv) | 260 | 0 | 302 | 562 |
-| [zeroshot_twitter-financial-news-sentiment.csv](https://huggingface.co/datasets/zeroshot/twitter-financial-news-sentiment) | 1789 | 7744 | 2398 | 11931 |
-| [Taborda_tweets_labelled.csv](https://ieee-dataport.org/open-access/stock-market-tweets-data) | 348 | 424 | 528 | 1300 |
-| [ChanceFocus_fiqa.csv](https://huggingface.co/datasets/ChanceFocus/fiqa-sentiment-classification) | x | x | x | x |
-| [moritzwilksch_labeled_tweets.csv](https://github.com/moritzwilksch/MasterThesis/blob/main/data/labeled/labeled_tweets.parquet) | x | x | x | x |
-| Total (no duplicates) | 6,647 | 17,352 | 18,280 | 42,279 |
+For finetuning, we use several datasets, each offering varied sentiments in financial contexts. This collection of datasets can be found on [Huggingface](https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment).
 
 ## Model Details
 FinTwitBERT is based on [FinBERT](https://huggingface.co/ProsusAI/finbert) with added masks for user mentions (`@USER`) and URLs (`[URL]`). The model is pre-trained for 10 epochs with a focus on minimizing loss and applying early stopping to prevent overfitting.
