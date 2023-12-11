@@ -8,7 +8,7 @@
         "save_total_limit": 2,
         "report_to": "wandb"
     },
-    "pretraining_args": {
+    "pretrain_args": {
         "num_train_epochs": 10,
         "per_device_train_batch_size": 64,
         "per_device_eval_batch_size": 64,
@@ -18,10 +18,10 @@
         "learning_rate": 0.00002,
         "metric_for_best_model": "eval_loss",
         "greater_is_better": false,
-        "warmup_ratio": 0.2,
-        "gradual_unfreeze": false
+        "warmup_ratio": 0.2
     },
-    "finetuning_args": {
+    "pretrain_gradual_unfreeze": false,
+    "finetune_args": {
         "num_train_epochs": 20,
         "per_device_train_batch_size": 64,
         "per_device_eval_batch_size": 64,
@@ -33,7 +33,7 @@
         "metric_for_best_model": "accuracy",
         "greater_is_better": true,
         "warmup_ratio": 0.2,
-        "weight_decay": 0.01,
-        "gradual_unfreeze": false
-    }
+        "weight_decay": 0.01
+    },
+    "finetune_gradual_unfreeze": false
 }

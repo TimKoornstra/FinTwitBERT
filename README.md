@@ -110,7 +110,7 @@ print(sentiment_pipeline(sentence))
 ```
 
 ### Weights and Biases (wandb) usage
-If you would like to train this model yourself and report the metrics to weights and biases (wandb.ai). You can do so by adding a .env file with the following content: `WANDB_API_KEY=your_wandb_api_key`.
+If you would like to train this model yourself and report the metrics to weights and biases (wandb.ai). You can do so by adding a wandb.env file with the following content: `WANDB_API_KEY=your_wandb_api_key`.
 
 ## Citation
 If you use FinTwitBERT or FinTwitBERT-sentiment in your research, please cite us as follows, noting that both authors contributed equally to this work:

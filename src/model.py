@@ -101,12 +101,12 @@ class FinTwitBERT:
 
     def init_wandb(self):
         # Check if a .env file exists
-        if not os.path.exists(".env"):
-            logging.warning("No .env file found")
+        if not os.path.exists("wandb.env"):
+            logging.warning("No wandb.env file found")
             return
 
         # Load the .env file
-        load_dotenv()
+        load_dotenv(dotenv_path="wandb.env")
 
         # Read the API key from the environment variable
         os.environ["WANDB_API_KEY"] = os.getenv("WANDB_API_KEY")
@@ -158,8 +158,8 @@ class FinTwitBERT:
             "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
         }
         mode_args = {
-            "pretrain": config["pretraining_args"],
-            "finetune": config["finetuning_args"],
+            "pretrain": config["pretrain_args"],
+            "finetune": config["finetune_args"],
         }
 
         data = data.map(self.encode, batched=True)
@@ -172,7 +172,7 @@ class FinTwitBERT:
 
         # Add gradual unfreezing callback if enabled
         callbacks = []
-        if mode_args[self.mode]["gradual_unfreeze"]:
+        if config[f"{self.mode}_gradual_unfreeze"]:
             batch_size = mode_args[self.mode]["per_device_train_batch_size"]
             num_train_epochs = mode_args[self.mode]["num_train_epochs"]
             self.gradual_unfreeze(unfreeze_last_n_layers=1)
