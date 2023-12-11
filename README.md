@@ -4,9 +4,12 @@
 
 ---
 
-![Supported versions](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-GPL--3.0-orange)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Supported versions">
+  <img src="https://img.shields.io/badge/license-GPL--3.0-orange" alt="License">
+  <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"></a>
+</p>
+
 
 FinTwitBERT is a language model specifically trained to understand and analyze financial conversations on Twitter. It's designed to pick up on the unique ways people talk about finance online, making it a valuable tool for anyone interested in financial trends and sentiments expressed through tweets.
 
