@@ -1,7 +1,11 @@
+import os
+
 from tqdm import tqdm
 from transformers import BertForMaskedLM, AutoTokenizer, DataCollatorForLanguageModeling
 import torch
 from torch.utils.data import DataLoader
+import wandb
+
 from data import load_test_data
 
 
@@ -74,7 +78,14 @@ class Evaluate:
         except OverflowError:
             perplexity = float("inf")
 
-        print(f"Perplexity: {perplexity}")
+        output = {
+            "perplexity": perplexity,
+        }
+
+        if not os.path.exists(".env"):
+            print(output)
+        else:
+            wandb.log(output)
 
     def calculate_masked_examples(self):
         examples = [

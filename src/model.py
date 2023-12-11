@@ -1,7 +1,9 @@
 # > Imports
 import os
+import logging
 
 # Third party
+from dotenv import load_dotenv
 from transformers import (
     AutoTokenizer,
     BertForMaskedLM,
@@ -95,11 +97,16 @@ class FinTwitBERT:
         self.init_wandb()
 
     def init_wandb(self):
-        with open("wandb_key.txt", "r") as file:
-            wandb_api_key = file.read().strip()
+        # Check if a .env file exists
+        if not os.path.exists(".env"):
+            logging.warning("No .env file found")
+            return
+
+        # Load the .env file
+        load_dotenv()
 
         # Read the API key from the environment variable
-        os.environ["WANDB_API_KEY"] = wandb_api_key
+        os.environ["WANDB_API_KEY"] = os.getenv("WANDB_API_KEY")
 
         # set the wandb project where this run will be logged
         os.environ["WANDB_PROJECT"] = (

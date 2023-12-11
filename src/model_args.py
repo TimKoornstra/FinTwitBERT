@@ -34,11 +34,11 @@ finetuning_args = {
     "save_steps": calculate_steps(64),
     "eval_steps": calculate_steps(64),
     "logging_steps": calculate_steps(64),
-    "learning_rate": 2e-4,  # FinBERT uses 5e-5 to 2e-5
+    "learning_rate": 5e-5,  # FinBERT uses 5e-5 to 2e-5
     "metric_for_best_model": "accuracy",
     "greater_is_better": True,  # Higher accuracy is better
     "warmup_ratio": 0.2,  # FinBERT uses 0.2
     "weight_decay": 0.01,  # FinBERT uses 0.01
     # gradient_accumulation_steps=1,  # FinBERT uses 1
-    "lr_scheduler_type": "cosine_with_restarts",
+    # "lr_scheduler_type": "cosine_with_restarts",
 }

@@ -1,3 +1,5 @@
+import os
+
 from tqdm import tqdm
 import torch
 import wandb
@@ -72,10 +74,13 @@ class Evaluate:
         accuracy = accuracy_score(true_labels, pred_labels)
         f1 = f1_score(true_labels, pred_labels, average="weighted")
 
-        wandb.log(
-            {
-                "final_average_loss": average_loss,
-                "final_accuracy": accuracy,
-                "final_f1_score": f1,
-            }
-        )
+        output = {
+            "final_average_loss": average_loss,
+            "final_accuracy": accuracy,
+            "final_f1_score": f1,
+        }
+
+        if not os.path.exists(".env"):
+            print(output)
+        else:
+            wandb.log(output)
