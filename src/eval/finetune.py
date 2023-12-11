@@ -38,6 +38,9 @@ class Evaluate:
             name="sentences_50agree",
         )
 
+        # Rename sentence to text
+        dataset = dataset.rename_column("sentence", "text")
+
         # Apply the tokenize function to the dataset
         tokenized_dataset = dataset.map(self.encode, batched=True)
 
@@ -75,9 +78,9 @@ class Evaluate:
         f1 = f1_score(true_labels, pred_labels, average="weighted")
 
         output = {
-            "final_average_loss": average_loss,
-            "final_accuracy": accuracy,
-            "final_f1_score": f1,
+            "test/final_average_loss": average_loss,
+            "test/final_accuracy": accuracy,
+            "test/final_f1_score": f1,
         }
 
         if not os.path.exists(".env"):
