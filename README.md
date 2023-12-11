@@ -45,7 +45,7 @@ For finetuning, we use several datasets, each offering varied sentiments in fina
 ## Model Details
 FinTwitBERT is based on [FinBERT](https://huggingface.co/ProsusAI/finbert) with added masks for user mentions (`@USER`) and URLs (`[URL]`). The model is pre-trained for 10 epochs with a focus on minimizing loss and applying early stopping to prevent overfitting.
 
-Find the pre-trained model and tokenizer here: [FinTwitBERT on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT).
+Access the pre-trained model and tokenizer at [FinTwitBERT on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT). For the fine-tuned version, visit [FinTwitBERT-sentiment on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment).
 
 ## Model Results
 TODO: Compare loss, accuracy, and F1 between FinTwitBERT and other models as a table.
@@ -108,6 +108,9 @@ sentence = "The new product launch was a tremendous success, boosting sales and 
 # Print the result
 print(sentiment_pipeline(sentence))
 ```
+
+### Weights and Biases (wandb) usage
+If you would like to train this model yourself and report the metrics to weights and biases (wandb.ai). You can do so by adding a .env file with the following content: `WANDB_API_KEY=your_wandb_api_key`.
 
 ## Citation
 If you use FinTwitBERT or FinTwitBERT-sentiment in your research, please cite us as follows, noting that both authors contributed equally to this work:
