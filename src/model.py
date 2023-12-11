@@ -1,6 +1,7 @@
 # > Imports
 import os
 import logging
+import json
 
 # Third party
 from dotenv import load_dotenv
@@ -15,8 +16,6 @@ from transformers import (
 )
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
-
-from model_args import base_args, pretraining_args, finetuning_args
 
 
 class GradualUnfreezingCallback(TrainerCallback):
@@ -51,7 +50,7 @@ class GradualUnfreezingCallback(TrainerCallback):
             print(f"Unfroze layer {layer_index} at step {state.global_step}")
 
 
-def compute_metrics(pred):
+def compute_metrics(pred) -> dict:
     labels = pred.label_ids
     preds = pred.predictions.argmax(-1)
     acc = accuracy_score(labels, preds)
@@ -59,6 +58,10 @@ def compute_metrics(pred):
         labels, preds, average="weighted"
     )  # 'weighted' can be replaced with 'binary' or 'macro' based on your specific needs
     return {"accuracy": acc, "f1": f1}
+
+
+def calculate_steps(batch_size, base_batch_size=64, base_steps=500) -> int:
+    return (base_batch_size * base_steps) // batch_size
 
 
 class FinTwitBERT:
@@ -145,13 +148,19 @@ class FinTwitBERT:
         data: Dataset,
         validation: Dataset,
         fold_num: int = 0,
-        gradual_unfreeze: bool = False,
     ):
+        # Read model args from config.json
+        with open("config.json", "r") as config_file:
+            config = json.load(config_file)
+
         mode_columns = {
             "pretrain": ["input_ids", "attention_mask"],
             "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
         }
-        mode_args = {"pretrain": pretraining_args, "finetune": finetuning_args}
+        mode_args = {
+            "pretrain": config["pretraining_args"],
+            "finetune": config["finetuning_args"],
+        }
 
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
@@ -159,11 +168,11 @@ class FinTwitBERT:
         data.set_format(type="torch", columns=mode_columns[self.mode])
         val.set_format(type="torch", columns=mode_columns[self.mode])
 
-        training_args = TrainingArguments(**mode_args[self.mode], **base_args)
+        training_args = TrainingArguments(**mode_args[self.mode], **config["base_args"])
 
         # Add gradual unfreezing callback if enabled
         callbacks = []
-        if gradual_unfreeze:
+        if mode_args[self.mode]["gradual_unfreeze"]:
             batch_size = mode_args[self.mode]["per_device_train_batch_size"]
             num_train_epochs = mode_args[self.mode]["num_train_epochs"]
             self.gradual_unfreeze(unfreeze_last_n_layers=1)
