@@ -11,7 +11,7 @@ import torch
 # Local
 from data import load_pretraining_data, load_finetuning_data, kfold_pretraining_data
 from model import FinTwitBERT
-from eval.pretrain import Evaluate
+from eval.finetune import Evaluate
 
 KFOLD = False
 PRETRAIN = False
@@ -83,6 +83,5 @@ if __name__ == "__main__":
     # Evaluate the new model
     logging.info("Evaluating the model")
     evaluate = Evaluate()
-    evaluate.calculate_perplexity()
-    evaluate.calculate_masked_examples()
-    logging.info("Model perplexity calculated")
+    evaluate.calculate_metrics()
+    logging.info("Model metrics calculated")

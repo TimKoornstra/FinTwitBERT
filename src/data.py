@@ -197,30 +197,22 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     tuple
         The training and validation datasets.
     """
-    datasets = []
 
-    # Load all files in the data/finetune/preprocessed folder
-    for path in os.listdir("data/finetune/preprocessed"):
-        if path.endswith(".csv"):
-            datasets.append(pd.read_csv(f"data/finetune/preprocessed/{path}"))
+    # https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment
+    dataset = load_dataset(
+        "TimKoornstra/financial-tweets-sentiment",
+        split="train",
+        cache_dir="data/finetune/",
+    )
 
-    # Merge all datasets
-    dataset = pd.concat(datasets, ignore_index=True)
-
-    # Drop duplicates
-    dataset = dataset.drop_duplicates(subset=["Text"])
-
-    # Drop empty rows
-    dataset = dataset.dropna(subset=["Text"])
+    # Convert to pandas
+    dataset = dataset.to_pandas()
 
     # Preprocess tweets
-    dataset["Text"] = dataset["Text"].apply(preprocess_tweet)
+    dataset["tweet"] = dataset["tweet"].apply(preprocess_tweet)
 
     # Rename columns
-    dataset = dataset.rename(columns={"Text": "text", "Sentiment": "label"})
-
-    # Label -1 (bearish) as 2
-    dataset["label"] = dataset["label"].replace({-1: 2})
+    dataset = dataset.rename(columns={"tweet": "text", "sentiment": "label"})
 
     # Set labels to int
     dataset["label"] = dataset["label"].astype(int)
