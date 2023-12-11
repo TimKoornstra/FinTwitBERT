@@ -64,7 +64,7 @@ class Evaluate:
                 outputs = self.model(
                     input_ids=batch["input_ids"],
                     attention_mask=batch["attention_mask"],
-                    labels=batch["labels"],
+                    labels=batch["label"],
                 )
                 logits = outputs.logits
                 loss = outputs.loss
