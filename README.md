@@ -32,10 +32,10 @@ This model was developed to fill a gap in traditional language processing tools,
 
 ## Datasets
 ### Pre-training Datasets
-FinTwitBERT utilizes a diverse set of financial tweets for pre-training, including Taborda et al.'s [Stock Market Tweets Data](https://ieee-dataport.org/open-access/stock-market-tweets-data) with over 940K tweets, and our own dataset, [Financial Tweets - Cryptocurrency](https://huggingface.co/datasets/StephanAkkerman/financial-tweets-crypto), with detailed statistics provided below.
+FinTwitBERT utilizes a diverse set of financial tweets for pre-training, including Taborda et al.'s [Stock Market Tweets Data](https://ieee-dataport.org/open-access/stock-market-tweets-data) with over 940K tweets, and our dataset, [Financial Tweets](https://huggingface.co/datasets/StephanAkkerman/financial-tweets), with detailed statistics provided below.
 
 #### Our Dataset Statistics:
-- Total Tweets: [Number of Tweets]
+- Total Tweets: 263k
 - Categories: [Details about Categories]
 - Data Preprocessing: [Information about preprocessing steps]
 
