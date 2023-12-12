@@ -47,8 +47,6 @@ class Evaluate:
         # Rename sentence to text
         dataset = dataset.rename_column("sentence", "text")
 
-        dataset = dataset.select(range(100))
-
         # Apply the tokenize function to the dataset
         tokenized_dataset = dataset.map(self.encode, batched=True)
 
@@ -95,7 +93,3 @@ class Evaluate:
             print(output)
         else:
             wandb.log(output)
-
-
-e = Evaluate(use_baseline=True)
-e.calculate_metrics()
