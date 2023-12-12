@@ -58,7 +58,7 @@ class Evaluate:
 
         return tokenized_dataset
 
-    def calculate_metrics(self, batch_size: int = 32):
+    def calculate_metrics(self, batch_size: int = 64):
         tokenized_dataset = self.load_test_data()
         loader = DataLoader(tokenized_dataset, batch_size=batch_size)
         total_loss = 0
@@ -89,7 +89,6 @@ class Evaluate:
             "test/final_f1_score": f1,
         }
 
-        if not os.path.exists(".env"):
-            print(output)
-        else:
+        if wandb.run is not None:
             wandb.log(output)
+        print(output)

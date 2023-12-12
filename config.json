@@ -22,7 +22,7 @@
     },
     "pretrain_gradual_unfreeze": false,
     "finetune_args": {
-        "num_train_epochs": 20,
+        "num_train_epochs": 10,
         "per_device_train_batch_size": 64,
         "per_device_eval_batch_size": 64,
         "evaluation_strategy": "steps",
@@ -35,5 +35,6 @@
         "warmup_ratio": 0.2,
         "weight_decay": 0.01
     },
-    "finetune_gradual_unfreeze": true
+    "finetune_gradual_unfreeze": false,
+    "finetune_discriminative_lr": true
 }

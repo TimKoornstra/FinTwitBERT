@@ -14,6 +14,8 @@ from transformers import (
     TrainingArguments,
     TrainerCallback,
 )
+from torch.optim import AdamW
+from transformers.optimization import get_linear_schedule_with_warmup
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -139,6 +141,112 @@ class FinTwitBERT:
             for param in layer.parameters():
                 param.requires_grad = True
 
+    def discriminative_lr(self, mode_args, data):
+        # Define different learning rates
+        lr = mode_args[self.mode]["learning_rate"]
+        dft_rate = 1.2
+
+        # Disable decay for these layers
+        no_decay = ["bias", "LayerNorm.bias", "LayerNorm.weight"]
+
+        encoder_params = []
+        for i in range(12):
+            encoder_decay = {
+                "params": [
+                    p
+                    for n, p in list(
+                        self.model.bert.encoder.layer[i].named_parameters()
+                    )
+                    if not any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.01,
+                "lr": lr / (dft_rate ** (12 - i)),
+            }
+            encoder_nodecay = {
+                "params": [
+                    p
+                    for n, p in list(
+                        self.model.bert.encoder.layer[i].named_parameters()
+                    )
+                    if any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.0,
+                "lr": lr / (dft_rate ** (12 - i)),
+            }
+            encoder_params.append(encoder_decay)
+            encoder_params.append(encoder_nodecay)
+
+        optimizer_grouped_parameters = [
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.bert.embeddings.named_parameters())
+                    if not any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.01,
+                "lr": lr / (dft_rate**13),
+            },
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.bert.embeddings.named_parameters())
+                    if any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.0,
+                "lr": lr / (dft_rate**13),
+            },
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.bert.pooler.named_parameters())
+                    if not any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.01,
+                "lr": lr,
+            },
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.bert.pooler.named_parameters())
+                    if any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.0,
+                "lr": lr,
+            },
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.classifier.named_parameters())
+                    if not any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.01,
+                "lr": lr,
+            },
+            {
+                "params": [
+                    p
+                    for n, p in list(self.model.classifier.named_parameters())
+                    if any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.0,
+                "lr": lr,
+            },
+        ]
+
+        optimizer_grouped_parameters.extend(encoder_params)
+
+        # Initialize the optimizer
+        optimizer = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=False)
+
+        # You might need to adjust the scheduler setup as per your requirement
+        total_steps = len(data) * mode_args[self.mode]["num_train_epochs"]
+        warmup_steps = int(total_steps * mode_args[self.mode]["warmup_ratio"])
+        scheduler = get_linear_schedule_with_warmup(
+            optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps
+        )
+
+        return optimizer, scheduler
+
     def train(
         self,
         data: Dataset,
@@ -149,10 +257,6 @@ class FinTwitBERT:
         with open("config.json", "r") as config_file:
             config = json.load(config_file)
 
-        mode_columns = {
-            "pretrain": ["input_ids", "attention_mask"],
-            "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
-        }
         mode_args = {
             "pretrain": config["pretrain_args"],
             "finetune": config["finetune_args"],
@@ -160,6 +264,11 @@ class FinTwitBERT:
 
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
+
+        mode_columns = {
+            "pretrain": ["input_ids", "attention_mask"],
+            "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
+        }
 
         data.set_format(type="torch", columns=mode_columns[self.mode])
         val.set_format(type="torch", columns=mode_columns[self.mode])
@@ -192,6 +301,10 @@ class FinTwitBERT:
         # Compute F1 and accuracy scores when finetuning
         compute_metrics_fn = compute_metrics if self.mode == "finetune" else None
 
+        optimizers = (None, None)
+        if config[f"{self.mode}_discriminative_lr"]:
+            optimizers = self.discriminative_lr(mode_args, data)
+
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         trainer = Trainer(
             model=self.model,
@@ -201,6 +314,7 @@ class FinTwitBERT:
             data_collator=data_collator,
             compute_metrics=compute_metrics_fn,
             callbacks=callbacks,
+            optimizers=optimizers,
         )
 
         # Train the model
