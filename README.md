@@ -1,4 +1,4 @@
-# FinTwitBERT
+# FinTwitBERT: Specialized BERT Model for Financial Twitter Analysis.
 
 ![FinTwitBERT Logo](img/logo.png)
 
