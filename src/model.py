@@ -236,7 +236,7 @@ class FinTwitBERT:
         optimizer_grouped_parameters.extend(encoder_params)
 
         # Initialize the optimizer
-        optimizer = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=False)
+        optimizer = AdamW(optimizer_grouped_parameters, lr=lr)  # , correct_bias=False)
 
         # You might need to adjust the scheduler setup as per your requirement
         total_steps = len(data) * mode_args[self.mode]["num_train_epochs"]
