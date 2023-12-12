@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 import torch
 import wandb
-from transformers import BertForMaskedLM, AutoTokenizer
+from transformers import BertForSequenceClassification, AutoTokenizer
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, f1_score
@@ -12,12 +12,18 @@ from sklearn.metrics import accuracy_score, f1_score
 class Evaluate:
     def __init__(self, use_baseline: bool = False):
         if not use_baseline:
-            self.model = BertForMaskedLM.from_pretrained("output/FinTwitBERT-sentiment")
+            self.model = BertForSequenceClassification.from_pretrained(
+                "output/FinTwitBERT-sentiment",
+                num_labels=3,
+                id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
+                label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
+            )
+            self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained(
                 "output/FinTwitBERT-sentiment"
             )
         else:
-            self.model = BertForMaskedLM.from_pretrained(
+            self.model = BertForSequenceClassification.from_pretrained(
                 "yiyanghkust/finbert-tone", cache_dir="baseline/"
             )
             self.tokenizer = AutoTokenizer.from_pretrained(
@@ -40,6 +46,8 @@ class Evaluate:
 
         # Rename sentence to text
         dataset = dataset.rename_column("sentence", "text")
+
+        dataset = dataset.select(range(100))
 
         # Apply the tokenize function to the dataset
         tokenized_dataset = dataset.map(self.encode, batched=True)
@@ -70,7 +78,7 @@ class Evaluate:
                 loss = outputs.loss
                 total_loss += loss.item()
                 predictions = torch.argmax(logits, dim=-1)
-                true_labels.extend(batch["labels"].tolist())
+                true_labels.extend(batch["label"].tolist())
                 pred_labels.extend(predictions.tolist())
 
         average_loss = total_loss / len(loader)
@@ -87,3 +95,7 @@ class Evaluate:
             print(output)
         else:
             wandb.log(output)
+
+
+e = Evaluate(use_baseline=True)
+e.calculate_metrics()
