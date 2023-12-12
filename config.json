@@ -35,5 +35,5 @@
         "warmup_ratio": 0.2,
         "weight_decay": 0.01
     },
-    "finetune_gradual_unfreeze": false
+    "finetune_gradual_unfreeze": true
 }

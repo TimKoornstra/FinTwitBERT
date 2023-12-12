@@ -60,10 +60,6 @@ def compute_metrics(pred) -> dict:
     return {"accuracy": acc, "f1": f1}
 
 
-def calculate_steps(batch_size, base_batch_size=64, base_steps=500) -> int:
-    return (base_batch_size * base_steps) // batch_size
-
-
 class FinTwitBERT:
     def __init__(self, mode="pretrain"):
         if mode not in ["pretrain", "finetune"]:
