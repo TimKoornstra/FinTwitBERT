@@ -29,7 +29,7 @@
         "save_steps": 500,
         "eval_steps": 500,
         "logging_steps": 500,
-        "learning_rate": 0.00005,
+        "learning_rate": 0.0001,
         "metric_for_best_model": "accuracy",
         "greater_is_better": true,
         "warmup_ratio": 0.2,
