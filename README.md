@@ -1,4 +1,4 @@
-# FinTwitBERT: A Specialized Language Model for Financial Tweets
+# A Specialized Language Model for Financial Tweets
 
 ![FinTwitBERT Logo](img/logo.png)
 
