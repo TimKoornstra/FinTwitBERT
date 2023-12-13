@@ -3,7 +3,8 @@ import os
 from tqdm import tqdm
 import torch
 import wandb
-from transformers import BertForSequenceClassification, AutoTokenizer
+from transformers import BertForSequenceClassification, AutoTokenizer, pipeline
+from transformers.pipelines.pt_utils import KeyDataset
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, f1_score
@@ -30,13 +31,17 @@ class Evaluate:
                 "yiyanghkust/finbert-tone", cache_dir="baseline/"
             )
         self.model.eval()
+        # https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.pipeline
+        self.pipeline = pipeline(
+            "text-classification", model=self.model, tokenizer=self.tokenizer, device=0
+        )
 
     def encode(self, data):
         return self.tokenizer(
             data["text"], truncation=True, padding="max_length", max_length=512
         )
 
-    def load_test_data(self):
+    def load_test_data(self, tokenize: bool = True):
         dataset = load_dataset(
             "financial_phrasebank",
             cache_dir="data/finetune/",
@@ -47,44 +52,37 @@ class Evaluate:
         # Rename sentence to text
         dataset = dataset.rename_column("sentence", "text")
 
-        # Apply the tokenize function to the dataset
-        tokenized_dataset = dataset.map(self.encode, batched=True)
+        if tokenize:
+            # Apply the tokenize function to the dataset
+            tokenized_dataset = dataset.map(self.encode, batched=True)
 
-        # Set the format for pytorch tensors
-        tokenized_dataset.set_format(
-            type="torch",
-            columns=["input_ids", "token_type_ids", "attention_mask", "label"],
-        )
+            # Set the format for pytorch tensors
+            tokenized_dataset.set_format(
+                type="torch",
+                columns=["input_ids", "token_type_ids", "attention_mask", "label"],
+            )
 
-        return tokenized_dataset
+            return tokenized_dataset
+        return dataset
 
-    def calculate_metrics(self, batch_size: int = 64):
-        tokenized_dataset = self.load_test_data()
-        loader = DataLoader(tokenized_dataset, batch_size=batch_size)
-        total_loss = 0
-        true_labels = []
+    def calculate_metrics(self, batch_size: int = 32):
+        dataset = self.load_test_data(tokenize=False)
+
+        # Convert numerical labels to textual labels
+        true_labels = [
+            dataset.features["label"].int2str(label) for label in dataset["label"]
+        ]
+
         pred_labels = []
+        for out in tqdm(
+            self.pipeline(KeyDataset(dataset, "text"), batch_size=batch_size)
+        ):
+            pred_labels.append(out["label"].lower())
 
-        with torch.no_grad():
-            for batch in tqdm(loader):
-                outputs = self.model(
-                    input_ids=batch["input_ids"],
-                    attention_mask=batch["attention_mask"],
-                    labels=batch["label"],
-                )
-                logits = outputs.logits
-                loss = outputs.loss
-                total_loss += loss.item()
-                predictions = torch.argmax(logits, dim=-1)
-                true_labels.extend(batch["label"].tolist())
-                pred_labels.extend(predictions.tolist())
-
-        average_loss = total_loss / len(loader)
         accuracy = accuracy_score(true_labels, pred_labels)
         f1 = f1_score(true_labels, pred_labels, average="weighted")
 
         output = {
-            "test/final_average_loss": average_loss,
             "test/final_accuracy": accuracy,
             "test/final_f1_score": f1,
         }
