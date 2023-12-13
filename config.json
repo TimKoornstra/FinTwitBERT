@@ -37,5 +37,5 @@
     },
     "finetune_gradual_unfreeze": false,
     "finetune_discriminative_lr": true,
-    "dft_rate": 0.85
+    "dft_rate": 1.0
 }

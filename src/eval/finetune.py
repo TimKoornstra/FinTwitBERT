@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score, f1_score
 
 
 class Evaluate:
-    def __init__(self, use_baseline: bool = False):
+    def __init__(self, use_baseline: bool = False, baseline_model: int = 1):
         if not use_baseline:
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT-sentiment",
@@ -24,12 +24,20 @@ class Evaluate:
                 "output/FinTwitBERT-sentiment"
             )
         else:
-            self.model = BertForSequenceClassification.from_pretrained(
-                "yiyanghkust/finbert-tone", cache_dir="baseline/"
-            )
-            self.tokenizer = AutoTokenizer.from_pretrained(
-                "yiyanghkust/finbert-tone", cache_dir="baseline/"
-            )
+            if baseline_model == 0:
+                self.model = BertForSequenceClassification.from_pretrained(
+                    "yiyanghkust/finbert-tone", cache_dir="baseline/"
+                )
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    "yiyanghkust/finbert-tone", cache_dir="baseline/"
+                )
+            elif baseline_model == 1:
+                self.model = BertForSequenceClassification.from_pretrained(
+                    "ProsusAI/finbert", cache_dir="baseline/"
+                )
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    "ProsusAI/finbert", cache_dir="baseline/"
+                )
         self.model.eval()
         # https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.pipeline
         self.pipeline = pipeline(
@@ -79,6 +87,10 @@ class Evaluate:
         ):
             pred_labels.append(out["label"].lower())
 
+        # Convert bullish to positive and bearish to negative
+        label_mapping = {"bullish": "positive", "bearish": "negative"}
+        pred_labels = [label_mapping.get(label, label) for label in pred_labels]
+
         accuracy = accuracy_score(true_labels, pred_labels)
         f1 = f1_score(true_labels, pred_labels, average="weighted")
 
@@ -90,3 +102,7 @@ class Evaluate:
         if wandb.run is not None:
             wandb.log(output)
         print(output)
+
+
+e = Evaluate(use_baseline=True)
+e.calculate_metrics()
