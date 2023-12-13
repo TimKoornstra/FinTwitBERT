@@ -1,4 +1,4 @@
-# FinTwitBERT: A BERT Model for Financial Twitter Analysis
+# FinTwitBERT: A Specialized Language Model for Financial Tweets
 
 ![FinTwitBERT Logo](img/logo.png)
 
