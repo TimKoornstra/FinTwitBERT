@@ -29,12 +29,13 @@
         "save_steps": 500,
         "eval_steps": 500,
         "logging_steps": 500,
-        "learning_rate": 0.0001,
+        "learning_rate": 0.00005,
         "metric_for_best_model": "accuracy",
         "greater_is_better": true,
         "warmup_ratio": 0.2,
         "weight_decay": 0.01
     },
     "finetune_gradual_unfreeze": false,
-    "finetune_discriminative_lr": true
+    "finetune_discriminative_lr": true,
+    "dft_rate": 0.85
 }

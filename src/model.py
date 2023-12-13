@@ -69,6 +69,15 @@ class FinTwitBERT:
 
         self.mode = mode
 
+        # Read model args from config.json
+        with open("config.json", "r") as config_file:
+            self.config = json.load(config_file)
+
+        self.mode_args = {
+            "pretrain": self.config["pretrain_args"],
+            "finetune": self.config["finetune_args"],
+        }
+
         # If the model will be pretrained
         if mode == "pretrain":
             self.model = BertForMaskedLM.from_pretrained(
@@ -141,106 +150,60 @@ class FinTwitBERT:
             for param in layer.parameters():
                 param.requires_grad = True
 
-    def discriminative_lr(self, mode_args, data):
-        # Define different learning rates
-        lr = mode_args[self.mode]["learning_rate"]
-        dft_rate = 1.2
+    def get_layer_params(self, layer, learning_rate, no_decay):
+        """Get parameters for a specific layer with and without decay."""
+        params_with_decay = {
+            "params": [
+                p
+                for n, p in layer.named_parameters()
+                if not any(nd in n for nd in no_decay)
+            ],
+            "weight_decay": 0.01,  # Should we use the config here?
+            "lr": learning_rate,
+        }
+        params_without_decay = {
+            "params": [
+                p
+                for n, p in layer.named_parameters()
+                if any(nd in n for nd in no_decay)
+            ],
+            "weight_decay": 0.0,
+            "lr": learning_rate,
+        }
+        return [params_with_decay, params_without_decay]
 
-        # Disable decay for these layers
+    def discriminative_lr(self, data):
+        # Define base learning rate and decay factor
+        lr = self.mode_args[self.mode]["learning_rate"]
+        dft_rate = self.config["dft_rate"]
         no_decay = ["bias", "LayerNorm.bias", "LayerNorm.weight"]
 
+        # Prepare encoder parameters with discriminative learning rates
         encoder_params = []
         for i in range(12):
-            encoder_decay = {
-                "params": [
-                    p
-                    for n, p in list(
-                        self.model.bert.encoder.layer[i].named_parameters()
-                    )
-                    if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.01,
-                "lr": lr / (dft_rate ** (12 - i)),
-            }
-            encoder_nodecay = {
-                "params": [
-                    p
-                    for n, p in list(
-                        self.model.bert.encoder.layer[i].named_parameters()
-                    )
-                    if any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.0,
-                "lr": lr / (dft_rate ** (12 - i)),
-            }
-            encoder_params.append(encoder_decay)
-            encoder_params.append(encoder_nodecay)
+            layer_lr = lr / (dft_rate ** (12 - i))
+            encoder_layer_params = self.get_layer_params(
+                self.model.bert.encoder.layer[i], layer_lr, no_decay
+            )
+            encoder_params.extend(encoder_layer_params)
 
-        optimizer_grouped_parameters = [
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.bert.embeddings.named_parameters())
-                    if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.01,
-                "lr": lr / (dft_rate**13),
-            },
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.bert.embeddings.named_parameters())
-                    if any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.0,
-                "lr": lr / (dft_rate**13),
-            },
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.bert.pooler.named_parameters())
-                    if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.01,
-                "lr": lr,
-            },
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.bert.pooler.named_parameters())
-                    if any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.0,
-                "lr": lr,
-            },
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.classifier.named_parameters())
-                    if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.01,
-                "lr": lr,
-            },
-            {
-                "params": [
-                    p
-                    for n, p in list(self.model.classifier.named_parameters())
-                    if any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": 0.0,
-                "lr": lr,
-            },
-        ]
+        # Embeddings, pooler, and classifier parameters
+        embeddings_params = self.get_layer_params(
+            self.model.bert.embeddings, lr / (dft_rate**13), no_decay
+        )
+        pooler_params = self.get_layer_params(self.model.bert.pooler, lr, no_decay)
+        classifier_params = self.get_layer_params(self.model.classifier, lr, no_decay)
 
+        # Combine all parameter groups
+        optimizer_grouped_parameters = (
+            embeddings_params + pooler_params + classifier_params
+        )
         optimizer_grouped_parameters.extend(encoder_params)
 
-        # Initialize the optimizer
-        optimizer = AdamW(optimizer_grouped_parameters, lr=lr)  # , correct_bias=False)
-
-        # You might need to adjust the scheduler setup as per your requirement
-        total_steps = len(data) * mode_args[self.mode]["num_train_epochs"]
-        warmup_steps = int(total_steps * mode_args[self.mode]["warmup_ratio"])
+        # Initialize optimizer and scheduler
+        optimizer = AdamW(optimizer_grouped_parameters, lr=lr)
+        total_steps = len(data) * self.mode_args[self.mode]["num_train_epochs"]
+        warmup_steps = int(total_steps * self.mode_args[self.mode]["warmup_ratio"])
         scheduler = get_linear_schedule_with_warmup(
             optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps
         )
@@ -253,15 +216,6 @@ class FinTwitBERT:
         validation: Dataset,
         fold_num: int = 0,
     ):
-        # Read model args from config.json
-        with open("config.json", "r") as config_file:
-            config = json.load(config_file)
-
-        mode_args = {
-            "pretrain": config["pretrain_args"],
-            "finetune": config["finetune_args"],
-        }
-
         data = data.map(self.encode, batched=True)
         val = validation.map(self.encode, batched=True)
 
@@ -273,20 +227,22 @@ class FinTwitBERT:
         data.set_format(type="torch", columns=mode_columns[self.mode])
         val.set_format(type="torch", columns=mode_columns[self.mode])
 
-        training_args = TrainingArguments(**mode_args[self.mode], **config["base_args"])
+        training_args = TrainingArguments(
+            **self.mode_args[self.mode], **self.config["base_args"]
+        )
 
         # Add gradual unfreezing callback if enabled
         callbacks = []
-        if config[f"{self.mode}_gradual_unfreeze"]:
-            batch_size = mode_args[self.mode]["per_device_train_batch_size"]
-            num_train_epochs = mode_args[self.mode]["num_train_epochs"]
+        if self.config[f"{self.mode}_gradual_unfreeze"]:
+            batch_size = self.mode_args[self.mode]["per_device_train_batch_size"]
+            num_train_epochs = self.mode_args[self.mode]["num_train_epochs"]
             self.gradual_unfreeze(unfreeze_last_n_layers=1)
             total_steps = (len(data) // batch_size) * num_train_epochs
             callbacks.append(
                 GradualUnfreezingCallback(
                     model=self.model,
                     num_layers=len(self.model.bert.encoder.layer),
-                    unfreeze_rate=0.33,
+                    unfreeze_rate=0.33,  # Could add this to config
                     total_steps=total_steps,
                 )
             )
@@ -302,8 +258,8 @@ class FinTwitBERT:
         compute_metrics_fn = compute_metrics if self.mode == "finetune" else None
 
         optimizers = (None, None)
-        if config[f"{self.mode}_discriminative_lr"]:
-            optimizers = self.discriminative_lr(mode_args, data)
+        if self.config[f"{self.mode}_discriminative_lr"]:
+            optimizers = self.discriminative_lr(data)
 
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
         trainer = Trainer(
