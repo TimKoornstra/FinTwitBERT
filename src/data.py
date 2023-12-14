@@ -39,14 +39,14 @@ def preprocess_tweet(tweet: str) -> str:
     return tweet
 
 
-def load_fintwit_dataset() -> list:
+def load_fintwit_dataset() -> Dataset:
     """
-    Loads all fintwit datasets from the data/pretrain folder.
+    Loads the financial tweets dataset from Hugging Face Datasets.
 
     Returns
     -------
-    list
-        The datasets as a list of tuples (path, dataset).
+    Dataset
+        The financial tweets dataset.
     """
     dataset = load_dataset(
         "StephanAkkerman/financial-tweets",
@@ -55,15 +55,12 @@ def load_fintwit_dataset() -> list:
     )
 
     # Rename columns
-    dataset = dataset.rename_column("tweet", "text")
+    dataset = dataset.rename_column("tweet_text", "text")
 
-    # Preprocess tweets
-    dataframe = preprocess_dataset(dataset)
-
-    return dataframe
+    return dataset
 
 
-def load_pretrain() -> pd.DataFrame:
+def load_pretraining_data(val_size: float = 0.1) -> tuple:
     """
     Loads all the pretraining datasets from the data/pretrain/preprocessed folder.
     Excluding the test dataset.
@@ -73,46 +70,17 @@ def load_pretrain() -> pd.DataFrame:
     pd.DataFrame
         The complete pretraining dataset as a pandas DataFrame.
     """
-    datasets = []
-    # Read all files in the data/pretrain/preprocessed folder
-    for path in os.listdir("data/pretrain/preprocessed"):
-        if path != "test.csv":
-            dataset = pd.read_csv(f"data/pretrain/preprocessed/{path}")
-            datasets.append(dataset)
+    dataset = load_dataset(
+        "StephanAkkerman/stock-market-tweets-data",
+        split="train",
+        cache_dir="data/pretrain/",
+    )
 
     # Merge datasets
-    dataset = pd.concat(datasets, ignore_index=True)
+    dataset = pd.concat([dataset, load_fintwit_dataset()], ignore_index=True)
 
-    # Drop duplicates
-    return dataset.drop_duplicates(subset=["text"])
-
-
-def load_pretraining_data(val_size: float = 0.1) -> tuple:
-    """
-    Loads the pretraining data and splits it into a training and validation set.
-
-    Parameters
-    ----------
-    val_size : float, optional
-        The size of the validation set, by default 0.1
-
-    Returns
-    -------
-    tuple
-        The training and validation datasets.
-    """
-    dataset = load_pretrain()
-
-    # Randomly sample 10% of the data for validation, set the random state for reproducibility
-    validation_set = dataset.sample(frac=val_size, random_state=42)
-
-    # Drop the validation set from the original dataset to create the training set
-    training_set = dataset.drop(validation_set.index)
-
-    # Convert the pandas DataFrames into Hugging Face Datasets
-    training_dataset = Dataset.from_pandas(training_set)
-    validation_dataset = Dataset.from_pandas(validation_set)
-
+    dataframe = preprocess_dataset(dataset)
+    training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
     return training_dataset, validation_dataset
 
 
@@ -168,7 +136,7 @@ def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:
     dataframe = dataframe.drop_duplicates(subset=["text"])
 
     # Drop empty text tweets
-    dataset = dataset.dropna(subset=["text"])
+    dataframe = dataframe.dropna(subset=["text"])
 
     return dataframe
 
@@ -238,7 +206,7 @@ def kfold_pretraining_data(k: int = 5) -> tuple:
     training_datasets = []
     validation_datasets = []
 
-    df = load_pretrain()
+    df = load_pretraining_data(val_size=0)[0].to_pandas()
 
     # Assuming 'dataset' is a list or array of your data
     kf = KFold(n_splits=k, shuffle=True, random_state=42)
@@ -260,5 +228,4 @@ def load_test_data() -> Dataset:
     Dataset
         The test dataset.
     """
-    test = pd.read_csv("data/pretrain/preprocessed/test.csv")
-    return Dataset.from_pandas(test)
+    return load_finetuning_data()[0]
