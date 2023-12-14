@@ -1,5 +1,5 @@
 {
-    "mode": "finetune",
+    "mode": "pre-finetune",
     "base_args": {
         "output_dir": "checkpoints/",
         "overwrite_output_dir": true,
@@ -9,48 +9,57 @@
         "save_total_limit": 2,
         "report_to": "wandb"
     },
-    "pretrain_args": {
-        "num_train_epochs": 10,
-        "per_device_train_batch_size": 64,
-        "per_device_eval_batch_size": 64,
-        "evaluation_strategy": "steps",
-        "save_steps": 10000,
-        "eval_steps": 10000,
-        "learning_rate": 0.00002,
-        "metric_for_best_model": "eval_loss",
-        "greater_is_better": false,
-        "warmup_ratio": 0.2
+    "pretrain": {
+        "pretrain_args": {
+            "num_train_epochs": 10,
+            "per_device_train_batch_size": 64,
+            "per_device_eval_batch_size": 64,
+            "evaluation_strategy": "steps",
+            "save_steps": 10000,
+            "eval_steps": 10000,
+            "learning_rate": 0.00002,
+            "metric_for_best_model": "eval_loss",
+            "greater_is_better": false,
+            "warmup_ratio": 0.2
+        },
+        "gradual_unfreeze": false,
+        "discriminative_lr": false
     },
-    "pretrain_gradual_unfreeze": false,
-    "finetune_args": {
-        "num_train_epochs": 20,
-        "per_device_train_batch_size": 64,
-        "per_device_eval_batch_size": 64,
-        "evaluation_strategy": "steps",
-        "save_steps": 500,
-        "eval_steps": 500,
-        "logging_steps": 500,
-        "learning_rate": 0.00005,
-        "metric_for_best_model": "accuracy",
-        "greater_is_better": true,
-        "warmup_ratio": 0.2,
-        "weight_decay": 0.01
+    "finetune": {
+        "finetune_args": {
+            "num_train_epochs": 20,
+            "per_device_train_batch_size": 64,
+            "per_device_eval_batch_size": 64,
+            "evaluation_strategy": "steps",
+            "save_steps": 500,
+            "eval_steps": 500,
+            "logging_steps": 500,
+            "learning_rate": 0.00005,
+            "metric_for_best_model": "accuracy",
+            "greater_is_better": true,
+            "warmup_ratio": 0.2,
+            "weight_decay": 0.01
+        },
+        "gradual_unfreeze": false,
+        "discriminative_lr": false,
+        "dft_rate": 1.2
     },
-    "finetune_gradual_unfreeze": false,
-    "finetune_discriminative_lr": true,
-    "dft_rate": 1.2,
-    "pre-finetune_args": {
-        "num_train_epochs": 5,
-        "per_device_train_batch_size": 64,
-        "per_device_eval_batch_size": 64,
-        "evaluation_strategy": "steps",
-        "save_steps": 500,
-        "eval_steps": 500,
-        "logging_steps": 500,
-        "learning_rate": 0.00005,
-        "metric_for_best_model": "accuracy",
-        "greater_is_better": true,
-        "warmup_ratio": 0.2,
-        "weight_decay": 0.01
+    "pre-finetune": {
+        "pre-finetune_args": {
+            "num_train_epochs": 5,
+            "per_device_train_batch_size": 64,
+            "per_device_eval_batch_size": 64,
+            "evaluation_strategy": "steps",
+            "save_steps": 500,
+            "eval_steps": 500,
+            "logging_steps": 500,
+            "learning_rate": 0.00005,
+            "metric_for_best_model": "accuracy",
+            "greater_is_better": true,
+            "warmup_ratio": 0.2,
+            "weight_decay": 0.01
+        },
+        "gradual_unfreeze": false,
+        "discriminative_lr": false
     }
 }

@@ -39,34 +39,7 @@ def preprocess_tweet(tweet: str) -> str:
     return tweet
 
 
-def load_local_dataset(path: str, is_test: bool) -> pd.DataFrame:
-    """
-    Load a dataset from a CSV file given as path.
-
-    Parameters
-    ----------
-    path : str
-        The path to the CSV file.
-    is_test : bool
-        If the dataset is a test dataset.
-
-    Returns
-    -------
-    pd.DataFrame
-        The dataset as a pandas DataFrame.
-    """
-    dataset = pd.read_csv(path, encoding="utf-8", on_bad_lines="warn")
-
-    # Rename columns
-    columns = {"full_text": "text"}
-    if is_test:
-        columns = {"Text": "text", "Sentiment": "label"}
-    dataset = dataset.rename(columns=columns)
-
-    return dataset[list(columns.values())]
-
-
-def load_fintwit_datasets() -> list:
+def load_fintwit_dataset() -> list:
     """
     Loads all fintwit datasets from the data/pretrain folder.
 
@@ -75,59 +48,19 @@ def load_fintwit_datasets() -> list:
     list
         The datasets as a list of tuples (path, dataset).
     """
+    dataset = load_dataset(
+        "StephanAkkerman/financial-tweets",
+        split="train",
+        cache_dir="data/pretrain/",
+    )
+
     # Rename columns
-    columns = {"tweet_text": "text"}
-    datasets = []
+    dataset = dataset.rename_column("tweet", "text")
 
-    # Read all files in the data/pretrain folder
-    for path in os.listdir("data/pretrain"):
-        # Read files starting with fintwit
-        if path.startswith("fintwit"):
-            dataset = pd.read_csv(f"data/{path}", encoding="utf-8", on_bad_lines="warn")
-            dataset = dataset.rename(columns=columns)
-            dataset = dataset[list(columns.values())]
+    # Preprocess tweets
+    dataframe = preprocess_dataset(dataset)
 
-            # Drop rows where text is NaN
-            dataset = dataset.dropna(subset=["text"])
-
-            datasets.append((path, dataset))
-
-    return datasets
-
-
-def preprocess_fintwit_dataset():
-    """
-    Preprocesses all fintwit datasets and saves them to data/pretrain/preprocessed.
-    """
-    datasets = load_fintwit_datasets()
-    for path, dataset in datasets:
-        dataset["text"] = dataset["text"].apply(preprocess_tweet)
-        dataset = dataset.drop_duplicates(subset=["text"])
-        dataset.to_csv(f"data/pretrain/preprocessed/{path}", index=False)
-
-
-def save_preprocessed_dataset(path: str):
-    """
-    Loads a dataset from a CSV file given as path, preprocesses it and saves it to data/pretrain/preprocessed.
-
-    Parameters
-    ----------
-    path : str
-        The path to the CSV file.
-    """
-    is_test = False
-    if path.endswith("test.csv"):
-        is_test = True
-
-    dataset = load_local_dataset(path, is_test=is_test)
-    dataset["text"] = dataset["text"].apply(preprocess_tweet)
-
-    # Drop duplicates
-    dataset = dataset.drop_duplicates(subset=["text"])
-
-    # Save preprocessed dataset
-    os.makedirs("data/pretrain/preprocessed", exist_ok=True)
-    dataset.to_csv(f"data/pretrain/preprocessed/{path.split('/')[-1]}", index=False)
+    return dataframe
 
 
 def load_pretrain() -> pd.DataFrame:
@@ -220,10 +153,22 @@ def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:
     dataframe = dataset.to_pandas()
 
     # Set labels to int
-    dataframe["label"] = dataframe["label"].astype(int)
+    if "label" in dataframe.columns:
+        dataframe["label"] = dataframe["label"].astype(int)
+
+        # Drop all columns that are not text or label
+        dataframe = dataframe[["text", "label"]]
+    else:
+        dataframe = dataframe[["text"]]
 
     # Preprocess tweets
     dataframe["text"] = dataframe["text"].apply(preprocess_tweet)
+
+    # Drop duplicates
+    dataframe = dataframe.drop_duplicates(subset=["text"])
+
+    # Drop empty text tweets
+    dataset = dataset.dropna(subset=["text"])
 
     return dataframe
 
@@ -259,7 +204,7 @@ def load_tweet_eval():
     # https://huggingface.co/datasets/tweet_eval/viewer/sentiment
     dataset = load_dataset(
         "tweet_eval",
-        cache_dir="data/finetune/",
+        cache_dir="data/pre-finetune/",
         name="sentiment",
     )
 
@@ -269,7 +214,7 @@ def load_tweet_eval():
     )
 
     # Change labels to match other datasets
-    dataset = adjust_labels(dataset)
+    dataset = dataset.map(adjust_labels)
 
     dataframe = preprocess_dataset(dataset)
     training_dataset, validation_dataset = split_dataframe(dataframe)

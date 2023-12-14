@@ -76,11 +76,7 @@ class FinTwitBERT:
             raise ValueError(f"Unsupported mode: {self.mode}")
 
         # Get the mode-specific args
-        self.mode_args = {
-            "pretrain": self.config["pretrain_args"],
-            "finetune": self.config["finetune_args"],
-            "pre-finetune": self.config["pre-finetune_args"],
-        }
+        self.mode_args = self.config[self.mode][f"{self.mode}_args"]
 
         # If the model will be pretrained
         if self.mode == "pretrain":
@@ -192,8 +188,8 @@ class FinTwitBERT:
 
     def discriminative_lr(self, data):
         # Define base learning rate and decay factor
-        lr = self.mode_args[self.mode]["learning_rate"]
-        dft_rate = self.config["dft_rate"]
+        lr = self.mode_args["learning_rate"]
+        dft_rate = self.config[self.mode]["dft_rate"]
         no_decay = ["bias", "LayerNorm.bias", "LayerNorm.weight"]
 
         # Prepare encoder parameters with discriminative learning rates
@@ -220,8 +216,8 @@ class FinTwitBERT:
 
         # Initialize optimizer and scheduler
         optimizer = AdamW(optimizer_grouped_parameters, lr=lr)
-        total_steps = len(data) * self.mode_args[self.mode]["num_train_epochs"]
-        warmup_steps = int(total_steps * self.mode_args[self.mode]["warmup_ratio"])
+        total_steps = len(data) * self.mode_args["num_train_epochs"]
+        warmup_steps = int(total_steps * self.mode_args["warmup_ratio"])
         scheduler = get_linear_schedule_with_warmup(
             optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps
         )
@@ -229,8 +225,8 @@ class FinTwitBERT:
         return optimizer, scheduler
 
     def get_gradual_unfreezing_callback(self, data):
-        batch_size = self.mode_args[self.mode]["per_device_train_batch_size"]
-        num_train_epochs = self.mode_args[self.mode]["num_train_epochs"]
+        batch_size = self.mode_args["per_device_train_batch_size"]
+        num_train_epochs = self.mode_args["num_train_epochs"]
         self.gradual_unfreeze(unfreeze_last_n_layers=1)
         total_steps = (len(data) // batch_size) * num_train_epochs
         return GradualUnfreezingCallback(
@@ -244,6 +240,7 @@ class FinTwitBERT:
         mode_columns = {
             "pretrain": ["input_ids", "attention_mask"],
             "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
+            "pre-finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
         }
 
         data = data.map(self.encode, batched=True)
@@ -263,12 +260,10 @@ class FinTwitBERT:
         data = self.encode_data(self.data)
         val = self.encode_data(self.validation)
 
-        training_args = TrainingArguments(
-            **self.mode_args[self.mode], **self.config["base_args"]
-        )
+        training_args = TrainingArguments(**self.mode_args, **self.config["base_args"])
 
         # Add gradual unfreezing callback if enabled
-        if self.config[f"{self.mode}_gradual_unfreeze"]:
+        if self.config[self.mode]["gradual_unfreeze"]:
             callbacks.append(self.get_gradual_unfreezing_callback(data))
 
         # Use the MLM data collator when pretraining
@@ -278,10 +273,12 @@ class FinTwitBERT:
             )
 
         # Compute F1 and accuracy scores when finetuning
-        compute_metrics_fn = compute_metrics if self.mode == "finetune" else None
+        compute_metrics_fn = (
+            compute_metrics if self.mode in ["finetune", "pre-finetune"] else None
+        )
 
         # Enable discriminative learning rates when finetuning
-        if self.config[f"{self.mode}_discriminative_lr"]:
+        if self.config[self.mode]["discriminative_lr"]:
             optimizers = self.discriminative_lr(data)
 
         # https://huggingface.co/docs/transformers/v4.35.0/en/main_classes/trainer#transformers.TrainingArguments
