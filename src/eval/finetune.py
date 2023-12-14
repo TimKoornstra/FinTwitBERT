@@ -1,12 +1,7 @@
-import os
-
-from tqdm import tqdm
-import torch
 import wandb
 from transformers import BertForSequenceClassification, AutoTokenizer, pipeline
 from transformers.pipelines.pt_utils import KeyDataset
 from datasets import load_dataset
-from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, f1_score
 
 
@@ -82,9 +77,7 @@ class Evaluate:
         ]
 
         pred_labels = []
-        for out in tqdm(
-            self.pipeline(KeyDataset(dataset, "text"), batch_size=batch_size)
-        ):
+        for out in self.pipeline(KeyDataset(dataset, "text"), batch_size=batch_size):
             pred_labels.append(out["label"].lower())
 
         # Convert bullish to positive and bearish to negative
@@ -103,6 +96,5 @@ class Evaluate:
             wandb.log(output)
         print(output)
 
-
-e = Evaluate(use_baseline=True)
-e.calculate_metrics()
+        # Create confusion matrix and log it to wandb
+        # https://docs.wandb.ai/guides/track/log/media

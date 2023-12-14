@@ -19,6 +19,8 @@ from transformers.optimization import get_linear_schedule_with_warmup
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
 
+from data import load_pretraining_data, load_finetuning_data, load_tweet_eval
+
 
 class GradualUnfreezingCallback(TrainerCallback):
     def __init__(self, model, num_layers, unfreeze_rate, total_steps):
@@ -63,23 +65,25 @@ def compute_metrics(pred) -> dict:
 
 
 class FinTwitBERT:
-    def __init__(self, mode="pretrain"):
-        if mode not in ["pretrain", "finetune"]:
-            raise ValueError(f"Unsupported mode: {mode}")
-
-        self.mode = mode
-
+    def __init__(self):
         # Read model args from config.json
         with open("config.json", "r") as config_file:
             self.config = json.load(config_file)
 
+        # Set the mode
+        self.mode = self.config["mode"]
+        if self.mode not in ["pretrain", "finetune", "pre-finetune"]:
+            raise ValueError(f"Unsupported mode: {self.mode}")
+
+        # Get the mode-specific args
         self.mode_args = {
             "pretrain": self.config["pretrain_args"],
             "finetune": self.config["finetune_args"],
+            "pre-finetune": self.config["pre-finetune_args"],
         }
 
         # If the model will be pretrained
-        if mode == "pretrain":
+        if self.mode == "pretrain":
             self.model = BertForMaskedLM.from_pretrained(
                 "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
             )
@@ -92,9 +96,23 @@ class FinTwitBERT:
             self.tokenizer.add_tokens(special_tokens)
 
             self.model.resize_token_embeddings(len(self.tokenizer))
+            self.data, self.validation = load_pretraining_data()
 
         # If the model will be finetuned
-        elif mode == "finetune":
+        elif self.mode == "finetune":
+            self.model = BertForSequenceClassification.from_pretrained(
+                "output/FinTwitBERT-tweeteval",
+                num_labels=3,
+                id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
+                label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
+            )
+            self.model.config.problem_type = "single_label_classification"
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                "output/FinTwitBERT-tweeteval"
+            )
+            self.output_dir = "output/FinTwitBERT-sentiment"
+            self.data, self.validation = load_finetuning_data()
+        elif self.mode == "pre-finetune":
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT",
                 num_labels=3,
@@ -103,7 +121,9 @@ class FinTwitBERT:
             )
             self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
-            self.output_dir = "output/FinTwitBERT-sentiment"
+            self.output_dir = "output/FinTwitBERT-tweeteval"
+            self.data, self.validation = load_tweet_eval()
+
         self.init_wandb()
 
     def init_wandb(self):
@@ -119,9 +139,7 @@ class FinTwitBERT:
         os.environ["WANDB_API_KEY"] = os.getenv("WANDB_API_KEY")
 
         # set the wandb project where this run will be logged
-        os.environ["WANDB_PROJECT"] = (
-            "FinTwitBERT" if self.mode == "pretrain" else "FinTwitBERT-sentiment"
-        )
+        os.environ["WANDB_PROJECT"] = self.output_dir.split("/")[-1]
 
         # save your trained model checkpoint to wandb
         os.environ["WANDB_LOG_MODEL"] = "true"
@@ -210,45 +228,50 @@ class FinTwitBERT:
 
         return optimizer, scheduler
 
-    def train(
-        self,
-        data: Dataset,
-        validation: Dataset,
-        fold_num: int = 0,
-    ):
-        data = data.map(self.encode, batched=True)
-        val = validation.map(self.encode, batched=True)
+    def get_gradual_unfreezing_callback(self, data):
+        batch_size = self.mode_args[self.mode]["per_device_train_batch_size"]
+        num_train_epochs = self.mode_args[self.mode]["num_train_epochs"]
+        self.gradual_unfreeze(unfreeze_last_n_layers=1)
+        total_steps = (len(data) // batch_size) * num_train_epochs
+        return GradualUnfreezingCallback(
+            model=self.model,
+            num_layers=len(self.model.bert.encoder.layer),
+            unfreeze_rate=0.33,  # Could add this to config
+            total_steps=total_steps,
+        )
 
+    def encode_data(self, data: Dataset):
         mode_columns = {
             "pretrain": ["input_ids", "attention_mask"],
             "finetune": ["input_ids", "token_type_ids", "attention_mask", "label"],
         }
 
+        data = data.map(self.encode, batched=True)
         data.set_format(type="torch", columns=mode_columns[self.mode])
-        val.set_format(type="torch", columns=mode_columns[self.mode])
+
+        return data
+
+    def train(
+        self,
+        fold_num: int = 0,
+    ):
+        # Define default values
+        callbacks = []
+        optimizers = (None, None)
+        data_collator = None
+
+        data = self.encode_data(self.data)
+        val = self.encode_data(self.validation)
 
         training_args = TrainingArguments(
             **self.mode_args[self.mode], **self.config["base_args"]
         )
 
         # Add gradual unfreezing callback if enabled
-        callbacks = []
         if self.config[f"{self.mode}_gradual_unfreeze"]:
-            batch_size = self.mode_args[self.mode]["per_device_train_batch_size"]
-            num_train_epochs = self.mode_args[self.mode]["num_train_epochs"]
-            self.gradual_unfreeze(unfreeze_last_n_layers=1)
-            total_steps = (len(data) // batch_size) * num_train_epochs
-            callbacks.append(
-                GradualUnfreezingCallback(
-                    model=self.model,
-                    num_layers=len(self.model.bert.encoder.layer),
-                    unfreeze_rate=0.33,  # Could add this to config
-                    total_steps=total_steps,
-                )
-            )
+            callbacks.append(self.get_gradual_unfreezing_callback(data))
 
         # Use the MLM data collator when pretraining
-        data_collator = None
         if self.mode == "pretrain":
             data_collator = DataCollatorForLanguageModeling(
                 tokenizer=self.tokenizer, mlm_probability=0.15
@@ -257,7 +280,7 @@ class FinTwitBERT:
         # Compute F1 and accuracy scores when finetuning
         compute_metrics_fn = compute_metrics if self.mode == "finetune" else None
 
-        optimizers = (None, None)
+        # Enable discriminative learning rates when finetuning
         if self.config[f"{self.mode}_discriminative_lr"]:
             optimizers = self.discriminative_lr(data)
 

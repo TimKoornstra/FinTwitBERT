@@ -5,7 +5,7 @@ import html
 import re
 
 # Third party
-from datasets import Dataset, load_dataset
+from datasets import Dataset, load_dataset, concatenate_datasets
 import pandas as pd
 from sklearn.model_selection import KFold
 
@@ -199,34 +199,80 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     """
 
     # https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment
+    # 0: neutral, 1: bullish, 2: bearish
     dataset = load_dataset(
         "TimKoornstra/financial-tweets-sentiment",
         split="train",
         cache_dir="data/finetune/",
     )
 
-    # Convert to pandas
-    dataset = dataset.to_pandas()
-
-    # Preprocess tweets
-    dataset["tweet"] = dataset["tweet"].apply(preprocess_tweet)
-
     # Rename columns
-    dataset = dataset.rename(columns={"tweet": "text", "sentiment": "label"})
+    dataset = dataset.rename_column("tweet", "text")
+    dataset = dataset.rename_column("sentiment", "label")
+
+    dataframe = preprocess_dataset(dataset)
+    training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
+    return training_dataset, validation_dataset
+
+
+def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:
+    # Convert to pandas
+    dataframe = dataset.to_pandas()
 
     # Set labels to int
-    dataset["label"] = dataset["label"].astype(int)
+    dataframe["label"] = dataframe["label"].astype(int)
 
+    # Preprocess tweets
+    dataframe["text"] = dataframe["text"].apply(preprocess_tweet)
+
+    return dataframe
+
+
+def split_dataframe(dataframe: pd.DataFrame, val_size: float = 0.1):
     # Randomly sample 10% of the data for validation, set the random state for reproducibility
-    validation_set = dataset.sample(frac=val_size, random_state=42)
+    validation_set = dataframe.sample(frac=val_size, random_state=42)
 
     # Drop the validation set from the original dataset to create the training set
-    training_set = dataset.drop(validation_set.index)
+    training_set = dataframe.drop(validation_set.index)
 
     # Convert the pandas DataFrames into Hugging Face Datasets
     training_dataset = Dataset.from_pandas(training_set)
     validation_dataset = Dataset.from_pandas(validation_set)
 
+    return training_dataset, validation_dataset
+
+
+def adjust_labels(dataset):
+    # Original labels: 0: negative, 1: neutral, 2: positive
+    # New labels: 0: neutral, 1: bullish, 2: bearish
+    label_mapping = {
+        0: 2,  # negative to bearish
+        1: 0,  # neutral to neutral
+        2: 1,  # positive to bullish
+    }
+    dataset["label"] = label_mapping[dataset["label"]]
+    return dataset
+
+
+def load_tweet_eval():
+    # 0: negative, 1: neutral, 2: positive
+    # https://huggingface.co/datasets/tweet_eval/viewer/sentiment
+    dataset = load_dataset(
+        "tweet_eval",
+        cache_dir="data/finetune/",
+        name="sentiment",
+    )
+
+    # Concatenate the splits into a single dataset
+    dataset = concatenate_datasets(
+        [dataset["train"], dataset["test"], dataset["validation"]]
+    )
+
+    # Change labels to match other datasets
+    dataset = adjust_labels(dataset)
+
+    dataframe = preprocess_dataset(dataset)
+    training_dataset, validation_dataset = split_dataframe(dataframe)
     return training_dataset, validation_dataset
 
 

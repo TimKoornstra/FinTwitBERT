@@ -1,4 +1,5 @@
 {
+    "mode": "finetune",
     "base_args": {
         "output_dir": "checkpoints/",
         "overwrite_output_dir": true,
@@ -22,7 +23,7 @@
     },
     "pretrain_gradual_unfreeze": false,
     "finetune_args": {
-        "num_train_epochs": 40,
+        "num_train_epochs": 20,
         "per_device_train_batch_size": 64,
         "per_device_eval_batch_size": 64,
         "evaluation_strategy": "steps",
@@ -37,5 +38,19 @@
     },
     "finetune_gradual_unfreeze": false,
     "finetune_discriminative_lr": true,
-    "dft_rate": 1.2
+    "dft_rate": 1.2,
+    "pre-finetune_args": {
+        "num_train_epochs": 5,
+        "per_device_train_batch_size": 64,
+        "per_device_eval_batch_size": 64,
+        "evaluation_strategy": "steps",
+        "save_steps": 500,
+        "eval_steps": 500,
+        "logging_steps": 500,
+        "learning_rate": 0.00005,
+        "metric_for_best_model": "accuracy",
+        "greater_is_better": true,
+        "warmup_ratio": 0.2,
+        "weight_decay": 0.01
+    }
 }

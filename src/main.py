@@ -9,14 +9,12 @@ import os
 import torch
 
 # Local
-from data import load_pretraining_data, load_finetuning_data, kfold_pretraining_data
+from data import kfold_pretraining_data
 from model import FinTwitBERT
 from eval.finetune import Evaluate
 
 # TODO: add this to config / argparse
 KFOLD = False
-PRETRAIN = False
-FINETUNE = True
 
 
 def do_kfold():
@@ -63,10 +61,6 @@ if __name__ == "__main__":
     if KFOLD:
         do_kfold()
 
-    if PRETRAIN:
-        df, val = load_pretraining_data()
-    if FINETUNE:
-        df, val = load_finetuning_data()
     logging.info("Dataset loaded and preprocessed")
 
     # Display CUDA info
@@ -77,8 +71,8 @@ if __name__ == "__main__":
 
     # Train the model
     logging.info("Training the model")
-    model = FinTwitBERT(mode="pretrain" if PRETRAIN else "finetune")
-    model.train(df, val)
+    model = FinTwitBERT()
+    model.train()
     logging.info("Model trained and saved to output/FinTwitBERT")
 
     # Evaluate the new model
