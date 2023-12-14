@@ -2,7 +2,10 @@ import wandb
 from transformers import BertForSequenceClassification, AutoTokenizer, pipeline
 from transformers.pipelines.pt_utils import KeyDataset
 from datasets import load_dataset
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import confusion_matrix, accuracy_score, f1_score
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 class Evaluate:
@@ -84,17 +87,44 @@ class Evaluate:
         label_mapping = {"bullish": "positive", "bearish": "negative"}
         pred_labels = [label_mapping.get(label, label) for label in pred_labels]
 
+        # Compute accuracy and F1 score
         accuracy = accuracy_score(true_labels, pred_labels)
         f1 = f1_score(true_labels, pred_labels, average="weighted")
 
+        # Log metrics to wandb
         output = {
             "test/final_accuracy": accuracy,
             "test/final_f1_score": f1,
         }
 
+        # Create confusion matrix
+        label_encoder = LabelEncoder()
+        true_labels_encoded = label_encoder.fit_transform(true_labels)
+        pred_labels_encoded = label_encoder.transform(pred_labels)
+        cm = confusion_matrix(true_labels_encoded, pred_labels_encoded)
+        labels = label_encoder.classes_
+
+        # Plot confusion matrix
+        fig, ax = plt.subplots(figsize=(10, 8))
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            ax=ax,
+            cmap="Blues",
+            xticklabels=labels,
+            yticklabels=labels,
+        )
+        plt.ylabel("Actual")
+        plt.xlabel("Predicted")
+        plt.title("Confusion Matrix")
+
+        # Log confusion matrix to wandb
         if wandb.run is not None:
             wandb.log(output)
+            wandb.log({"test/confusion_matrix": wandb.Image(fig)})
+
         print(output)
 
-        # Create confusion matrix and log it to wandb
-        # https://docs.wandb.ai/guides/track/log/media
+        # Close the plot
+        plt.close(fig)
