@@ -1,13 +1,14 @@
 # > Imports
 # Standard library
-import os
 import html
 import re
 
 # Third party
 from datasets import Dataset, load_dataset, concatenate_datasets
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import KFold
+from imblearn.over_sampling import RandomOverSampler
 
 
 def preprocess_tweet(tweet: str) -> str:
@@ -112,8 +113,30 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     dataset = dataset.rename_column("sentiment", "label")
 
     dataframe = preprocess_dataset(dataset)
+    dataframe = simple_oversample(dataframe)
     training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
     return training_dataset, validation_dataset
+
+
+def simple_oversample(dataframe: pd.DataFrame) -> pd.DataFrame:
+    # Extract texts and labels
+    texts = dataframe["text"].tolist()
+    labels = dataframe["label"].tolist()
+
+    # Define RandomOverSampler
+    ros = RandomOverSampler(random_state=0)
+
+    # Resample indices and labels
+    resampled_indices, resampled_labels = ros.fit_resample(
+        np.array(list(range(len(texts)))).reshape(-1, 1), labels
+    )
+
+    # Extract resampled texts based on the resampled indices
+    resampled_texts = [texts[i[0]] for i in resampled_indices]
+
+    # Convert back to dataframe
+    dataframe = pd.DataFrame({"text": resampled_texts, "label": resampled_labels})
+    return dataframe
 
 
 def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:

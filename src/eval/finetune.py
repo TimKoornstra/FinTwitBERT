@@ -97,10 +97,18 @@ class Evaluate:
             "test/final_f1_score": f1,
         }
 
+        if wandb.run is not None:
+            wandb.log(output)
+            self.plot_confusion_matrix(true_labels, pred_labels)
+
+        print(output)
+
+    def plot_confusion_matrix(self, true_labels, pred_labels):
         # Create confusion matrix
         label_encoder = LabelEncoder()
         true_labels_encoded = label_encoder.fit_transform(true_labels)
         pred_labels_encoded = label_encoder.transform(pred_labels)
+
         cm = confusion_matrix(true_labels_encoded, pred_labels_encoded)
         labels = label_encoder.classes_
 
@@ -120,11 +128,7 @@ class Evaluate:
         plt.title("Confusion Matrix")
 
         # Log confusion matrix to wandb
-        if wandb.run is not None:
-            wandb.log(output)
-            wandb.log({"test/confusion_matrix": wandb.Image(fig)})
-
-        print(output)
+        wandb.log({"test/confusion_matrix": wandb.Image(fig)})
 
         # Close the plot
         plt.close(fig)
