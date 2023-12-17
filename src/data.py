@@ -113,8 +113,9 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     dataset = dataset.rename_column("sentiment", "label")
 
     dataframe = preprocess_dataset(dataset)
-    dataframe = simple_oversample(dataframe)
     training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
+    # Oversample the training dataset
+    training_dataset = simple_oversample(training_dataset)
     return training_dataset, validation_dataset
 
 
