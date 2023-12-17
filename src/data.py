@@ -119,7 +119,9 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     return training_dataset, validation_dataset
 
 
-def simple_oversample(dataframe: pd.DataFrame) -> pd.DataFrame:
+def simple_oversample(dataset: Dataset) -> pd.DataFrame:
+    dataframe = dataset.to_pandas()
+
     # Extract texts and labels
     texts = dataframe["text"].tolist()
     labels = dataframe["label"].tolist()
@@ -137,7 +139,9 @@ def simple_oversample(dataframe: pd.DataFrame) -> pd.DataFrame:
 
     # Convert back to dataframe
     dataframe = pd.DataFrame({"text": resampled_texts, "label": resampled_labels})
-    return dataframe
+
+    # To dataset
+    return Dataset.from_pandas(dataframe)
 
 
 def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:
