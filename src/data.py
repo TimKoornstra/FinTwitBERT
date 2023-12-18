@@ -1,7 +1,9 @@
 # > Imports
 # Standard library
 import html
+import random
 import re
+from collections import Counter
 
 # Third party
 from datasets import Dataset, load_dataset, concatenate_datasets
@@ -9,6 +11,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import KFold
 from imblearn.over_sampling import RandomOverSampler
+import nlpaug.augmenter.word as naw
 
 
 def preprocess_tweet(tweet: str) -> str:
@@ -115,7 +118,7 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
     dataframe = preprocess_dataset(dataset)
     training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
     # Oversample the training dataset
-    training_dataset = simple_oversample(training_dataset)
+    training_dataset = synonym_oversample(training_dataset)
     return training_dataset, validation_dataset
 
 
@@ -136,6 +139,48 @@ def simple_oversample(dataset: Dataset) -> pd.DataFrame:
 
     # Extract resampled texts based on the resampled indices
     resampled_texts = [texts[i[0]] for i in resampled_indices]
+
+    # Convert back to dataframe
+    dataframe = pd.DataFrame({"text": resampled_texts, "label": resampled_labels})
+
+    # To dataset
+    return Dataset.from_pandas(dataframe)
+
+
+def synonym_oversample(dataset: Dataset) -> pd.DataFrame:
+    dataframe = dataset.to_pandas()
+
+    # Extract texts and labels
+    texts = [example["text"] for example in dataset]
+    labels = [example["label"] for example in dataset]
+
+    # Determine class frequencies and find the maximum frequency
+    class_counts = Counter(labels)
+    max_count = max(class_counts.values())
+
+    # Initialize nlpaug synonym augmenter
+    augmenter = naw.SynonymAug(aug_src="wordnet")
+
+    # Augment data for each class to match the count of the majority class
+    augmented_texts = []
+    augmented_labels = []
+    for label in class_counts.keys():
+        class_texts = [text for text, lbl in zip(texts, labels) if lbl == label]
+        augment_count = max_count - class_counts[label]
+
+        # Randomly choose and augment texts from the class until reaching the desired count
+        while augment_count > 0:
+            for text in random.choices(
+                class_texts, k=min(augment_count, len(class_texts))
+            ):
+                augmented_text = augmenter.augment(text)
+                augmented_texts.append(augmented_text[0])
+                augmented_labels.append(label)
+                augment_count -= 1
+
+    # Combine original and augmented data
+    resampled_texts = texts + augmented_texts
+    resampled_labels = labels + augmented_labels
 
     # Convert back to dataframe
     dataframe = pd.DataFrame({"text": resampled_texts, "label": resampled_labels})
