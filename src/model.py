@@ -115,9 +115,9 @@ class FinTwitBERT:
             self.output_dir = "output/FinTwitBERT-sentiment"
             self.data, self.validation = load_finetuning_data()
 
-            if self.config[self.mode]["oversampling"]["simple"]:
+            if self.config[self.mode]["oversampling"] == "simple":
                 self.data = simple_oversample(self.data)
-            elif self.config[self.mode]["oversampling"]["synonym"]:
+            elif self.config[self.mode]["oversampling"] == "synonym":
                 self.data = synonym_oversample(self.data)
 
         elif self.mode == "pre-finetune":
