@@ -61,6 +61,6 @@
         "gradual_unfreeze": false,
         "discriminative_lr": true,
         "dft_rate": 1.2,
-        "oversampling": "none"
+        "oversampling": "simple"
     }
 }
