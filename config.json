@@ -43,7 +43,7 @@
         "gradual_unfreeze": false,
         "discriminative_lr": false,
         "dft_rate": 1.2,
-        "oversampling": "none"
+        "oversampling": "simple"
     },
     "pre-finetune": {
         "pre-finetune_args": {
