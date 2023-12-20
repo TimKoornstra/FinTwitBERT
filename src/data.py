@@ -210,6 +210,9 @@ def preprocess_dataset(dataset: Dataset) -> pd.DataFrame:
     # Drop empty text tweets
     dataframe = dataframe.dropna(subset=["text"])
 
+    # Drop 1 word tweets
+    dataframe = dataframe[dataframe["text"].apply(lambda x: len(x.split()) > 1)]
+
     return dataframe
 
 

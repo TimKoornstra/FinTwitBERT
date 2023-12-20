@@ -59,8 +59,8 @@
             "weight_decay": 0.01
         },
         "gradual_unfreeze": false,
-        "discriminative_lr": true,
+        "discriminative_lr": false,
         "dft_rate": 1.2,
-        "oversampling": "simple"
+        "oversampling": "synonym"
     }
 }
