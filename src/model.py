@@ -19,7 +19,13 @@ from transformers.optimization import get_linear_schedule_with_warmup
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
 
-from data import load_pretraining_data, load_finetuning_data, load_tweet_eval
+from data import (
+    load_pretraining_data,
+    load_finetuning_data,
+    load_tweet_eval,
+    simple_oversample,
+    synonym_oversample,
+)
 
 
 class GradualUnfreezingCallback(TrainerCallback):
@@ -108,6 +114,12 @@ class FinTwitBERT:
             )
             self.output_dir = "output/FinTwitBERT-sentiment"
             self.data, self.validation = load_finetuning_data()
+
+            if self.config[self.mode]["oversampling"]["simple"]:
+                self.data = simple_oversample(self.data)
+            elif self.config[self.mode]["oversampling"]["synonym"]:
+                self.data = synonym_oversample(self.data)
+
         elif self.mode == "pre-finetune":
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT",

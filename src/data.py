@@ -9,9 +9,6 @@ from collections import Counter
 from datasets import Dataset, load_dataset, concatenate_datasets
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import KFold
-from imblearn.over_sampling import RandomOverSampler
-import nlpaug.augmenter.word as naw
 
 
 def preprocess_tweet(tweet: str) -> str:
@@ -117,12 +114,12 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
 
     dataframe = preprocess_dataset(dataset)
     training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
-    # Oversample the training dataset
-    training_dataset = synonym_oversample(training_dataset)
     return training_dataset, validation_dataset
 
 
 def simple_oversample(dataset: Dataset) -> pd.DataFrame:
+    from imblearn.over_sampling import RandomOverSampler
+
     dataframe = dataset.to_pandas()
 
     # Extract texts and labels
@@ -148,6 +145,8 @@ def simple_oversample(dataset: Dataset) -> pd.DataFrame:
 
 
 def synonym_oversample(dataset: Dataset) -> pd.DataFrame:
+    import nlpaug.augmenter.word as naw
+
     dataframe = dataset.to_pandas()
 
     # Extract texts and labels
@@ -276,6 +275,8 @@ def kfold_pretraining_data(k: int = 5) -> tuple:
     tuple
         The training and validation datasets.
     """
+    from sklearn.model_selection import KFold
+
     training_datasets = []
     validation_datasets = []
 

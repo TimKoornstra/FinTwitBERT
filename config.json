@@ -42,7 +42,8 @@
         },
         "gradual_unfreeze": false,
         "discriminative_lr": false,
-        "dft_rate": 1.2
+        "dft_rate": 1.2,
+        "oversampling": "none"
     },
     "pre-finetune": {
         "pre-finetune_args": {
