@@ -78,5 +78,5 @@ if __name__ == "__main__":
     # Evaluate the new model
     logging.info("Evaluating the model")
     evaluate = Evaluate()
-    evaluate.calculate_metrics()
+    evaluate.evaluate_model()
     logging.info("Model metrics calculated")

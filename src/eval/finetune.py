@@ -7,6 +7,8 @@ from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from data import load_finetuning_data
+
 
 class Evaluate:
     def __init__(self, use_baseline: bool = False, baseline_model: int = 1):
@@ -71,8 +73,20 @@ class Evaluate:
             return tokenized_dataset
         return dataset
 
-    def calculate_metrics(self, batch_size: int = 32):
-        dataset = self.load_test_data(tokenize=False)
+    def evaluate_model(self):
+        true_labels, pred_labels = self.get_labels(dataset="finetune")
+        self.plot_confusion_matrix("eval", true_labels, pred_labels)
+
+        true_labels, pred_labels = self.get_labels(dataset="test")
+        self.calculate_metrics("test", true_labels, pred_labels)
+
+    def get_labels(self, dataset: str, batch_size: int = 32):
+        if dataset == "test":
+            dataset = self.load_test_data(tokenize=False)
+        elif dataset == "finetune":
+            _, dataset = load_finetuning_data()
+        else:
+            raise ValueError("Invalid dataset name")
 
         # Convert numerical labels to textual labels
         true_labels = [
@@ -87,6 +101,9 @@ class Evaluate:
         label_mapping = {"bullish": "positive", "bearish": "negative"}
         pred_labels = [label_mapping.get(label, label) for label in pred_labels]
 
+        return true_labels, pred_labels
+
+    def calculate_metrics(self, true_labels, pred_labels):
         # Compute accuracy and F1 score
         accuracy = accuracy_score(true_labels, pred_labels)
         f1 = f1_score(true_labels, pred_labels, average="weighted")
@@ -103,7 +120,7 @@ class Evaluate:
 
         print(output)
 
-    def plot_confusion_matrix(self, true_labels, pred_labels):
+    def plot_confusion_matrix(self, category: str, true_labels, pred_labels):
         # Create confusion matrix
         label_encoder = LabelEncoder()
         true_labels_encoded = label_encoder.fit_transform(true_labels)
@@ -128,7 +145,7 @@ class Evaluate:
         plt.title("Confusion Matrix")
 
         # Log confusion matrix to wandb
-        wandb.log({"test/confusion_matrix": wandb.Image(fig)})
+        wandb.log({f"{category}/confusion_matrix": wandb.Image(fig)})
 
         # Close the plot
         plt.close(fig)
