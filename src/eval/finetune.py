@@ -13,11 +13,12 @@ from data import load_finetuning_data
 class Evaluate:
     def __init__(self, use_baseline: bool = False, baseline_model: int = 1):
         if not use_baseline:
+            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT-sentiment",
-                num_labels=3,
-                id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
-                label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
+                num_labels=len(labels),
+                id2label={k: v for k, v in enumerate(labels)},
+                label2id={v: k for k, v in enumerate(labels)},
             )
             self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained(
@@ -83,23 +84,27 @@ class Evaluate:
     def get_labels(self, dataset: str, batch_size: int = 32):
         if dataset == "test":
             dataset = self.load_test_data(tokenize=False)
+            # Convert numerical labels to textual labels
+            true_labels = [
+                dataset.features["label"].int2str(label) for label in dataset["label"]
+            ]
+
         elif dataset == "finetune":
             _, dataset = load_finetuning_data()
+            # 0: neutral, 1: bullish, 2: bearish
+            int2str = {0: "neutral", 1: "bullish", 2: "bearish"}
+            true_labels = [int2str[label] for label in dataset["label"]]
         else:
             raise ValueError("Invalid dataset name")
-
-        # Convert numerical labels to textual labels
-        true_labels = [
-            dataset.features["label"].int2str(label) for label in dataset["label"]
-        ]
 
         pred_labels = []
         for out in self.pipeline(KeyDataset(dataset, "text"), batch_size=batch_size):
             pred_labels.append(out["label"].lower())
 
         # Convert bullish to positive and bearish to negative
-        label_mapping = {"bullish": "positive", "bearish": "negative"}
-        pred_labels = [label_mapping.get(label, label) for label in pred_labels]
+        if dataset == "test":
+            label_mapping = {"bullish": "positive", "bearish": "negative"}
+            pred_labels = [label_mapping.get(label, label) for label in pred_labels]
 
         return true_labels, pred_labels
 
