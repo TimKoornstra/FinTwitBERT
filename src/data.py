@@ -35,7 +35,7 @@ def preprocess_tweet(tweet: str) -> str:
     tweet = re.sub(r"@\S+", "@USER", tweet)
 
     # Replace cash tags with [TICKER] token
-    # tweet = re.sub(r"\$[A-Z]{1,5}\b", "[TICKER]", tweet)
+    tweet = re.sub(r"\$[A-Z]{1,5}\b", "[TICKER]", tweet)
 
     return tweet
 

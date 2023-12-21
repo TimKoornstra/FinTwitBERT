@@ -100,6 +100,19 @@ class FinTwitBERT:
             self.model.resize_token_embeddings(len(self.tokenizer))
             self.data, self.validation = load_pretraining_data()
 
+        elif self.mode == "pre-finetune":
+            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
+            self.model = BertForSequenceClassification.from_pretrained(
+                "output/FinTwitBERT",
+                num_labels=len(labels),
+                id2label={k: v for k, v in enumerate(labels)},
+                label2id={v: k for k, v in enumerate(labels)},
+            )
+            self.model.config.problem_type = "single_label_classification"
+            self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
+            self.output_dir = "output/FinTwitBERT-tweeteval"
+            self.data, self.validation = load_tweet_eval()
+
         # If the model will be finetuned
         elif self.mode == "finetune":
             labels = ["NEUTRAL", "BULLISH", "BEARISH"]
@@ -114,25 +127,16 @@ class FinTwitBERT:
                 "output/FinTwitBERT-tweeteval"
             )
             self.output_dir = "output/FinTwitBERT-sentiment"
+            special_tokens = ["[TICKER]"]
+            self.tokenizer.add_tokens(special_tokens)
+
+            self.model.resize_token_embeddings(len(self.tokenizer))
             self.data, self.validation = load_finetuning_data()
 
             if self.config[self.mode]["oversampling"] == "simple":
                 self.data = simple_oversample(self.data)
             elif self.config[self.mode]["oversampling"] == "synonym":
                 self.data = synonym_oversample(self.data)
-
-        elif self.mode == "pre-finetune":
-            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
-            self.model = BertForSequenceClassification.from_pretrained(
-                "output/FinTwitBERT",
-                num_labels=len(labels),
-                id2label={k: v for k, v in enumerate(labels)},
-                label2id={v: k for k, v in enumerate(labels)},
-            )
-            self.model.config.problem_type = "single_label_classification"
-            self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
-            self.output_dir = "output/FinTwitBERT-tweeteval"
-            self.data, self.validation = load_tweet_eval()
 
         self.init_wandb()
 
