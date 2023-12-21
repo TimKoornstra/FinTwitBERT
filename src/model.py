@@ -102,11 +102,12 @@ class FinTwitBERT:
 
         # If the model will be finetuned
         elif self.mode == "finetune":
+            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT-tweeteval",
-                num_labels=3,
-                id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
-                label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
+                num_labels=len(labels),
+                id2label={k: v for k, v in enumerate(labels)},
+                label2id={v: k for k, v in enumerate(labels)},
             )
             self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained(
@@ -121,11 +122,12 @@ class FinTwitBERT:
                 self.data = synonym_oversample(self.data)
 
         elif self.mode == "pre-finetune":
+            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
             self.model = BertForSequenceClassification.from_pretrained(
                 "output/FinTwitBERT",
-                num_labels=3,
-                id2label={0: "NEUTRAL", 1: "BULLISH", 2: "BEARISH"},
-                label2id={"NEUTRAL": 0, "BULLISH": 1, "BEARISH": 2},
+                num_labels=len(labels),
+                id2label={k: v for k, v in enumerate(labels)},
+                label2id={v: k for k, v in enumerate(labels)},
             )
             self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
