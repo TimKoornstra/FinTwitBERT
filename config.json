@@ -55,12 +55,12 @@
             "learning_rate": 0.00005,
             "metric_for_best_model": "accuracy",
             "greater_is_better": true,
-            "warmup_ratio": 0.2,
+            "warmup_ratio": 0.4,
             "weight_decay": 0.01
         },
         "gradual_unfreeze": false,
-        "discriminative_lr": false,
+        "discriminative_lr": true,
         "dft_rate": 1.2,
-        "oversampling": "none"
+        "oversampling": "simple"
     }
 }

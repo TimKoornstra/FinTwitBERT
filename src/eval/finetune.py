@@ -79,7 +79,8 @@ class Evaluate:
         self.plot_confusion_matrix("eval", true_labels, pred_labels)
 
         true_labels, pred_labels = self.get_labels(dataset="test")
-        self.calculate_metrics("test", true_labels, pred_labels)
+        self.calculate_metrics(true_labels, pred_labels)
+        self.plot_confusion_matrix("test", true_labels, pred_labels)
 
     def get_labels(self, dataset: str, batch_size: int = 32):
         if dataset == "test":
@@ -121,7 +122,6 @@ class Evaluate:
 
         if wandb.run is not None:
             wandb.log(output)
-            self.plot_confusion_matrix(true_labels, pred_labels)
 
         print(output)
 
