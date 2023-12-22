@@ -35,30 +35,9 @@ def preprocess_tweet(tweet: str) -> str:
     tweet = re.sub(r"@\S+", "@USER", tweet)
 
     # Replace cash tags with [TICKER] token
-    tweet = re.sub(r"\$[A-Z]{1,5}\b", "[TICKER]", tweet)
+    # tweet = re.sub(r"\$[A-Z]{1,5}\b", "[TICKER]", tweet)
 
     return tweet
-
-
-def load_fintwit_dataset() -> Dataset:
-    """
-    Loads the financial tweets dataset from Hugging Face Datasets.
-
-    Returns
-    -------
-    Dataset
-        The financial tweets dataset.
-    """
-    dataset = load_dataset(
-        "StephanAkkerman/financial-tweets",
-        split="train",
-        cache_dir="data/pretrain/",
-    )
-
-    # Rename columns
-    dataset = dataset.rename_column("tweet_text", "text")
-
-    return dataset
 
 
 def load_pretraining_data(val_size: float = 0.1) -> tuple:
@@ -72,13 +51,10 @@ def load_pretraining_data(val_size: float = 0.1) -> tuple:
         The complete pretraining dataset as a pandas DataFrame.
     """
     dataset = load_dataset(
-        "StephanAkkerman/stock-market-tweets-data",
+        "StephanAkkerman/crypto-stock-tweets",
         split="train",
         cache_dir="data/pretrain/",
     )
-
-    # Merge datasets
-    dataset = pd.concat([dataset, load_fintwit_dataset()], ignore_index=True)
 
     dataframe = preprocess_dataset(dataset)
     training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)

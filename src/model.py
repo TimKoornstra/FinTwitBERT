@@ -18,6 +18,8 @@ from torch.optim import AdamW
 from transformers.optimization import get_linear_schedule_with_warmup
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
+import eval.finetune
+import eval.pretrain
 
 from data import (
     load_pretraining_data,
@@ -322,3 +324,12 @@ class FinTwitBERT:
         # Save the model and tokenizer
         trainer.save_model(output_dir)
         self.tokenizer.save_pretrained(output_dir)
+
+        if self.mode == "finetune":
+            evaluate = eval.finetune.Evaluate()
+            evaluate.evaluate_model()
+
+        elif self.mode == "pretrain":
+            evaluate = eval.pretrain.Evaluate()
+            evaluate.calculate_perplexity()
+            evaluate.calculate_masked_examples()

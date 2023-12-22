@@ -11,7 +11,6 @@ import torch
 # Local
 from data import kfold_pretraining_data
 from model import FinTwitBERT
-from eval.finetune import Evaluate
 
 # TODO: add this to config / argparse
 KFOLD = False
@@ -33,13 +32,6 @@ def do_kfold():
         model = FinTwitBERT()
         model.train(train, val)
         logging.info("Model trained and saved to output/FinTwitBERT")
-
-        # Evaluate the new model
-        logging.info("Evaluating the model")
-        evaluate = Evaluate()
-        evaluate.calculate_perplexity()
-        evaluate.calculate_masked_examples()
-        logging.info("Model perplexity calculated")
 
 
 if __name__ == "__main__":
@@ -74,9 +66,3 @@ if __name__ == "__main__":
     model = FinTwitBERT()
     model.train()
     logging.info("Model trained and saved to output/FinTwitBERT")
-
-    # Evaluate the new model
-    logging.info("Evaluating the model")
-    evaluate = Evaluate()
-    evaluate.evaluate_model()
-    logging.info("Model metrics calculated")

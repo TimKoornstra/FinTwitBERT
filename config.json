@@ -1,5 +1,5 @@
 {
-    "mode": "finetune",
+    "mode": "pretrain",
     "base_args": {
         "output_dir": "checkpoints/",
         "overwrite_output_dir": true,
