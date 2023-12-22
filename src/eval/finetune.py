@@ -75,35 +75,35 @@ class Evaluate:
         return dataset
 
     def evaluate_model(self):
-        true_labels, pred_labels = self.get_labels(dataset="finetune")
+        true_labels, pred_labels = self.get_labels(category="finetune")
         self.plot_confusion_matrix("eval", true_labels, pred_labels)
 
-        true_labels, pred_labels = self.get_labels(dataset="test")
+        true_labels, pred_labels = self.get_labels(category="test")
         self.calculate_metrics(true_labels, pred_labels)
         self.plot_confusion_matrix("test", true_labels, pred_labels)
 
-    def get_labels(self, dataset: str, batch_size: int = 32):
-        if dataset == "test":
+    def get_labels(self, category: str, batch_size: int = 32):
+        if category == "test":
             dataset = self.load_test_data(tokenize=False)
             # Convert numerical labels to textual labels
             true_labels = [
                 dataset.features["label"].int2str(label) for label in dataset["label"]
             ]
 
-        elif dataset == "finetune":
+        elif category == "finetune":
             _, dataset = load_finetuning_data()
             # 0: neutral, 1: bullish, 2: bearish
             int2str = {0: "neutral", 1: "bullish", 2: "bearish"}
             true_labels = [int2str[label] for label in dataset["label"]]
         else:
-            raise ValueError("Invalid dataset name")
+            raise ValueError("Invalid category name")
 
         pred_labels = []
         for out in self.pipeline(KeyDataset(dataset, "text"), batch_size=batch_size):
             pred_labels.append(out["label"].lower())
 
         # Convert bullish to positive and bearish to negative
-        if dataset == "test":
+        if category == "test":
             label_mapping = {"bullish": "positive", "bearish": "negative"}
             pred_labels = [label_mapping.get(label, label) for label in pred_labels]
 
