@@ -61,7 +61,7 @@
             "learning_rate": 0.00005,
             "metric_for_best_model": "accuracy",
             "greater_is_better": true,
-            "warmup_ratio": 0.4,
+            "warmup_ratio": 0.2,
             "weight_decay": 0.01
         },
         "gradual_unfreeze": false,
