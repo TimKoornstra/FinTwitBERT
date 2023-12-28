@@ -85,56 +85,56 @@ class FinTwitBERT:
 
         # Get the mode-specific args
         self.mode_args = self.config[self.mode][f"{self.mode}_args"]
+        self.output_dir = self.config[self.mode]["output_dir"]
 
         # If the model will be pretrained
         if self.mode == "pretrain":
             self.model = BertForMaskedLM.from_pretrained(
-                "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
+                self.config[self.mode]["pretrained_model"], cache_dir="baseline/"
             )
             self.tokenizer = AutoTokenizer.from_pretrained(
-                "yiyanghkust/finbert-pretrain", cache_dir="baseline/"
+                self.config[self.mode]["pretrained_tokenizer"], cache_dir="baseline/"
             )
-            self.output_dir = "output/FinTwitBERT"
-
             special_tokens = ["@USER", "[URL]"]
             self.tokenizer.add_tokens(special_tokens)
-
             self.model.resize_token_embeddings(len(self.tokenizer))
             self.data, self.validation = load_pretraining_data()
 
         elif self.mode == "pre-finetune":
             labels = ["NEUTRAL", "BULLISH", "BEARISH"]
             self.model = BertForSequenceClassification.from_pretrained(
-                "output/FinTwitBERT",
-                num_labels=len(labels),
-                id2label={k: v for k, v in enumerate(labels)},
-                label2id={v: k for k, v in enumerate(labels)},
-            )
-            self.model.config.problem_type = "single_label_classification"
-            self.tokenizer = AutoTokenizer.from_pretrained("output/FinTwitBERT")
-            self.output_dir = "output/FinTwitBERT-tweeteval"
-            self.data, self.validation = load_tweet_eval()
-
-        # If the model will be finetuned
-        elif self.mode == "finetune":
-            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
-            self.model = BertForSequenceClassification.from_pretrained(
-                "output/FinTwitBERT-tweeteval",
+                self.config[self.mode]["pretrained_model"],
                 num_labels=len(labels),
                 id2label={k: v for k, v in enumerate(labels)},
                 label2id={v: k for k, v in enumerate(labels)},
             )
             self.model.config.problem_type = "single_label_classification"
             self.tokenizer = AutoTokenizer.from_pretrained(
-                "output/FinTwitBERT-tweeteval"
+                self.config[self.mode]["pretrained_tokenizer"]
             )
-            self.output_dir = "output/FinTwitBERT-sentiment"
-            special_tokens = ["[TICKER]"]
-            self.tokenizer.add_tokens(special_tokens)
+            self.data, self.validation = load_tweet_eval()
 
-            self.model.resize_token_embeddings(len(self.tokenizer))
+        # If the model will be finetuned
+        elif self.mode == "finetune":
+            labels = ["NEUTRAL", "BULLISH", "BEARISH"]
+            self.model = BertForSequenceClassification.from_pretrained(
+                self.config[self.mode]["pretrained_model"],
+                num_labels=len(labels),
+                id2label={k: v for k, v in enumerate(labels)},
+                label2id={v: k for k, v in enumerate(labels)},
+            )
+            self.model.config.problem_type = "single_label_classification"
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                self.config[self.mode]["pretrained_tokenizer"]
+            )
+
+            # special_tokens = ["[TICKER]"]
+            # self.tokenizer.add_tokens(special_tokens)
+            # self.model.resize_token_embeddings(len(self.tokenizer))
+
             self.data, self.validation = load_finetuning_data()
 
+            # Oversample the data if enabled
             if self.config[self.mode]["oversampling"] == "simple":
                 self.data = simple_oversample(self.data)
             elif self.config[self.mode]["oversampling"] == "synonym":

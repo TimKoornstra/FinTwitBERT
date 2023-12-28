@@ -1,5 +1,5 @@
 {
-    "mode": "pretrain",
+    "mode": "finetune",
     "base_args": {
         "output_dir": "checkpoints/",
         "overwrite_output_dir": true,
@@ -23,7 +23,10 @@
             "warmup_ratio": 0.2
         },
         "gradual_unfreeze": false,
-        "discriminative_lr": false
+        "discriminative_lr": false,
+        "output_dir": "output/FinTwitBERT",
+        "pretrained_model": "yiyanghkust/finbert-pretrain",
+        "pretrained_tokenizer": "yiyanghkust/finbert-pretrain"
     },
     "pre-finetune": {
         "pre-finetune_args": {
@@ -41,7 +44,10 @@
             "weight_decay": 0.01
         },
         "gradual_unfreeze": false,
-        "discriminative_lr": false
+        "discriminative_lr": false,
+        "output_dir": "output/FinTwitBERT-tweeteval",
+        "pretrained_model": "output/FinTwitBERT",
+        "pretrained_tokenizer": "output/FinTwitBERT"
     },
     "finetune": {
         "finetune_args": {
@@ -61,6 +67,9 @@
         "gradual_unfreeze": false,
         "discriminative_lr": true,
         "dft_rate": 1.2,
-        "oversampling": "simple"
+        "oversampling": "simple",
+        "output_dir": "output/FinTwitBERT-sentiment",
+        "pretrained_model": "output/FinTwitBERT",
+        "pretrained_tokenizer": "output/FinTwitBERT"
     }
 }
