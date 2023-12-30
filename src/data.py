@@ -82,6 +82,7 @@ def load_finetuning_data(val_size: float = 0.1) -> tuple:
         "TimKoornstra/financial-tweets-sentiment",
         split="train",
         cache_dir="data/finetune/",
+        # download_mode="force_redownload",
     )
 
     # Rename columns

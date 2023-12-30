@@ -42,7 +42,13 @@ class Evaluate:
         self.model.eval()
         # https://huggingface.co/docs/transformers/main_classes/pipelines#transformers.pipeline
         self.pipeline = pipeline(
-            "text-classification", model=self.model, tokenizer=self.tokenizer, device=0
+            "text-classification",
+            model=self.model,
+            tokenizer=self.tokenizer,
+            device=0,
+            padding="max_length",
+            truncation=True,
+            max_length=512,
         )
 
     def encode(self, data):
@@ -75,9 +81,12 @@ class Evaluate:
         return dataset
 
     def evaluate_model(self):
+        # For plotting the confusion matrix of the validation / eval set
         true_labels, pred_labels = self.get_labels(category="finetune")
         self.plot_confusion_matrix("eval", true_labels, pred_labels)
 
+        # For calculating the accuracy and F1 score
+        # And plotting the confusion matrix
         true_labels, pred_labels = self.get_labels(category="test")
         self.calculate_metrics(true_labels, pred_labels)
         self.plot_confusion_matrix("test", true_labels, pred_labels)
