@@ -1,5 +1,5 @@
 {
-    "mode": "finetune",
+    "mode": "pre-finetune",
     "base_args": {
         "output_dir": "checkpoints/",
         "overwrite_output_dir": true,
@@ -69,7 +69,7 @@
         "dft_rate": 1.2,
         "oversampling": "simple",
         "output_dir": "output/FinTwitBERT-sentiment",
-        "pretrained_model": "output/FinTwitBERT",
-        "pretrained_tokenizer": "output/FinTwitBERT"
+        "pretrained_model": "output/FinTwitBERT-tweeteval",
+        "pretrained_tokenizer": "output/FinTwitBERT-tweeteval"
     }
 }
