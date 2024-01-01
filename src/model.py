@@ -325,6 +325,7 @@ class FinTwitBERT:
         trainer.save_model(output_dir)
         self.tokenizer.save_pretrained(output_dir)
 
+        # TODO: pass val to evaluate_model
         if self.mode == "finetune":
             evaluate = eval.finetune.Evaluate()
             evaluate.evaluate_model()
