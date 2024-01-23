@@ -28,7 +28,7 @@ def preprocess_tweet(tweet: str) -> str:
     # Unescape HTML characters
     tweet = html.unescape(tweet)
 
-    # Replace URLs wiht URL token
+    # Replace URLs with URL token
     tweet = re.sub(r"http\S+", "[URL]", tweet)
 
     # Replace @mentions with @USER token
