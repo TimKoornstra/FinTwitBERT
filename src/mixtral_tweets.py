@@ -3,6 +3,7 @@ import tqdm
 import csv
 import os
 import re
+import json
 
 # Third party
 from dotenv import load_dotenv
@@ -12,9 +13,15 @@ from datasets import load_dataset
 def get_api_response(sampled_tweets: list, key: str, sentiment: str):
     prompt_start = (
         f"Create synthetic {sentiment.upper()} tweets about the financial "
-        "market. Examples:"
+        "market or crypto currencies. Examples:"
     )
-    sampled_tweets = "\n".join(sampled_tweets)
+
+    # Convert sampled_tweets to a JSON format with indices
+    indexed_tweets = {str(index): tweet for index,
+                      tweet in enumerate(sampled_tweets)}
+    sampled_tweets_json = json.dumps(
+        indexed_tweets, indent=2, ensure_ascii=False)
+    # print(f"{prompt_start}\n{sampled_tweets_json}\nDo not explain your answer. Only answer according to the shown format.")
 
     return requests.post(
         "https://api.together.xyz/inference",
@@ -30,7 +37,7 @@ def get_api_response(sampled_tweets: list, key: str, sentiment: str):
             "stop": ["<|im_end|>", "<|im_start|>"],
             "messages": [
                 {
-                    "content": f"{prompt_start}\n{sampled_tweets}",
+                    "content": f"{prompt_start}\n{sampled_tweets_json}\nDo not explain your answer. Only answer according to the shown format.",
                     "role": "user",
                 },
             ],
@@ -81,9 +88,40 @@ def clean_tweet(tweet):
     return tweet
 
 
+def parse_tweets(data_string):
+    try:
+        # Try parsing as JSON
+        parsed_json = json.loads(data_string)
+        # Extract values if it's a dictionary
+        if isinstance(parsed_json, dict):
+            return list(parsed_json.values())
+    except json.JSONDecodeError:
+        # Preprocessing for the extra cases
+        # Case 1: Add quotes around values that are not enclosed in quotes
+        formatted_string = re.sub(
+            r'(\d+): ([^",\n]+)', r'\1: "\2"', data_string)
+
+        # Case 2: Add commas between items if they are missing
+        formatted_string = re.sub(
+            r'(\d+): "([^"]+)"\s*(?=\d+:)', r'\1: "\2",', formatted_string)
+
+        # Remove trailing comma if present
+        formatted_string = formatted_string.rstrip(',')
+
+        # Try regex matching after formatting
+        pattern = r'\d+: ".+?"'
+        matches = re.findall(pattern, formatted_string)
+        if matches:
+            return [match.split(':', 1)[1].strip().strip('"')
+                    for match in matches]
+
+    # If all parsing fails, return None
+    return None
+
+
 if __name__ == "__main__":
-    SENTIMENT = "negative"
-    N_REQUESTS = 100
+    SENTIMENT = "neutral"
+    N_REQUESTS = 1000
 
     sentiment_to_label = {
         "neutral": 0,
@@ -105,29 +143,37 @@ if __name__ == "__main__":
     # Open the CSV file. The 'a' mode appends to the file without truncating
     # it.
     with open(f"raw-{SENTIMENT}-tweets.csv", "a",
-              newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+              newline="", encoding="utf-8") as f_raw, \
+            open(f"failed-{SENTIMENT}-tweets.csv", "a",
+                 newline="", encoding="utf-8") as f_failed:
+        writer_raw = csv.writer(f_raw)
+        writer_failed = csv.writer(f_failed)
 
         for i in tqdm.tqdm(range(N_REQUESTS)):
             try:
-                # Random sample of 10 tweets, with the specified sentiment
                 df_sample = dataframe[dataframe["sentiment"]
-                                      == sentiment_to_label[SENTIMENT]
-                                      ].sample(10)
-                res = get_api_response(df_sample["tweet"].tolist(),
-                                       key=key, sentiment=SENTIMENT)
-                generated = res.json()[
-                    "output"]["choices"][0]["text"].split("\n")
+                                      == sentiment_to_label[SENTIMENT]].sample(10)
+                res = get_api_response(
+                    df_sample["tweet"].tolist(), key=key, sentiment=SENTIMENT)
+                generated_data = res.json()["output"]["choices"][0]["text"]
 
-                for tweet in generated:
-                    writer.writerow([tweet])
+                # Parse the tweets
+                tweets = parse_tweets(generated_data)
+
+                if tweets is not None:
+                    for tweet in tweets:
+                        writer_raw.writerow([tweet])
+                else:
+                    writer_failed.writerow([generated_data])
 
             except requests.exceptions.JSONDecodeError:
                 print("Empty JSON. Skipping...")
                 continue
 
+    # TODO: Clean the tweets
+    """
     # Clean the tweets and write them to a new CSV file
-    with open(f"clean-{SENTIMENT}-tweets.csv", "a",
+    with open(f"clean-{SENTIMENT}-tweets.csv", "w",
               newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
 
@@ -140,3 +186,4 @@ if __name__ == "__main__":
 
                 if tweet is not None:
                     writer.writerow([tweet])
+    """
