@@ -21,7 +21,6 @@ def get_api_response(sampled_tweets: list, key: str, sentiment: str):
                       tweet in enumerate(sampled_tweets)}
     sampled_tweets_json = json.dumps(
         indexed_tweets, indent=2, ensure_ascii=False)
-    # print(f"{prompt_start}\n{sampled_tweets_json}\nDo not explain your answer. Only answer according to the shown format.")
 
     return requests.post(
         "https://api.together.xyz/inference",
@@ -30,14 +29,16 @@ def get_api_response(sampled_tweets: list, key: str, sentiment: str):
             "max_tokens": 512,
             "prompt": "",
             "request_type": "language-model-inference",
-            "temperature": 1.05,
+            "temperature": 0.7,
             "top_p": 1,
             "top_k": 100,
-            "repetition_penalty": 1.3,
+            "repetition_penalty": 1.0,
             "stop": ["<|im_end|>", "<|im_start|>"],
             "messages": [
                 {
-                    "content": f"{prompt_start}\n{sampled_tweets_json}\nDo not explain your answer. Only answer according to the shown format.",
+                    "content": f"{prompt_start}\n{sampled_tweets_json}\nDo "
+                    "not explain your answer. Only answer according to the "
+                    "shown valid JSON format.",
                     "role": "user",
                 },
             ],
@@ -90,38 +91,60 @@ def clean_tweet(tweet):
 
 def parse_tweets(data_string):
     try:
-        # Try parsing as JSON
-        parsed_json = json.loads(data_string)
-        # Extract values if it's a dictionary
-        if isinstance(parsed_json, dict):
-            return list(parsed_json.values())
+        # Extract JSON object from the string
+        json_match = re.search(r'\{.*\}', data_string, re.DOTALL)
+        if json_match:
+            json_string = json_match.group()
+
+            # Try parsing as standard JSON first
+            parsed_json = json.loads(json_string)
+            if isinstance(parsed_json, dict):
+                return list(parsed_json.values())
+        else:
+            return None
     except json.JSONDecodeError:
-        # Preprocessing for the extra cases
-        # Case 1: Add quotes around values that are not enclosed in quotes
-        formatted_string = re.sub(
-            r'(\d+): ([^",\n]+)', r'\1: "\2"', data_string)
+        # Handle non-standard JSON formats
+        try:
+            # Handle non-standard JSON formats
+            # Process each line to handle non-standard formats
+            formatted_lines = []
+            for line in json_string.split('\n'):
+                # Add quotes around values that are not enclosed in quotes
+                line = re.sub(r'(\d+):\s*([^",\n]+)', r'\1: "\2"', line)
 
-        # Case 2: Add commas between items if they are missing
-        formatted_string = re.sub(
-            r'(\d+): "([^"]+)"\s*(?=\d+:)', r'\1: "\2",', formatted_string)
+                # Escape quotes within string values
+                def replace_func(match):
+                    key, value = match.groups()
+                    value = value.replace('\\', '\\\\').replace('"', '\\"')
+                    return '{}: "{}"'.format(key, value)
+                line = re.sub(r'(\d+):\s*"(.+?)"', replace_func, line)
 
-        # Remove trailing comma if present
-        formatted_string = formatted_string.rstrip(',')
+                # Ensure the line ends with a comma
+                if not line.endswith(','):
+                    line += ','
 
-        # Try regex matching after formatting
-        pattern = r'\d+: ".+?"'
-        matches = re.findall(pattern, formatted_string)
-        if matches:
-            return [match.split(':', 1)[1].strip().strip('"')
-                    for match in matches]
+                formatted_lines.append(line)
 
-    # If all parsing fails, return None
+            # Join the lines and remove the last comma
+            formatted_string = '\n'.join(formatted_lines).rstrip(',\n')
+
+            # Attempt to parse again
+            parsed_json = json.loads(f'{{{formatted_string}}}')
+            if isinstance(parsed_json, dict):
+                return list(parsed_json.values())
+        except json.JSONDecodeError:
+            # If all parsing fails, return None
+            return None
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
+
     return None
 
 
 if __name__ == "__main__":
-    SENTIMENT = "neutral"
-    N_REQUESTS = 1000
+    SENTIMENT = "negative"
+    N_REQUESTS = 3000
 
     sentiment_to_label = {
         "neutral": 0,
@@ -168,6 +191,10 @@ if __name__ == "__main__":
 
             except requests.exceptions.JSONDecodeError:
                 print("Empty JSON. Skipping...")
+                continue
+
+            except Exception as e:
+                print(f"Error: {e}")
                 continue
 
     # TODO: Clean the tweets
