@@ -1,8 +1,14 @@
 import requests
 import json
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+key = os.getenv("TOGETHER_API")
 
 
-def get_api_response(sampled_tweets: list, key: str, sentiment: str):
+def get_api_response(sampled_tweets: list, sentiment: str):
     prompt_start = (
         f"Create synthetic {sentiment.upper()} tweets about the financial "
         "market or crypto currencies. Examples:"

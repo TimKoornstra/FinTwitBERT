@@ -27,8 +27,6 @@ def clean_tweet(tweet) -> str or None:
     tweet = start_itemization_pattern.sub("", tweet)
     tweet = replace_rockets(tweet)
     tweet = unwanted_chars_pattern.sub("", tweet)
-
-    # Consolidate removal of enumeration and itemization
     tweet = enum_and_itemization_pattern.sub("", tweet)
 
     if (
@@ -38,10 +36,13 @@ def clean_tweet(tweet) -> str or None:
     ):
         return None
 
+    # Remove leading and trailing whitespace
     tweet = tweet.strip()
 
     if len(tweet.split()) < 3:
         return None
+
+    return tweet
 
 
 def parse_tweets(data_string: str) -> list:
@@ -50,7 +51,7 @@ def parse_tweets(data_string: str) -> list:
 
     if isinstance(parsed_json, dict):
         # Clean the tweets once and filter out None values in one step
-        cleaned_tweets = (clean_tweet(tweet) for tweet in parsed_json.values())
+        cleaned_tweets = [clean_tweet(tweet) for tweet in parsed_json.values()]
         return [tweet for tweet in cleaned_tweets if tweet is not None]
 
     return []
