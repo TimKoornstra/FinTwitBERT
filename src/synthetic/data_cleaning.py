@@ -11,6 +11,7 @@ unwanted_chars_pattern = re.compile(r"⃣|\"")
 enum_and_itemization_pattern = re.compile(r"^\d+[\./):]?\s*|^-\s*")
 hashtag_cashtag_user_pattern = re.compile(r"(\s*[@$#]\w+\s*)+")
 start_itemization_pattern = re.compile(r"^(?:\d+[\./):]?\s*|-\s*)")
+json_pattern = re.compile(r"\{[\s\S]*?\}")
 
 
 def replace_rockets(tweet: str) -> str:
@@ -46,6 +47,12 @@ def clean_tweet(tweet) -> str or None:
 
 
 def parse_tweets(data_string: str) -> list:
+    # Find the part of the string that is JSON
+    match = json_pattern.search(data_string)
+    if match is None:
+        return []
+    data_string = match.group(0)
+
     # Attempt to directly parse the JSON string
     parsed_json = json_repair.loads(data_string)
 
