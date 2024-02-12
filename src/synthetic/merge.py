@@ -69,6 +69,3 @@ def main_stats():
     )
     print(main["sentiment"].value_counts())
     print(len(main))
-
-
-main_stats()
