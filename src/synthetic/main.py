@@ -16,10 +16,12 @@ def write_tweets(
 ):
     if tweets:
         for tweet in tweets:
-            writer_raw.writerow([tweet, sentiment])  # Include sentiment in each row
+            writer_raw.writerow(
+                [tweet, sentiment_to_label[sentiment]]
+            )  # Include sentiment in each row
     else:
         writer_failed.writerow(
-            [generated_data, sentiment]
+            [generated_data, sentiment_to_label[sentiment]]
         )  # Include sentiment for failed cases
 
 
@@ -72,6 +74,15 @@ if __name__ == "__main__":
 
             for sentiment in sentiment_to_label.keys():
                 print(sentiment)
+                # Read amount of sentiment tweets in the csv file
+                tweets_df = pd.read_csv(raw_file_path)
+                n_sentiment_tweets = tweets_df[
+                    tweets_df["sentiment"] == sentiment_to_label[sentiment]
+                ].shape[0]
+                print(n_sentiment_tweets)
+                if n_sentiment_tweets > 500_000:
+                    print(f"Skipping {sentiment} as it has enough tweets")
+                    continue
                 for _ in tqdm.tqdm(range(N_REQUESTS)):
                     process_tweets_for_sentiment(
                         sentiment, dataframe, writer_raw, writer_failed

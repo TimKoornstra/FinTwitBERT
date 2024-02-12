@@ -5,33 +5,53 @@ import numpy as np
 
 # Compile regular expressions outside the function for efficiency
 emoji_only_pattern = re.compile(r"^[\U00010000-\U0010ffff]+$")
-rocket_pattern = re.compile(r"(🚀){4,}")
 unwanted_words_pattern = re.compile(r"sentiment|tweets|synthetic", re.IGNORECASE)
+unwanted_words_pattern2 = re.compile(
+    r"\b(positive|negative|neutral)\s+tweet\b.*$", re.IGNORECASE
+)
 unwanted_chars_pattern = re.compile(r"⃣|\"")
 enum_and_itemization_pattern = re.compile(r"^\d+[\./):]?\s*|^-\s*")
 hashtag_cashtag_user_pattern = re.compile(r"(\s*[@$#]\w+\s*)+")
 start_itemization_pattern = re.compile(r"^(?:\d+[\./):]?\s*|-\s*)")
 json_pattern = re.compile(r"\{[\s\S]*?\}")
+emoji_pattern = re.compile(
+    "["
+    "\U0001F1E0-\U0001F1FF"  # flags (iOS)
+    "\U0001F300-\U0001F5FF"  # symbols & pictographs
+    "\U0001F600-\U0001F64F"  # emoticons
+    "\U0001F680-\U0001F6FF"  # transport & map symbols
+    "\U0001F700-\U0001F77F"  # alchemical symbols
+    "\U0001F780-\U0001F7FF"  # Geometric Shapes Extended
+    "\U0001F800-\U0001F8FF"  # Supplemental Arrows-C
+    "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+    "\U0001FA00-\U0001FA6F"  # Chess Symbols
+    "\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
+    "\U00002702-\U000027B0"  # Dingbats
+    "\U000024C2-\U0001F251"
+    "]+",
+)
 
 
-def replace_rockets(tweet: str) -> str:
-    if rocket_pattern.search(tweet):
-        # Generate a random number between 1 and 6 (inclusive) for each match
-        return rocket_pattern.sub(lambda match: str(np.random.randint(1, 7)), tweet)
-    return tweet
+def unique_emojis(match):
+    unique = []
+    for emoji in match.group(0):
+        if len(unique) == 0 or emoji != unique[-1]:
+            unique.append(emoji)
+    return "".join(unique)
 
 
-def clean_tweet(tweet) -> str or None:
+def clean_tweet(tweet: str) -> str or None:
     if not isinstance(tweet, str):
         return None
 
     tweet = start_itemization_pattern.sub("", tweet)
-    tweet = replace_rockets(tweet)
+    tweet = emoji_pattern.sub(unique_emojis, tweet)
     tweet = unwanted_chars_pattern.sub("", tweet)
     tweet = enum_and_itemization_pattern.sub("", tweet)
 
     if (
         unwanted_words_pattern.search(tweet)
+        or unwanted_words_pattern2.search(tweet)
         or emoji_only_pattern.fullmatch(tweet)
         or hashtag_cashtag_user_pattern.fullmatch(tweet)
     ):
@@ -39,6 +59,9 @@ def clean_tweet(tweet) -> str or None:
 
     # Remove leading and trailing whitespace
     tweet = tweet.strip()
+
+    # Remove opening and closing quotation marks
+    tweet = tweet.strip('"')
 
     if len(tweet.split()) < 3:
         return None
