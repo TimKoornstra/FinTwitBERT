@@ -16,7 +16,7 @@ from transformers import (
 )
 from torch.optim import AdamW
 from transformers.optimization import get_linear_schedule_with_warmup
-from datasets import Dataset
+from datasets import Dataset, concatenate_datasets
 from sklearn.metrics import accuracy_score, f1_score
 import eval.finetune
 import eval.pretrain
@@ -24,6 +24,7 @@ import eval.pretrain
 from data import (
     load_pretraining_data,
     load_finetuning_data,
+    load_synthetic_data,
     load_tweet_eval,
     simple_oversample,
     synonym_oversample,
@@ -132,7 +133,15 @@ class FinTwitBERT:
             # self.tokenizer.add_tokens(special_tokens)
             # self.model.resize_token_embeddings(len(self.tokenizer))
 
-            self.data, self.validation = load_finetuning_data()
+            synthetic = load_synthetic_data()
+            gt_training, self.validation = load_finetuning_data()
+
+            # Merge the synthetic and original datasets
+            self.data = concatenate_datasets(
+                [
+                    synthetic, gt_training
+                ]
+            )
 
             # Oversample the data if enabled
             if self.config[self.mode]["oversampling"] == "simple":

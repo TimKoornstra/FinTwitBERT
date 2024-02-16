@@ -100,6 +100,7 @@ class Evaluate:
             ]
 
         elif category == "finetune":
+            # Get the validation dataset
             _, dataset = load_finetuning_data()
             # 0: neutral, 1: bullish, 2: bearish
             int2str = {0: "neutral", 1: "bullish", 2: "bearish"}
