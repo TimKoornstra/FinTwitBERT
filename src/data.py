@@ -61,6 +61,23 @@ def load_pretraining_data(val_size: float = 0.1) -> tuple:
     return training_dataset, validation_dataset
 
 
+def load_synthetic_data() -> tuple:
+    """
+    Loads all the synthetic datasets from the data/synthetic/preprocessed folder.
+    Excluding the test dataset.
+
+    """
+    dataset = load_dataset(
+        "TimKoornstra/synthetic-financial-tweets-sentiment",
+        split="train",
+        cache_dir="data/synthetic/",
+    )
+
+    dataframe = preprocess_dataset(dataset)
+    training_dataset, validation_dataset = split_dataframe(dataframe, val_size=val_size)
+    return training_dataset, validation_dataset
+
+
 def load_finetuning_data(val_size: float = 0.1) -> tuple:
     """
     Loads and preprocesses the finetuning data and splits it into a training and validation set.

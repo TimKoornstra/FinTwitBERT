@@ -30,6 +30,7 @@ emoji_pattern = re.compile(
     "\U000024C2-\U0001F251"
     "]+",
 )
+tag_pattern = re.compile(r"(\$\w+|\#\w+)")
 
 
 def unique_emojis(match):
@@ -40,7 +41,29 @@ def unique_emojis(match):
     return "".join(unique)
 
 
-def clean_tweet(tweet: str) -> str or None:
+def remove_duplicate_cashtags_and_hashtags(tweet):
+    # Find all cashtags and hashtags in the tweet
+    tags = tag_pattern.findall(tweet)
+
+    # Remove duplicates by converting the list to a set, then back to a list
+    unique_tags = list(set(tags))
+
+    # Sort the unique tags to maintain a consistent order
+    unique_tags.sort(key=lambda x: tags.index(x))
+
+    # Remove the original tags in the tweet with the unique tags
+    for tag in set(
+        tags
+    ):  # Iterate through set to avoid processing the same tag multiple times
+        if tags.count(tag) > 1:  # Check if this tag appeared more than once
+            tweet = tweet.replace(
+                tag, "", tags.count(tag) - 1
+            )  # Remove duplicates of this tag
+
+    return tweet
+
+
+def clean_tweet(tweet: str) -> str:
     if not isinstance(tweet, str):
         return None
 
@@ -48,6 +71,7 @@ def clean_tweet(tweet: str) -> str or None:
     tweet = emoji_pattern.sub(unique_emojis, tweet)
     tweet = unwanted_chars_pattern.sub("", tweet)
     tweet = enum_and_itemization_pattern.sub("", tweet)
+    tweet = remove_duplicate_cashtags_and_hashtags(tweet)
 
     if (
         unwanted_words_pattern.search(tweet)
