@@ -45,7 +45,7 @@ if __name__ == "__main__":
     os.environ["WANDB_API_KEY"] = os.getenv("WANDB_API_KEY")
 
     # set the wandb project where this run will be logged
-    os.environ["WANDB_PROJECT"] = "FintTwitBERT-sentiment"
+    os.environ["WANDB_PROJECT"] = "FinTwitBERT-sentiment"
 
     # save your trained model checkpoint to wandb
     os.environ["WANDB_LOG_MODEL"] = "true"
