@@ -8,6 +8,7 @@ __pycache__/
 /wandb/*
 /data/finetune/*
 /data/*
+/checkpoints/*
 
 # C extensions
 *.so

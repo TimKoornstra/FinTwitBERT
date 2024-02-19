@@ -1,11 +1,9 @@
 # > Imports
-# Standard library
 import html
 import random
 import re
 from collections import Counter
 
-# Third party
 from datasets import Dataset, load_dataset, concatenate_datasets
 import pandas as pd
 import numpy as np
@@ -116,7 +114,19 @@ def load_finetuning_data(val_size: float = 0.2) -> tuple:
     return training_dataset, validation_dataset
 
 
-def simple_oversample(dataset: Dataset) -> pd.DataFrame:
+def simple_oversample(dataset: Dataset) -> Dataset:
+    """Balances the dataset by oversampling the minority classes.
+
+    Parameters
+    ----------
+    dataset : Dataset
+        The dataset to balance.
+
+    Returns
+    -------
+    pd.DataFrame
+        The balanced dataset after simple oversampling.
+    """
     from imblearn.over_sampling import RandomOverSampler
 
     dataframe = dataset.to_pandas()

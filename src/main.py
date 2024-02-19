@@ -1,38 +1,13 @@
 #!/usr/bin/env python3
 
 # > Imports
-# Standard library
 import logging
 import os
 
-# Third party
 import torch
 
-# Local
-from data import kfold_pretraining_data
 from model import FinTwitBERT
-
-# TODO: add this to config / argparse
-KFOLD = False
-
-
-def do_kfold():
-    df, val = kfold_pretraining_data()
-    logging.info("Dataset loaded and preprocessed")
-
-    # Display CUDA info
-    logging.info(f"CUDA available: {torch.cuda.is_available()}")
-    devices = [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]
-    for i, device in enumerate(devices):
-        logging.info(f"CUDA Device {i}: {device}")
-
-    # Train the model
-    for train, val in zip(df, val):
-        logging.info("Training the model")
-        model = FinTwitBERT()
-        model.train(train, val)
-        logging.info("Model trained and saved to output/FinTwitBERT")
-
+import eval.finetune
 
 if __name__ == "__main__":
     # Set up logging
@@ -48,13 +23,6 @@ if __name__ == "__main__":
             os.makedirs(folder)
             logging.info(f"Created {folder} folder")
 
-    # Load and preprocess the dataset
-    logging.info("Loading and preprocessing the dataset")
-    if KFOLD:
-        do_kfold()
-
-    logging.info("Dataset loaded and preprocessed")
-
     # Display CUDA info
     logging.info(f"CUDA available: {torch.cuda.is_available()}")
     devices = [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]
@@ -63,6 +31,9 @@ if __name__ == "__main__":
 
     # Train the model
     logging.info("Training the model")
-    model = FinTwitBERT()
-    model.train()
-    logging.info("Model trained and saved to output/FinTwitBERT")
+    # model = FinTwitBERT()
+    # model.train()
+    logging.info("Model trained and saved to output folder")
+
+    evaluate = eval.finetune.Evaluate()
+    evaluate.evaluate_model()
