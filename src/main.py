@@ -6,6 +6,7 @@ import os
 
 import torch
 from dotenv import load_dotenv
+import wandb
 
 from model import FinTwitBERT
 import eval.finetune
@@ -51,6 +52,8 @@ if __name__ == "__main__":
 
     # turn off watch to log faster
     os.environ["WANDB_WATCH"] = "false"
+
+    wandb.init()
 
     evaluate = eval.finetune.Evaluate()
     evaluate.evaluate_model()
