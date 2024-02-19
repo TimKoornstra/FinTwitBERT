@@ -5,6 +5,7 @@ import logging
 import os
 
 import torch
+from dotenv import load_dotenv
 
 from model import FinTwitBERT
 import eval.finetune
@@ -34,6 +35,22 @@ if __name__ == "__main__":
     # model = FinTwitBERT()
     # model.train()
     logging.info("Model trained and saved to output folder")
+
+    # Remove this later
+    # Load the .env file
+    load_dotenv(dotenv_path="wandb.env")
+
+    # Read the API key from the environment variable
+    os.environ["WANDB_API_KEY"] = os.getenv("WANDB_API_KEY")
+
+    # set the wandb project where this run will be logged
+    os.environ["WANDB_PROJECT"] = "FintTwitBERT-sentiment"
+
+    # save your trained model checkpoint to wandb
+    os.environ["WANDB_LOG_MODEL"] = "true"
+
+    # turn off watch to log faster
+    os.environ["WANDB_WATCH"] = "false"
 
     evaluate = eval.finetune.Evaluate()
     evaluate.evaluate_model()
