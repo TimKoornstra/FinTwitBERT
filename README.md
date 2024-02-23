@@ -40,7 +40,7 @@ FinTwitBERT utilizes a diverse set of financial tweets for pre-training, includi
 - Data Preprocessing: [Information about preprocessing steps]
 
 ### Finetuning Datasets
-For finetuning, we use several datasets, each offering varied sentiments in financial contexts. This collection of datasets can be found on [Huggingface](https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment).
+For finetuning, we use several datasets, each offering varied sentiments in financial contexts. A collection of real-world, labeled datasets can be found on [Huggingface](https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment). On top of that, we also created a synthetic dataset containing 1.43M tweets and corresponding sentiment labels. You can find that dataset [here](https://huggingface.co/datasets/TimKoornstra/synthetic-financial-tweets-sentiment).
 
 ## Model Details
 FinTwitBERT is based on [FinBERT](https://huggingface.co/ProsusAI/finbert) with added masks for user mentions (`@USER`) and URLs (`[URL]`). The model is pre-trained for 10 epochs with a focus on minimizing loss and applying early stopping to prevent overfitting.
@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-We offer two models [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwitBERT) and [FinTwitBERT-sentiment](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment). The first is a pre-trained model and tokenizer for masked language modeling (MLM) which can be finetuned for other tasks such as sentiment analysis. This is what the second model is about, it is fine-tuned on sentiment analysis and labels tweets into three categories: bearish, neutral, and bullish.
+We offer two models: [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwitBERT) and [FinTwitBERT-sentiment](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment). The first is a pre-trained model and tokenizer for masked language modeling (MLM) which can be finetuned for other tasks such as sentiment analysis. This is what the second model is about, it is fine-tuned on sentiment analysis and labels tweets into three categories: bearish, neutral, and bullish.
 
 ### Pre-trained model
 ```python
@@ -119,10 +119,20 @@ If you use FinTwitBERT or FinTwitBERT-sentiment in your research, please cite us
 @misc{FinTwitBERT,
   author = {Stephan Akkerman, Tim Koornstra},
   title = {FinTwitBERT: A Specialized Language Model for Financial Tweets},
-  year = {2023},
+  year = {2024},
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/TimKoornstra/FinTwitBERT}}
+}
+```
+
+```bibtex
+@misc{FinTwitBERT-sentiment,
+  author = {Stephan Akkerman, Tim Koornstra},
+  title = {FinTwitBERT-sentiment: A Sentiment Classifier for Financial Tweets},
+  year = {2024},
+  publisher = {Hugging Face},
+  howpublished = {\url{https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment}}
 }
 ```
 
