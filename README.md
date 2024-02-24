@@ -34,11 +34,6 @@ This model was developed to fill a gap in traditional language processing tools,
 ### Pre-training Datasets
 FinTwitBERT utilizes a diverse set of financial tweets for pre-training, including Taborda et al.'s [Stock Market Tweets Data](https://ieee-dataport.org/open-access/stock-market-tweets-data) with over 940K tweets, and our dataset, [Financial Tweets](https://huggingface.co/datasets/StephanAkkerman/financial-tweets), with detailed statistics provided below.
 
-#### Our Dataset Statistics:
-- Total Tweets: 263k
-- Categories: [Details about Categories]
-- Data Preprocessing: [Information about preprocessing steps]
-
 ### Finetuning Datasets
 For finetuning, we use several datasets, each offering varied sentiments in financial contexts. A collection of real-world, labeled datasets can be found on [Huggingface](https://huggingface.co/datasets/TimKoornstra/financial-tweets-sentiment). On top of that, we also created a synthetic dataset containing 1.43M tweets and corresponding sentiment labels. You can find that dataset [here](https://huggingface.co/datasets/TimKoornstra/synthetic-financial-tweets-sentiment).
 
@@ -46,9 +41,6 @@ For finetuning, we use several datasets, each offering varied sentiments in fina
 FinTwitBERT is based on [FinBERT](https://huggingface.co/ProsusAI/finbert) with added masks for user mentions (`@USER`) and URLs (`[URL]`). The model is pre-trained for 10 epochs with a focus on minimizing loss and applying early stopping to prevent overfitting.
 
 Access the pre-trained model and tokenizer at [FinTwitBERT on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT). For the fine-tuned version, visit [FinTwitBERT-sentiment on HuggingFace](https://huggingface.co/StephanAkkerman/FinTwitBERT-sentiment).
-
-## Model Results
-TODO: Compare loss, accuracy, and F1 between FinTwitBERT and other models as a table.
 
 ## Installation
 ```bash
@@ -63,50 +55,25 @@ We offer two models: [FinTwitBERT](https://huggingface.co/StephanAkkerman/FinTwi
 
 ### Pre-trained model
 ```python
-from transformers import BertForMaskedLM, AutoTokenizer
-import torch
+from transformers import pipeline
 
-# Load pre-trained model and tokenizer
-model = BertForMaskedLM.from_pretrained("StephanAkkerman/FinTwitBERT")
-tokenizer = AutoTokenizer.from_pretrained("StephanAkkerman/FinTwitBERT")
-
-# Example sentence with a masked token
-text = "AAPL is a [MASK] sector stock."
-
-# Tokenize the text
-input = tokenizer.encode_plus(text, return_tensors="pt")
-
-# Predict the masked token
-model.eval()  # Put the model in evaluation mode
-with torch.no_grad():
-    outputs = model(**input)
-    predictions = outputs.logits
-
-# Get the predicted token
-predicted_index = torch.argmax(predictions[0, input["input_ids"][0] == tokenizer.mask_token_id], axis=1)
-predicted_token = tokenizer.decode(predicted_index)
-
-# Print the sentence with the predicted token
-print(text.replace("[MASK]", predicted_token))
+pipe = pipeline(
+    "fill-mask",
+    model="StephanAkkerman/FinTwitBERT",
+)
+print(pipe("Bitcoin is a [MASK] coin."))
 ```
 
 ### Fine-tuned model
 ```python
-from transformers import BertForMaskedLM, AutoTokenizer, pipeline
-import torch
+from transformers import pipeline
 
-# Load pre-trained model and tokenizer
-model = BertForSequenceClassification.from_pretrained("StephanAkkerman/FinTwitBERT-sentiment")
-tokenizer = AutoTokenizer.from_pretrained("StephanAkkerman/FinTwitBERT-sentiment")
+pipe = pipeline(
+    "sentiment-analysis",
+    model="StephanAkkerman/FinTwitBERT-sentiment",
+)
 
-# Create a pipeline for text classification (sentiment analysis)
-sentiment_pipeline = pipeline("text-classification", model=model, tokenizer=tokenizer)
-
-# Example sentence
-sentence = "The new product launch was a tremendous success, boosting sales and customer satisfaction."
-
-# Print the result
-print(sentiment_pipeline(sentence))
+print(pipe("Nice 9% pre market move for $para, pump my calls Uncle Buffett 🤑"))
 ```
 
 ### Weights and Biases (wandb) usage
